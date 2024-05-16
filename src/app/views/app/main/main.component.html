@@ -1,52 +1,53 @@
 <div class="main-root">
-  <div color="primary">
-    <button>
-      <span>menu</span>
+  <mat-toolbar color="primary">
+    <button mat-icon-button matTooltip="menu">
+      <mat-icon>menu</mat-icon>
     </button>
     <span>LDS App</span>
     <span class="toolbar-item-spacer"></span>
-    <button>
-      <span>account_circle</span>
+    <button mat-icon-button matTooltip="meu perfil">
+      <mat-icon>account_circle</mat-icon>
     </button>
-    <div yPosition="below">
-      <button href="">
-        <span>person</span><span>Minha conta</span>
+    <mat-menu yPosition="below">
+      <button mat-menu-item href="">
+        <mat-icon>person</mat-icon><span>Minha conta</span>
       </button>
-      <button href="">
+      <button mat-menu-item href="">
         <span>settings</span><span>Ajuda</span>
       </button>
 
-      <br />
+      <mat-divider></mat-divider>
 
-      <button>
-        <span>exit_to_app</span>Sair
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>Sair
       </button>
-    </div>
-  </div>
+    </mat-menu>
+  </mat-toolbar>
 
-  <div class="app-container">
-    <div class="app-sidenav">
-      <div>
-        <a href="/home">
-          <span>dashboard</span><span>Home</span>
-        </a>
-        <div>
-          <div>
+  <mat-sidenav-container class="app-container">
+    <mat-sidenav mode="side" class="app-sidenav">
+      <mat-nav-list>
+        <mat-list-item routerLink="/">
+          <mat-icon>dashboard</mat-icon><span>Home</span>
+        </mat-list-item>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
             Produtos
-          </div>
-          <div>
-            <a href="">Listar</a>
-            <a href="">Criar</a>
-          </div>
-        </div>
-      </div>
-    </div>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-list-item routerLink="">Listar</a>
+            <a mat-list-item routerLink="">Criar</a>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-nav-list>
+    </mat-sidenav>
     <div class="page-wrap">
       <main class="container mt-2">
+        <router-outlet></router-outlet>
         <div class="mb-4"></div>
       </main>
     </div>
-  </div>
+  </mat-sidenav-container>
   <footer>
     Todos os direitos reservados.
     Feito com <span></span> pela FAI ;D
