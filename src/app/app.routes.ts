@@ -18,7 +18,7 @@ import {MainComponent} from "./views/app/main/main.component";
 export const routes: Routes = [
 {
   path: "account/sign-in",
-  component: SignInComponent
+  component: SignInComponent,
 
 
 
@@ -26,80 +26,85 @@ export const routes: Routes = [
 
 {
   path: "account/sign-up",
-  component: SignUpComponent
+  component: SignUpComponent,
 
 
 
 },
-{
-  path: "main",
-  component: MainComponent
-
-
-
-},
-
 {
   path: "",
-  component: HomeComponent
+  component: MainComponent,
+  children: [
 
+    {
+      path: "",
+      component: HomeComponent,
+    
+    
+    
+    }
+    ,
+    {
+      path: "help",
+      component: HelpComponent,
+    
+    
+    
+    },
+     {
+       path: "account/myprofile",
+       component: MyProfileComponent,
+    
+    
+    
+     },
+      {
+        path: "product/create",
+        component: ProductCreateComponent,
+    
+    
+    
+      }
+      ,
+      {
+        path: "Product/list",
+        component: ProductListComponent,
+    
+    
+    
+      }
+      ,
+      {
+        path: "Product/edit",
+        component: ProductEditComponent,
+    
+    
+    
+      }
+      ,
+      {
+        path: "Product/detail",
+        component: ProductDetailComponent,
+    
+    
+    
+      }
+      ,
+      {
+        path: "**",
+        component: NotFoundComponent,
+    
+    
+    
+      }
+    
 
-
-}
-,
-{
-  path: "help",
-  component: HelpComponent
+  ]
 
 
 
 },
- {
-   path: "account/myprofile",
-   component: MyProfileComponent
 
-
-
- },
-  {
-    path: "product/create",
-    component: ProductCreateComponent
-
-
-
-  }
-  ,
-  {
-    path: "Product/list",
-    component: ProductListComponent
-
-
-
-  }
-  ,
-  {
-    path: "Product/edit",
-    component: ProductEditComponent
-
-
-
-  }
-  ,
-  {
-    path: "Product/detail",
-    component: ProductDetailComponent
-
-
-
-  }
-  ,
-  {
-    path: "**",
-    component: NotFoundComponent
-
-
-
-  }
 
 
 
