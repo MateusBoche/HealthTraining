@@ -31,7 +31,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RouterModule,
     MatExpansionModule,
     MatTooltipModule,
-    FontAwesomeModule.
+    FontAwesomeModule,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
