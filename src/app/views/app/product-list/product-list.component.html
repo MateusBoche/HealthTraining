@@ -1,49 +1,49 @@
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <a href="">Produto</a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page">Lista</li>
-  </ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/product/list">Produto</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Lista</li>
+    </ol>
 </nav>
 <h1>Lista de produtos</h1>
 <hr>
 
 <div class="mat-elevation-z8">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Preço</th>
-      <th scope="col"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>name</td>
-      <td>price</td>
-      <td>
-        <div class="row">
-          <div class="col-4">
-            <a class="btn btn-primary" href="">
-              <span></span>
-            </a>
-          </div>
-          <div class="col-4">
-            <a class="btn btn-warning" href="">
-              <span></span>
-            </a>
-          </div>
-          <div class="col-4">
-            <a class="btn btn-danger">
-              <span></span>
-            </a>
-          </div>
-        </div>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Preço</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">100</th>
+                <td>produto 100</td>
+                <td>R$200.00</td>
+                <td>
+                    <div class="row">
+                        <div class="col-4">
+                            <a class="btn btn-primary" href="/product/detail/100">
+                                <fa-icon [icon]="fa.faAddressCard"></fa-icon>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a class="btn btn-warning" href="/product/edit/100">
+                                <fa-icon [icon]="fa.faEdit"></fa-icon>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a class="btn btn-danger">
+                                <fa-icon [icon]="fa.faRemove"></fa-icon>
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

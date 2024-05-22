@@ -60,32 +60,42 @@ export const routes: Routes = [
 
 
      },
+
+     {
+      path: "Product",
+      children: [
+        {
+          path: "create",
+          component: ProductCreateComponent,
+  
+  
+  
+        }
+        ,
+        {
+          path: "list",
+          component: ProductListComponent,
+  
+  
+  
+        }
+        ,
+        {
+          path: "edit",
+          component: ProductEditComponent,
+  
+  
+  
+        }
+        ,
+
+
+      ],
+
+     },
+      
       {
-        path: "product/create",
-        component: ProductCreateComponent,
-
-
-
-      }
-      ,
-      {
-        path: "Product/list",
-        component: ProductListComponent,
-
-
-
-      }
-      ,
-      {
-        path: "Product/edit",
-        component: ProductEditComponent,
-
-
-
-      }
-      ,
-      {
-        path: "Product/detail",
+        path: "detail",
         component: ProductDetailComponent,
 
 
