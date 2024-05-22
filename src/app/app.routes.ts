@@ -12,6 +12,7 @@ import {NotFoundComponent} from "./views/not-found/not-found.component";
 import {MainComponent} from "./views/app/main/main.component";
 import { ApplicationConfig } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { authenticatorGuard } from './services/security/guard/authenticator.guard';
 
 
 
@@ -36,6 +37,7 @@ export const routes: Routes = [
 {
   path: "",
   component: MainComponent,
+  canActivate: [authenticatorGuard],
   children: [
 
     {
