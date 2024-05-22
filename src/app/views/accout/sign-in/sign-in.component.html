@@ -3,13 +3,17 @@
         <h2>App</h2>
         <mat-form-field>
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" required="">
+            <input matInput placeholder="Email" required="" [formControl]="email">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Senha</mat-label>
-            <input matInput type="password" placeholder="Senha" maxlength="10" required>
+            <input matInput type="password" placeholder="Senha" maxlength="10" required [formControl]="password">
         </mat-form-field>
-        <button mat-raised-button color="primary">Login</button>
+        <button mat-raised-button color="primary" (click)="login()">Login</button>
+
+        @if(isLoginIncorrect){
+            <p class="text-danger mt-2">Email ou senha incorrentos</p>
+        }
 
         <hr>
         <div class="mt-4">
