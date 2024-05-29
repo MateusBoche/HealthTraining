@@ -9,16 +9,16 @@
             <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #myProfile [overlapTrigger]="false" yPosition="below">
-            <button mat-menu-item href="/account/my-profile">
+            <button mat-menu-item routerLink="/account/myprofile">
                 <mat-icon>person</mat-icon><span>Minha conta</span>
             </button>
-            <button mat-menu-item href="/help">
+            <button mat-menu-item routerLink="/help">
                 <mat-icon>settings</mat-icon><span>Ajuda</span>
             </button>
 
             <mat-divider></mat-divider>
 
-            <button mat-menu-item>
+            <button mat-menu-item (click) = "logout()">
                 <mat-icon>exit_to_app</mat-icon>Sair
             </button>
         </mat-menu>

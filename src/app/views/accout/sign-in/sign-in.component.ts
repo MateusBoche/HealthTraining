@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 
 
 
@@ -27,12 +28,25 @@ export class SignInComponent {
 
   isLoginIncorrect = false;
 
+  constructor(private router: Router) {
+
+
+  }
+
+
+
+
+
+
+
   login(){
     let emailField = this.email.value; 
     let passwordField = this.password.value; 
 
     console.log("email digitado: " + emailField)
     console.log("senha digitado: " + passwordField)
+
+    this.router.navigate(["/"])
     
   }
 

@@ -16,7 +16,7 @@ import * as fontawesome from '@fortawesome/free-solid-svg-icons';
 
 
 
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 
 
 @Component({
@@ -41,5 +41,11 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 })
 export class MainComponent {
   faCoffee = fontawesome.faHeartBroken;
+
+  constructor(private router: Router){}
+
+  logout(){
+    this.router.navigate(["account/sign-in"])
+  }
 
 }
