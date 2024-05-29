@@ -3,26 +3,26 @@
         <h2 class="text-center">Crie sua conta!</h2>
         <mat-form-field>
             <mat-label>Nome completo</mat-label>
-            <input matInput placeholder="Nome completo" required="">
+            <input matInput placeholder="Nome completo" required="" [formControl] = "fullName">
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" required="">
+            <input matInput placeholder="Email" required="" [formControl] = "email">
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Senha</mat-label>
-            <input matInput type="password" placeholder="Senha" maxlength="10">
+            <input matInput type="password" placeholder="Senha" maxlength="10" [formControl] = "password">
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Repita a senha</mat-label>
-            <input matInput type="password" placeholder="Senha">
+            <input matInput type="password" placeholder="Senha" [formControl] = "repeatPassword">
         </mat-form-field>
 
         <div class="text-center">
-            <button mat-raised-button color="primary">Criar</button>
+            <button mat-raised-button color="primary" [disabled] = "isFormInvalid()" (click) = "crateAccount()">Criar</button>
         </div>
 
         <hr>
