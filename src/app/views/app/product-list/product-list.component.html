@@ -20,19 +20,22 @@
             </tr>
         </thead>
         <tbody>
+        @for(product of products; track $index){
+
+            
             <tr>
-                <th scope="row">100</th>
-                <td>produto 100</td>
-                <td>R$200.00</td>
+                <th scope="row">{{product.id}}</th>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
                 <td>
                     <div class="row">
                         <div class="col-4">
-                            <a class="btn btn-primary" href="/product/detail/100">
+                            <a class="btn btn-primary" routerLink="/product/detail/{{product.id}}">
                                 <fa-icon [icon]="fa.faAddressCard"></fa-icon>
                             </a>
                         </div>
                         <div class="col-4">
-                            <a class="btn btn-warning" href="/product/edit/100">
+                            <a class="btn btn-warning" routerLink="/product/edit/{{product.id}}">
                                 <fa-icon [icon]="fa.faEdit"></fa-icon>
                             </a>
                         </div>
@@ -44,6 +47,7 @@
                     </div>
                 </td>
             </tr>
+        }
         </tbody>
     </table>
 </div>
