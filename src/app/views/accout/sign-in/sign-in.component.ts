@@ -3,6 +3,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { UserCredential } from '../../../domain/dto/user-credential';
 
 
 
@@ -40,11 +41,19 @@ export class SignInComponent {
 
 
   login(){
-    let emailField = this.email.value; 
-    let passwordField = this.password.value; 
 
-    console.log("email digitado: " + emailField)
-    console.log("senha digitado: " + passwordField)
+    
+   // let emailField = this.email.value; 
+    //let passwordField = this.password.value; 
+    let credential: UserCredential = {
+      email: this.email.value!,
+      password: this.password.value!
+    };
+
+
+    //console.log("email digitado: " + credential.email)
+    //console.log("senha digitado: " + credential.password)
+    console.log(credential)
 
     this.router.navigate(["/"])
     
