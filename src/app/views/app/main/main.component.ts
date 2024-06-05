@@ -45,7 +45,7 @@ export class MainComponent {
   constructor(private router: Router){}
 
   logout(){
-    this.router.navigate(["account/sign-in"])
+    this.router.navigate(["account/sign-in"]);
   }
 
 }

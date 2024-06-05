@@ -4,6 +4,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import { UserCredential } from '../../../domain/dto/user-credential';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 
 
@@ -29,7 +30,7 @@ export class SignInComponent {
 
   isLoginIncorrect = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authenticationService: AuthenticationService) {
 
 
   }
@@ -43,7 +44,7 @@ export class SignInComponent {
   login(){
 
     
-   // let emailField = this.email.value; 
+    //let emailField = this.email.value; 
     //let passwordField = this.password.value; 
     let credential: UserCredential = {
       email: this.email.value!,
@@ -53,9 +54,25 @@ export class SignInComponent {
 
     //console.log("email digitado: " + credential.email)
     //console.log("senha digitado: " + credential.password)
-    console.log(credential)
+    //console.log(credential);
 
-    this.router.navigate(["/"])
+
+    this.authenticationService
+    .authenticate(credential)
+    .subscribe(
+      {
+        next: (value) => {
+          console.log(value);
+          this.router.navigate(["/"])
+
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      }
+    ); 
+
+    
     
   }
 

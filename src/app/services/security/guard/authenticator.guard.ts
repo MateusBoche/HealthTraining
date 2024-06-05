@@ -10,12 +10,12 @@ export const authenticatorGuard: CanActivateFn = (route, state) => {
     return true;
   }
 
-  if(router.url === "accout/sign-up"){
-    router.navigate(["accout/sign-in"])
+  if(router.url === "account/sign-up"){
+    router.navigate(["account/sign-in"])
     return false;
 
   }
-  router.navigate(["accout/sign-in"])
+  router.navigate(["account/sign-in"]);
 
 
 
