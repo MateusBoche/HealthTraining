@@ -29,6 +29,12 @@
       "nome_completo": "Mateus Boche Daniel",
       "email": "mateussenaisrs@gmail.com",
       "senha": "teste"
+    },
+    {
+      "id": "5dfc",
+      "nome_completo": "mateus",
+      "email": "mateus@gmail",
+      "senha": "123"
     }
   ],
   "game": [
@@ -274,6 +280,15 @@
       "numero_acertos": 0,
       "numero_erros": 0,
       "data_de_criacao": "2024-08-20 01:24:12"
+    },
+    {
+      "id": "62ad",
+      "usuario_id": "5dfc",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-20 11:03:14"
     }
   ]
 }
