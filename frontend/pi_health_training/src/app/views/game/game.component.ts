@@ -88,7 +88,7 @@ export class GameComponent implements OnInit {
       newPosition = totalCells - 1; // Define a posição máxima
     }
 
-    // Atualiza a posição do marcador célula por célula
+    // Anima o marcador de célula em célula
     this.animateMarker(this.currentPosition, newPosition);
   }
 
@@ -98,25 +98,37 @@ export class GameComponent implements OnInit {
         clearInterval(interval);
         return;
       }
-      
-      // Avançar célula por célula
-      this.currentPosition = start;
-      const position = this.getPosition(start);
-      this.markerPosition = `translate(${position.x}px, ${position.y}px)`;
-      start++;
 
-      // Atualiza a posição do marcador para a próxima célula
+      const currentRow = Math.floor(start / 5);
+      const newRow = Math.floor((start + 1) / 5);
+
+      // Verifica se mudou de linha
+      if (currentRow !== newRow) {
+        start++; // Passa para a primeira célula da nova linha
+        this.currentPosition = start;
+        const newPosition = this.getPosition(start);
+        this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
+      } else {
+        // Movimenta para a próxima célula na mesma linha
+        start++;
+        this.currentPosition = start;
+        const newPosition = this.getPosition(start);
+        this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
+      }
+
+      // Adiciona um pequeno delay para a animação
       setTimeout(() => {
         this.currentPosition = start;
         const newPosition = this.getPosition(start);
         this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
-      }, 100); // Ajuste o tempo para a animação
-    }, 100); // Intervalo para a animação
+      }, 100);
+    }, 300);
   }
 
   getPosition(index: number) {
     const row = Math.floor(index / 5);
-    const col = index % 5;
+    const isEvenRow = row % 2 === 0;
+    const col = isEvenRow ? index % 5 : 4 - (index % 5);
     return {
       x: col * 160 + 15,
       y: row * 160 + 15
