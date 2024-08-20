@@ -61,7 +61,7 @@ export class GameComponent implements OnInit {
   }
 
   initializeBoard() {
-    const totalCells = 20;
+    const totalCells = 30;
     this.board = Array.from({ length: totalCells }, (_, i) => {
       const rowIndex = Math.floor(i / 5);
       const isEvenRow = rowIndex % 2 === 1;
