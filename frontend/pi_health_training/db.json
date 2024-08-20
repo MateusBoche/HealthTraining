@@ -23,6 +23,12 @@
       "nome_completo": "mateus",
       "email": "mateus@gmail.com",
       "senha": "teste"
+    },
+    {
+      "id": "c490",
+      "nome_completo": "Mateus Boche Daniel",
+      "email": "mateussenaisrs@gmail.com",
+      "senha": "teste"
     }
   ],
   "game": [
@@ -223,6 +229,51 @@
       "numero_acertos": 0,
       "numero_erros": 0,
       "data_de_criacao": "2024-08-18 19:07:39"
+    },
+    {
+      "id": "5d98",
+      "usuario_id": "c490",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-20 00:43:44"
+    },
+    {
+      "id": "c1cd",
+      "usuario_id": "c490",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-20 00:44:09"
+    },
+    {
+      "id": "899a",
+      "usuario_id": "c490",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-20 00:46:22"
+    },
+    {
+      "id": "95ff",
+      "usuario_id": "c490",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-20 01:23:23"
+    },
+    {
+      "id": "d621",
+      "usuario_id": "c490",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-20 01:24:12"
     }
   ]
 }
