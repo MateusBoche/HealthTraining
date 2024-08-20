@@ -80,13 +80,38 @@ export class GameComponent implements OnInit {
   }
 
   movePlayer(roll: number) {
-    // Move o jogador para a nova posição
-    const newPosition = Math.min(this.currentPosition + roll, this.board.length - 1);
-    this.currentPosition = newPosition;
-    
-    // Atualiza a posição do marcador
-    const position = this.getPosition(this.currentPosition);
-    this.markerPosition = `translate(${position.x}px, ${position.y}px)`;
+    const totalCells = this.board.length;
+    let newPosition = this.currentPosition + roll;
+
+    // Se a nova posição exceder o total de células, ajusta para a última célula
+    if (newPosition >= totalCells) {
+      newPosition = totalCells - 1; // Define a posição máxima
+    }
+
+    // Atualiza a posição do marcador célula por célula
+    this.animateMarker(this.currentPosition, newPosition);
+  }
+
+  animateMarker(start: number, end: number) {
+    const interval = setInterval(() => {
+      if (start === end) {
+        clearInterval(interval);
+        return;
+      }
+      
+      // Avançar célula por célula
+      this.currentPosition = start;
+      const position = this.getPosition(start);
+      this.markerPosition = `translate(${position.x}px, ${position.y}px)`;
+      start++;
+
+      // Atualiza a posição do marcador para a próxima célula
+      setTimeout(() => {
+        this.currentPosition = start;
+        const newPosition = this.getPosition(start);
+        this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
+      }, 100); // Ajuste o tempo para a animação
+    }, 100); // Intervalo para a animação
   }
 
   getPosition(index: number) {
