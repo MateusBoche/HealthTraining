@@ -1,0 +1,31 @@
+<title>Suporte</title>
+
+<div class="main">
+
+    <div class="suport-box">
+        <h2>Dúvidas Frequentes</h2>
+        <div class="faq">
+            @for (question of questions; track $index){
+                <div class="faq-question" (click)="toggle($index)">
+                    <div class="header-wrapper">
+                        <div class="faq-header">{{question.query}}</div>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    @if (question.open){
+                        <div class="faq-answer">{{question.answer}}</div>
+                    }
+                </div>
+            }
+
+        </div>
+        <br>
+        <h2>Suporte</h2>
+        <p>Caso ainda precise de ajuda ou queira nos comunicar algo, entre em contato conosco através dos seguintes canais:</p>
+        <br>
+        <ul>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/5535999999999" target="_blank">35 99999-9999</a></li>
+            <li><strong>Email:</strong> <a href="mailto:faleconosco@bytemax.exchange">faleconosco&#64;health.training</a></li>
+            <li><strong>Telegram:</strong> <a href="https://t.me/HealthTraining" target="_blank">&#64;HealthTraining</a></li>
+        </ul>
+    </div>
+</div>

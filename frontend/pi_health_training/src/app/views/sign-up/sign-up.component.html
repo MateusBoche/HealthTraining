@@ -1,0 +1,26 @@
+<title>Criar Conta</title>
+<div class="main">
+    <form id="cadastro-form">
+        <h2>Criar Conta</h2>
+        <br>
+        <label for="nome_completo">Nome Completo:</label>
+        <input [formControl]="nome_completo" type="text" id="nome_completo" name="nome_completo">
+
+        <label for="email">Email:</label>
+        <input [formControl]="email" type="email" id="email" name="email">
+
+        <label for="senha">Senha:</label>
+        <input [formControl]="senha" type="password" id="senha" name="senha">
+
+        <label for="senha_confirmada">Confirme a Senha:</label>
+        <input [formControl]="confirmacao_da_senha" type="password" id="senha_confirmada" name="senha_confirmada">
+        <br>
+
+        <button (click)="cadastrar()" class="submit">Cadastrar</button>
+        <br>
+        <div class="entrar-ou-esqueci-minha-senha">
+            <a href="/entrar">Entrar</a>
+            <a href="/alterar-senha">Esqueci minha senha</a>
+        </div>
+    </form>
+</div>

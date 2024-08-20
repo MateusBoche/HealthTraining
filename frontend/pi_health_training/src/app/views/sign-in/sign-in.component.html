@@ -1,0 +1,20 @@
+<div class="main">
+  
+  <form id="login-form">
+    <h2>Entrar</h2>
+    <br>
+    <label for="email">Email:</label>
+    <input [formControl]="email" type="text" id="email" name="email">
+
+    <label for="senha">Senha:</label>
+    <input [formControl]="senha" type="password" id="senha" name="senha">
+    <br>
+    <button (click)="entrar()" type="submit" class="submit">Entrar</button>
+    <br><br>
+    <div class="cadastrar-ou-esqueci-minha-senha">
+      <a href="/cadastrar">Cadastre-se</a>
+      <a href="/alterar-senha">Esqueci minha senha</a>
+    </div>
+    <br>
+  </form>
+</div>

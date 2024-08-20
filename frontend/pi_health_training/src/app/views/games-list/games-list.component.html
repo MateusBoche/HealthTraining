@@ -1,0 +1,56 @@
+<div class="main">
+    <br>
+    <div id="ordens">
+        <div class="div_topo_ordens">
+            <h2>Últimos jogos</h2>
+            <div class="orders-container">
+                @for (jogo of jogos; track $index){
+                <div class="order-container">
+                    <a href="/jogo/{{jogo.id}}" class="id_ordem">Jogo: {{jogo.id}}</a>
+
+                    <div class="order-details">
+                        <div class="div_detalhes_ordens">
+                            <label class="titulo_detalhes_ordens">Fase atual:</label>
+                            <label>{{jogo.nivel_atual}}</label>
+                        </div>
+
+                        <div class="div_detalhes_ordens">
+                            <label class="titulo_detalhes_ordens">Descrição da Fase:</label>
+                            <label>Lorem ipsum dolor.</label>
+                        </div>
+
+                        <div class="div_detalhes_ordens">
+                            <label class="titulo_detalhes_ordens">Acertos:</label>
+                            <label>{{jogo.numero_acertos}}</label>
+                        </div>
+
+                        <div class="div_detalhes_ordens">
+                            <label class="titulo_detalhes_ordens">Erros:</label>
+                            <label>{{jogo.numero_erros}}</label>
+                        </div>
+
+                        <h5 class="data_ordem">{{jogo.data_de_criacao}}</h5>
+
+                        <div>
+                            <div class="status status-{{jogo.status.toLocaleLowerCase()}}">{{jogo.status}}</div>
+                        </div>
+
+                    </div>
+                </div>
+                }
+                @if (jogos.length == 0){
+                <div class="order-container alinhar_ao_centro">
+                    <label>Você ainda não criou nenhum jogo.</label>
+                </div>
+                }
+            </div>
+        </div>
+
+        <div id="paginas">
+            <button id="pagina_anterior">◄</button>
+            <input maxlength="10" id="pagina_atual" value="1">
+            <button id="pagina_posterior">►</button>
+        </div>
+    </div>
+
+</div>

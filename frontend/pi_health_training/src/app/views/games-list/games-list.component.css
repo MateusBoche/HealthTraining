@@ -1,0 +1,199 @@
+/* Estilo para a tabela de ordens */
+.main {
+    padding-top: 80px;
+}
+
+h1 {
+    color: #000000;
+}
+
+#ordens {
+    min-height: 605px;
+    color: #000000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    justify-content: space-between;
+}
+
+.background-troca {
+    background: none;
+}
+
+table {
+    font-size: 18px;
+    border-collapse: collapse;
+}
+
+#ordens th,
+#ordens td {
+    padding: 30px 10px;
+    text-align: center;
+}
+
+#ordens td a {
+    color: #1c4488;
+    text-decoration: none;
+}
+
+#ordens td {
+    border-top: 1px solid #adadad;
+}
+
+#ordens td a:hover {
+    text-decoration: underline;
+}
+
+#paginas {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#paginas input {
+    background-color: #00000000;
+    border: 0;
+    width: 40px;
+    text-align: center;
+}
+
+#paginas input:focus {
+    outline: none;
+}
+
+#pagina_anterior,
+#pagina_posterior {
+    padding: 8px;
+    width: 50px;
+    cursor: pointer;
+    background-color: #1c4488;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+#pagina_anterior:hover,
+#pagina_posterior:hover {
+    background-color: #1c4488;
+}
+
+#pagina_atual {
+    font-weight: bold;
+}
+
+button[disabled] {
+    opacity: 0.20;
+    cursor: unset !important;
+}
+
+#sem_ordens {
+    font-size: 30px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .mais_detalhes {
+        display: none;
+    }
+}
+
+
+.order-container {
+    border-top: 1px solid #d1d1d1;
+    padding: 15px 30px;
+    text-align: left;
+    border-bottom: 0;
+}
+
+.order-container:last-child {
+    border-bottom: 1px solid #d1d1d1;
+}
+
+.order-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-bottom: 1px ;
+
+}
+
+.order-details div {
+    flex-basis: 48%;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .order-details div {
+        flex-basis: 100%;
+    }
+}
+
+
+.status {
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.status-pendente {
+    border: 1px solid #fff81a;
+    background-color: #f1e70024;
+}
+
+.status-concluido {
+    border: 1px solid #4cff64;
+    background-color: #17dc171a;
+}
+
+.alinhar_ao_centro{
+    text-align: center;
+}
+
+
+.order-container h4{
+    margin: 15px 0 30px 0;
+}
+
+.order-container h5{
+    margin: 0;
+}
+
+.div_detalhes_ordens{
+    display: flex;
+}
+
+.titulo_detalhes_ordens{
+    margin-right: 5px;
+    font-weight: 500;
+}
+
+.data_ordem{
+    font-weight: 600;
+    font-size: 18px;
+    padding-top: 40px
+}
+
+.id_ordem{
+    color: #1b386b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.id_ordem:hover {
+    text-decoration: underline;
+}
+
+.div_topo_ordens{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}

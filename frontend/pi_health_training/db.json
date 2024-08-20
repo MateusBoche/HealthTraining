@@ -1,0 +1,228 @@
+{
+  "user": [
+    {
+      "id": "8286",
+      "nome_completo": "aa",
+      "email": "aa",
+      "senha": "aaa"
+    },
+    {
+      "id": "53fc",
+      "nome_completo": "aaa",
+      "email": "aaa",
+      "senha": "aaa"
+    },
+    {
+      "id": "842f",
+      "nome_completo": "teste",
+      "email": "teste@gmail.com",
+      "senha": "1234"
+    },
+    {
+      "id": "86f5",
+      "nome_completo": "mateus",
+      "email": "mateus@gmail.com",
+      "senha": "teste"
+    }
+  ],
+  "game": [
+    {
+      "id": "809f",
+      "usuario_id": "8286",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-06-22 04:18:10"
+    },
+    {
+      "id": "bda2",
+      "usuario_id": "8286",
+      "status": "Concluido",
+      "nivel_atual": 3,
+      "numero_acertos": 7,
+      "numero_erros": 2,
+      "data_de_criacao": "2024-06-22 04:22:51"
+    },
+    {
+      "id": "7cf5",
+      "usuario_id": "8286",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-06-22 04:55:48"
+    },
+    {
+      "id": "b37e",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-13 10:03:46"
+    },
+    {
+      "id": "0428",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-13 11:25:25"
+    },
+    {
+      "id": "cd63",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-13 11:41:05"
+    },
+    {
+      "id": "7811",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-13 11:41:28"
+    },
+    {
+      "id": "09ef",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-13 11:45:48"
+    },
+    {
+      "id": "6add",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-13 11:46:16"
+    },
+    {
+      "id": "d40a",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-13 11:47:06"
+    },
+    {
+      "id": "3360",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-13 11:59:10"
+    },
+    {
+      "id": "ebf1",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-13 12:18:27"
+    },
+    {
+      "id": "1401",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-13 12:24:51"
+    },
+    {
+      "id": "1e06",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-13 12:25:07"
+    },
+    {
+      "id": "0843",
+      "usuario_id": "86f5",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-14 00:21:44"
+    },
+    {
+      "id": "9daa",
+      "usuario_id": "86f5",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-14 00:24:53"
+    },
+    {
+      "id": "b3f9",
+      "usuario_id": "86f5",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-14 00:26:06"
+    },
+    {
+      "id": "2f87",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-18 18:46:34"
+    },
+    {
+      "id": "8fc0",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-18 18:46:38"
+    },
+    {
+      "id": "4a13",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-18 18:46:59"
+    },
+    {
+      "id": "7b14",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-18 18:52:43"
+    },
+    {
+      "id": "c021",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-18 19:07:39"
+    }
+  ]
+}

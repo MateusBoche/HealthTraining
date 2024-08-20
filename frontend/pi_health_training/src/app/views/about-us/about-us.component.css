@@ -1,0 +1,151 @@
+body {
+    background-color: #06214e;
+}
+
+/* Estilo para a tabela de ordens */
+.background-troca {
+    background: none;
+    background-color: #06214e;
+}
+
+header, footer{
+    background-color: #06214e;
+}
+
+.main {
+    padding-top: 60px;
+    text-align: left;
+    max-width: 1200px;
+    
+}
+
+#sobre h2 {
+    font-size: 55px;
+    color: #000;
+}
+
+#sobre h3 {
+    font-size: 35px;
+    color: #ffffff;
+}
+
+#sobre p {
+    line-height: 1.6;
+    font-size: 25px;
+    max-width: 700px;
+}
+
+
+#text_missao p{
+    color: #ffffff;
+}
+
+#text_missao h2{
+    color: #ffffff;
+
+}
+
+#quem_somos {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+
+#quem_somos img {
+    margin-right: 70px;
+    height: 150px;
+}
+
+.servicos img {
+    width: 350px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+/* Estilos para o conteúdo específico */
+#sobre {
+    border-radius: 50px;
+    padding: 30px;
+}
+
+#text_servicos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 350px;
+}
+
+.servicos {
+    flex-direction: column;
+    background-color: #464a60;
+    border-radius: 30px;
+    margin-bottom: 50px;
+
+}
+
+.menu-content{
+    background-color: #06214e;
+}
+
+#text_missao {
+    padding: 50px;
+    background-color: #0f1327;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+#text_servicos div {
+    padding: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+
+    #text_servicos div {
+        padding: 20px;
+    }
+
+    #sobre{
+        padding: 0;
+    }
+
+    #sobre p {
+        font-size: 17px;
+    }
+
+    #sobre h2 {
+        font-size: 35px;
+    }
+    
+    #sobre h3 {
+        font-size: 25px;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+    #quem_somos {
+        flex-direction: column;
+    }
+
+    
+    #quem_somos img {
+        height: 100px;
+        width: 100px;
+    }
+
+    #text_servicos {
+        max-height: none;
+        flex-direction: column;
+    }
+
+    .servicos img {
+        border-radius: 0;
+        width: 100%;
+        border-bottom-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+    }
+    
+}
