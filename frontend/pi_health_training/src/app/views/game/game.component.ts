@@ -20,6 +20,8 @@ export class GameComponent implements OnInit {
   markerPosition = 'translate(0px, 0px)';
   diceRotation = 0;
   colors: string[] = [];
+  currentQuestion: { question: string, answer: boolean } | null = null;
+  isQuestionAnswered: boolean = false;
 
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
 
@@ -61,16 +63,12 @@ export class GameComponent implements OnInit {
   }
 
   rollDice() {
-    // Defina o valor do dado e atualize a animação
     this.diceValue = Math.floor(Math.random() * 6) + 1;
     this.animateDice();
 
-    // Esperar a animação do dado e então mover o jogador
-    setTimeout(() => {
-      if (this.diceValue !== null) {
-        this.movePlayer(this.diceValue);
-      }
-    }, 1000); // Esperar o tempo da animação
+    // Exibir uma nova pergunta para o jogador responder
+    this.currentQuestion = this.getRandomQuestion();
+    this.isQuestionAnswered = false;
   }
 
   animateDice() {
@@ -82,11 +80,11 @@ export class GameComponent implements OnInit {
   }
 
   movePlayer(roll: number) {
-    // Calcular a nova posição do jogador
+    // Move o jogador para a nova posição
     const newPosition = Math.min(this.currentPosition + roll, this.board.length - 1);
     this.currentPosition = newPosition;
     
-    // Atualizar a posição do marcador
+    // Atualiza a posição do marcador
     const position = this.getPosition(this.currentPosition);
     this.markerPosition = `translate(${position.x}px, ${position.y}px)`;
   }
@@ -95,8 +93,8 @@ export class GameComponent implements OnInit {
     const row = Math.floor(index / 5);
     const col = index % 5;
     return {
-      x: col * 160 + 15, // Ajustar para centralizar o marcador
-      y: row * 160 + 15  // Ajustar para centralizar o marcador
+      x: col * 160 + 15,
+      y: row * 160 + 15
     };
   }
 
@@ -115,5 +113,28 @@ export class GameComponent implements OnInit {
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+  }
+
+  getRandomQuestion(): { question: string, answer: boolean } {
+    const questions = [
+      { question: 'A Terra é plana?', answer: false },
+      { question: 'O Sol é uma estrela?', answer: true },
+      { question: 'A água ferve a 100°C?', answer: true },
+      { question: 'O Brasil é um continente?', answer: false }
+    ];
+    return questions[Math.floor(Math.random() * questions.length)];
+  }
+
+  answerQuestion(answer: boolean) {
+    if (this.currentQuestion) {
+      if (this.currentQuestion.answer === answer) {
+        this.toastr.success('Resposta correta!');
+        this.movePlayer(this.diceValue!);
+      } else {
+        this.toastr.error('Resposta incorreta. Tente novamente!');
+      }
+      this.isQuestionAnswered = true;
+      this.currentQuestion = null; // Ocultar a pergunta após responder
+    }
   }
 }
