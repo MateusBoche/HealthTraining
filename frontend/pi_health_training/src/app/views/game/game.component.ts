@@ -22,7 +22,9 @@ export class GameComponent implements OnInit {
   colors: string[] = [];
   currentQuestion: { question: string, answer: boolean } | null = null;
   isQuestionAnswered: boolean = false;
-  questions: { question: string, answer: boolean }[] = []; // Array para armazenar perguntas
+  questions: { question: string, answer: boolean }[] = []; 
+  rolling: boolean = false; 
+  canRoll: boolean = true; 
 
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
 
@@ -35,7 +37,6 @@ export class GameComponent implements OnInit {
   carregar_jogo() {
     const id = this.router.url.split('/')[2];
 
-    // Carregar dados do jogo
     this.http.get<Game>(`http://localhost:3000/game/${id}`).subscribe({
       next: value => {
         this.jogo = value;
@@ -48,7 +49,7 @@ export class GameComponent implements OnInit {
       }
     });
 
-    // Carregar perguntas
+    
     this.http.get<{ question: string, answer: boolean }[]>('http://localhost:3000/questions').subscribe({
       next: questions => {
         this.questions = questions;
@@ -75,32 +76,42 @@ export class GameComponent implements OnInit {
   }
 
   rollDice() {
+    if (!this.canRoll) return; 
+
+    this.canRoll = false; 
+    this.rolling = true;
+    
+    
     this.diceValue = Math.floor(Math.random() * 6) + 1;
-    this.animateDice();
 
-    // Exibir uma nova pergunta para o jogador responder
-    this.currentQuestion = this.getRandomQuestion();
-    this.isQuestionAnswered = false;
-  }
+    const intervalId = setInterval(() => {
+        this.diceValue = Math.floor(Math.random() * 6) + 1;
+    }, 1000); 
 
-  animateDice() {
-    const diceElement = document.querySelector('.dice') as HTMLElement;
-    if (diceElement) {
-      this.diceRotation += 360; // Incrementa a rotação a cada clique
-      diceElement.style.transform = `rotate(${this.diceRotation}deg)`;
-    }
-  }
+    setTimeout(() => {
+        clearInterval(intervalId); 
+        this.diceValue = Math.floor(Math.random() * 6) + 1; 
+
+        
+        setTimeout(() => {
+            this.rolling = false; 
+
+            this.currentQuestion = this.getRandomQuestion(); 
+            this.isQuestionAnswered = false;
+        }, 1500); 
+    }, 1500); 
+}
 
   movePlayer(roll: number) {
     const totalCells = this.board.length;
     let newPosition = this.currentPosition + roll;
 
-    // Se a nova posição exceder o total de células, ajusta para a última célula
+    
     if (newPosition >= totalCells) {
-      newPosition = totalCells - 1; // Define a posição máxima
+      newPosition = totalCells - 1; 
     }
 
-    // Anima o marcador de célula em célula
+    
     this.animateMarker(this.currentPosition, newPosition);
   }
 
@@ -114,21 +125,20 @@ export class GameComponent implements OnInit {
       const currentRow = Math.floor(start / 5);
       const newRow = Math.floor((start + 1) / 5);
 
-      // Verifica se mudou de linha
+     
       if (currentRow !== newRow) {
-        start++; // Passa para a primeira célula da nova linha
+        start++; 
         this.currentPosition = start;
         const newPosition = this.getPosition(start);
         this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
       } else {
-        // Movimenta para a próxima célula na mesma linha
         start++;
         this.currentPosition = start;
         const newPosition = this.getPosition(start);
         this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
       }
 
-      // Adiciona um pequeno delay para a animação
+      
       setTimeout(() => {
         this.currentPosition = start;
         const newPosition = this.getPosition(start);
@@ -180,7 +190,9 @@ export class GameComponent implements OnInit {
         this.toastr.error('Resposta incorreta. Tente novamente!');
       }
       this.isQuestionAnswered = true;
-      this.currentQuestion = null; // Ocultar a pergunta após responder
+      this.currentQuestion = null; 
+
+      this.canRoll = true; 
     }
   }
 }
