@@ -43,6 +43,14 @@
     border-radius: 0% 0% 80% 0%;
 }
 
+.cell:nth-child(21) {
+    border-radius: 0% 0% 0% 80%;
+}
+
+.cell:nth-child(16) {
+    border-radius: 80% 0% 0% 0%;
+}
+
 .cell {
     display: flex;
     align-items: center;

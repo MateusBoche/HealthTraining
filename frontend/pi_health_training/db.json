@@ -298,53 +298,237 @@
       "numero_acertos": 0,
       "numero_erros": 0,
       "data_de_criacao": "2024-08-20 19:07:30"
+    },
+    {
+      "id": "188c",
+      "usuario_id": "c490",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-20 22:43:14"
     }
   ],
-    "questions": [
-      { "question": "Feridas crônicas ocorrem quando, fisiologicamente, o processo de cicatrização não ocorre da forma esperada. Alguns autores indicam que toda ferida com mais de 5 dias é considerada uma lesão crônica.", "answer": false },
-      { "question": "Feridas crônicas ocorrem quando, fisiologicamente, o processo de cicatrização não ocorre da forma esperada.", "answer": true },
-      { "question": "Feridas agudas são aquelas em que a cicatrização ocorre dentro do período esperado e sem complicações.", "answer": true },
-      { "question": "Feridas agudas são aquelas em que a cicatrização ocorre dentro do período esperado e sem complicações. Alguns autores indicam que toda ferida com mais de 20 dias é considerada uma lesão crônica.", "answer": false },
-      { "question": "Os fatores que afetam a cicatrização são estado nutricional, infecção, idade, medicamentos, tabagismo, unidade, cisalhamento e pressão.", "answer": true },
-      { "question": "Os fatores que afetam a cicatrização são estado nutricional, infecção, idade, medicamentos, tabagismo, unidade, cisalhamento, pressão e fica no posição em pé por muito tempo.", "answer": false },
-      { "question": "As feridas podem ser classificadas quanto ao agente causal como incisivas ou cirúrgicas e contusas, lacerantes e perfurantes.", "answer": true },
-      { "question": "As características clínicas, especificando a sua localização, seu tamanho, característica da pele, quantidade de exsudato, odor, tipo de tecido presente na lesão.", "answer": false },
-      { "question": "Os itens essenciais que devem ser avaliados em uma ferida são: tipo de lesão, localização da lesão, caracterização do leito da ferida, tipo e quantidade do exsudato, tamanho, profundidade e localização, características da margem da ferida, condição da pele perilesional, presença de túneis e/ou cavidades.", "answer": true },
-      { "question": "Os itens essenciais que devem ser avaliados em uma ferida são: tipo de lesão, localização da lesão, caracterização do leito da ferida, tipo do exsudato, tamanho, profundidade e localização, características da margem da ferida.", "answer": false },
-      { "question": "As características clínicas, especificando a sua localização, seu tamanho, característica da pele, quantidade de exsudato, odor, tipo de tecido presente na lesão, dor e os aspecto da pele peri lesão.", "answer": true },
-      { "question": "As feridas podem ser classificadas quanto ao grau de contaminação das feridas, podem ser classificadas em: limpas, limpas-contaminadas e contaminadas.", "answer": false },
-      { "question": "Os tipos do exsudatos podem ser seroso, serossanguinolento, sanguinolento, purulento, amarelo, marrom ou verde.", "answer": true },
-      { "question": "Os tipos de exsudatos podem ser serossanguinolento, sanguinolento, purulento, amarelo, marrom ou verde.", "answer": false },
-      { "question": "São condições da pele perilesional que devem ser verificadas ao redor da ferida: maceração, vermelhidão, edema, calor e rubor.", "answer": true },
-      { "question": "São condições da pele perilesional que devem ser verificadas ao redor da ferida: maceração, vermelhidão, edema e calor.", "answer": false },
-      { "question": "Para mensuração da largura da ferida, o profissional deve utilizar uma régua limpa e descartável, medir o maior comprimento cefalocaudal (ou seja, de cima para baixo) da ferida, medir a maior largura perpendicular (90° em relação ao comprimento) da ferida. Essas medidas ajudam a determinar a área total da lesão.", "answer": true },
-      { "question": "Para mensuração da largura da ferida, o profissional deve utilizar uma régua limpa e descartável, medir o maior comprimento cefalocaudal (ou seja, de baixo para cima para baixo) da ferida, medir a maior largura perpendicular (90° em relação ao comprimento) da ferida. Essas medidas ajudam a determinar a área total da lesão.", "answer": false },
-      { "question": "Na avaliação dos pés dos pacientes os profissionais devem verificar a pele dos pés em busca de qualquer alteração, como feridas, calosidades, bolhas ou áreas avermelhadas e fungos.", "answer": true },
-      { "question": "Na avaliação dos pés dos pacientes não é necessário que o profissional avalia as áreas de maior pressão, como calcanhares e região plantar.", "answer": false },
-      { "question": "Na avaliação dos pés dos pacientes os profissionais devem verificar a presença de deformidades nos pés, como dedos em garra, proeminências de metatarsos ou alterações articulares.", "answer": true },
-      { "question": "Na avaliação dos pés em pacientes os profissionais devem avaliar os pulsos pediosos e tibiais posteriores. A ausência de pulsos pode indicar doença vascular periférica.", "answer": true },
-      { "question": "Não é necessário avaliar a sensibilidade dos pés utilizando o teste de monofilamento de 20g (para sensibilidade tátil).", "answer": false },
-      { "question": "Não é necessário avaliar a sensibilidade dos pés utilizando o teste de diapasão de 140 Hz (para sensibilidade vibratória).", "answer": false },
-      { "question": "Não é necessário avaliar a sensibilidade dos pés utilizando o teste de pino ou palito (para sensibilidade dolorosa).", "answer": true },
-      { "question": "Não é necessário avaliar a sensibilidade dos pés utilizando o teste de martelo (para reflexo aquileu).", "answer": true },
-      { "question": "A mensuração da profundidade da ferida pode ser obtida introduzindo uma espátula estéril ou seringa de insulina sem agulha no ponto mais profundo da lesão. Na altura da margem da ferida mais próxima ao local onde está inserida a seringa, marca-se o ponto correspondente à altura, na espátula ou seringa.", "answer": false },
-      { "question": "A mensuração da profundidade da ferida pode ser obtida introduzindo uma espátula estéril ou seringa de insulina sem agulha no ponto mais profundo da lesão. Na altura da borda da ferida mais próxima ao local onde está inserida a seringa, marca-se o ponto correspondente à altura, na espátula ou seringa.", "answer": true },
-      { "question": "O tecido de granulação é uma estrutura formada durante o processo de cicatrização de feridas. Ele é composto por células especializadas, como fibroblastos, macrófagos e células endoteliais, além de uma matriz extracelular rica em colágeno.", "answer": true },
-      { "question": "O tecido de granulação inviável é caracterizado por apresentar uma coloração avermelhada ou rosada, devido à presença de vasos sanguíneos recém-formados.", "answer": false },
-      { "question": "Necrose indica morte celular ou de tecidos no organismo. Sabe-se que o processo de necrose envolve também o processo inflamatório, fibroblastos, macrófagos e células endoteliais no local. Várias são as causas de necrose, entre elas, diminuição do aporte de sangue ou falta de oxigenação com a presença de toxinas e enzimas que levam à morte celular.", "answer": true },
-      { "question": "Necrose indica morte celular ou de tecidos no organismo. Sabe-se que o processo de necrose envolve também o processo inflamatório no local. Várias são as causas de necrose, entre elas, diminuição do aporte de sangue ou falta de oxigenação com a presença de toxinas e enzimas que levam à morte celular.", "answer": false },
-      { "question": "Desbridamento é o processo de remoção de tecido necrótico ou materiais biológicos de uma lesão, com o objetivo de expor o tecido saudável e promover a cicatrização.", "answer": true },
-      { "question": "Desbridamento não é o processo de remoção de tecido necrótico ou materiais biológicos de uma lesão, com o objetivo de expor o tecido saudável e promover a cicatrização.", "answer": false },
-      { "question": "Os tipos de desbridamento são autolítico, mecânico, instrumental e enzimático.", "answer": true },
-      { "question": "Os tipos de desbridamento são auto mecânico, mecânico, instrumental e enzimático.", "answer": false },
-      { "question": "Desbridamento autolítico promove a manutenção de um leito úmido e em temperatura em torno de 37°C a fim de atrair neutrófilos e macrófagos para a lesão, os quais irão liberar enzimas lisossomais para digerir os detritos. Proporciona maior lise e fagocitose do tecido necrótico, do qual deriva o nome autólise – que significa a autodestruição.", "answer": true },
-      { "question": "Desbridamento autolítico promove a manutenção de um leito seco e em temperatura em torno de 37°C a fim de atrair neutrófilos e macrófagos para a lesão, os quais irão liberar enzimas lisossomais para digerir os detritos. Proporciona maior lise e fagocitose do tecido necrótico, do qual deriva o nome autólise – que significa a autodestruição.", "answer": false },
-      { "question": "O desbridamento mecânico é realizado com a utilização de um curativo adesivo ou uma solução salina estéril. No desbridamento mecânico por solução salina, é realizado um processo de irrigação da lesão para remover tecidos necróticos.", "answer": true },
-      { "question": "O desbridamento mecânico é realizado com a utilização de um curativo adesivo ou uma solução salina estéril. No desbridamento mecânico por solução salina, é realizado um processo de irrigação da lesão para remover tecidos viáveis.", "answer": false },
-      { "question": "O desbridamento instrumental é realizado por meio de pinças, tesouras e curetas, para a remoção de tecido necrótico ou devitalizado.", "answer": true },
-      { "question": "O desbridamento instrumental é realizado por meio de pinças, tesouras e curetas, para a remoção de tecido viável ou necrótico.", "answer": false },
-      { "question": "O desbridamento enzimático é feito com a utilização de produtos que contêm enzimas proteolíticas para a digestão de proteínas e tecidos necróticos.", "answer": true },
-      { "question": "O desbridamento enzimático é feito com a utilização de produtos que contêm enzimas lipolíticas para a digestão de lipídios e tecidos necróticos.", "answer": false }
-    ]
-  }
-  
+  "questions": [
+    {
+      "question": "Feridas crônicas ocorrem quando, fisiologicamente, o processo de cicatrização não ocorre da forma esperada. Alguns autores indicam que toda ferida com mais de 5 dias é considerada uma lesão crônica.",
+      "answer": false,
+      "id": "af6c"
+    },
+    {
+      "question": "Feridas crônicas ocorrem quando, fisiologicamente, o processo de cicatrização não ocorre da forma esperada.",
+      "answer": true,
+      "id": "3314"
+    },
+    {
+      "question": "Feridas agudas são aquelas em que a cicatrização ocorre dentro do período esperado e sem complicações.",
+      "answer": true,
+      "id": "7f77"
+    },
+    {
+      "question": "Feridas agudas são aquelas em que a cicatrização ocorre dentro do período esperado e sem complicações. Alguns autores indicam que toda ferida com mais de 20 dias é considerada uma lesão crônica.",
+      "answer": false,
+      "id": "a533"
+    },
+    {
+      "question": "Os fatores que afetam a cicatrização são estado nutricional, infecção, idade, medicamentos, tabagismo, unidade, cisalhamento e pressão.",
+      "answer": true,
+      "id": "fc67"
+    },
+    {
+      "question": "Os fatores que afetam a cicatrização são estado nutricional, infecção, idade, medicamentos, tabagismo, unidade, cisalhamento, pressão e fica no posição em pé por muito tempo.",
+      "answer": false,
+      "id": "6af5"
+    },
+    {
+      "question": "As feridas podem ser classificadas quanto ao agente causal como incisivas ou cirúrgicas e contusas, lacerantes e perfurantes.",
+      "answer": true,
+      "id": "f7aa"
+    },
+    {
+      "question": "As características clínicas, especificando a sua localização, seu tamanho, característica da pele, quantidade de exsudato, odor, tipo de tecido presente na lesão.",
+      "answer": false,
+      "id": "b8bd"
+    },
+    {
+      "question": "Os itens essenciais que devem ser avaliados em uma ferida são: tipo de lesão, localização da lesão, caracterização do leito da ferida, tipo e quantidade do exsudato, tamanho, profundidade e localização, características da margem da ferida, condição da pele perilesional, presença de túneis e/ou cavidades.",
+      "answer": true,
+      "id": "8c51"
+    },
+    {
+      "question": "Os itens essenciais que devem ser avaliados em uma ferida são: tipo de lesão, localização da lesão, caracterização do leito da ferida, tipo do exsudato, tamanho, profundidade e localização, características da margem da ferida.",
+      "answer": false,
+      "id": "420b"
+    },
+    {
+      "question": "As características clínicas, especificando a sua localização, seu tamanho, característica da pele, quantidade de exsudato, odor, tipo de tecido presente na lesão, dor e os aspecto da pele peri lesão.",
+      "answer": true,
+      "id": "b02a"
+    },
+    {
+      "question": "As feridas podem ser classificadas quanto ao grau de contaminação das feridas, podem ser classificadas em: limpas, limpas-contaminadas e contaminadas.",
+      "answer": false,
+      "id": "b9b1"
+    },
+    {
+      "question": "Os tipos do exsudatos podem ser seroso, serossanguinolento, sanguinolento, purulento, amarelo, marrom ou verde.",
+      "answer": true,
+      "id": "a169"
+    },
+    {
+      "question": "Os tipos de exsudatos podem ser serossanguinolento, sanguinolento, purulento, amarelo, marrom ou verde.",
+      "answer": false,
+      "id": "8051"
+    },
+    {
+      "question": "São condições da pele perilesional que devem ser verificadas ao redor da ferida: maceração, vermelhidão, edema, calor e rubor.",
+      "answer": true,
+      "id": "1855"
+    },
+    {
+      "question": "São condições da pele perilesional que devem ser verificadas ao redor da ferida: maceração, vermelhidão, edema e calor.",
+      "answer": false,
+      "id": "fcfc"
+    },
+    {
+      "question": "Para mensuração da largura da ferida, o profissional deve utilizar uma régua limpa e descartável, medir o maior comprimento cefalocaudal (ou seja, de cima para baixo) da ferida, medir a maior largura perpendicular (90° em relação ao comprimento) da ferida. Essas medidas ajudam a determinar a área total da lesão.",
+      "answer": true,
+      "id": "cd4d"
+    },
+    {
+      "question": "Para mensuração da largura da ferida, o profissional deve utilizar uma régua limpa e descartável, medir o maior comprimento cefalocaudal (ou seja, de baixo para cima para baixo) da ferida, medir a maior largura perpendicular (90° em relação ao comprimento) da ferida. Essas medidas ajudam a determinar a área total da lesão.",
+      "answer": false,
+      "id": "7532"
+    },
+    {
+      "question": "Na avaliação dos pés dos pacientes os profissionais devem verificar a pele dos pés em busca de qualquer alteração, como feridas, calosidades, bolhas ou áreas avermelhadas e fungos.",
+      "answer": true,
+      "id": "d079"
+    },
+    {
+      "question": "Na avaliação dos pés dos pacientes não é necessário que o profissional avalia as áreas de maior pressão, como calcanhares e região plantar.",
+      "answer": false,
+      "id": "cc04"
+    },
+    {
+      "question": "Na avaliação dos pés dos pacientes os profissionais devem verificar a presença de deformidades nos pés, como dedos em garra, proeminências de metatarsos ou alterações articulares.",
+      "answer": true,
+      "id": "ca7b"
+    },
+    {
+      "question": "Na avaliação dos pés em pacientes os profissionais devem avaliar os pulsos pediosos e tibiais posteriores. A ausência de pulsos pode indicar doença vascular periférica.",
+      "answer": true,
+      "id": "d7b8"
+    },
+    {
+      "question": "Não é necessário avaliar a sensibilidade dos pés utilizando o teste de monofilamento de 20g (para sensibilidade tátil).",
+      "answer": false,
+      "id": "5732"
+    },
+    {
+      "question": "Não é necessário avaliar a sensibilidade dos pés utilizando o teste de diapasão de 140 Hz (para sensibilidade vibratória).",
+      "answer": false,
+      "id": "8077"
+    },
+    {
+      "question": "Não é necessário avaliar a sensibilidade dos pés utilizando o teste de pino ou palito (para sensibilidade dolorosa).",
+      "answer": true,
+      "id": "46c1"
+    },
+    {
+      "question": "Não é necessário avaliar a sensibilidade dos pés utilizando o teste de martelo (para reflexo aquileu).",
+      "answer": true,
+      "id": "eb38"
+    },
+    {
+      "question": "A mensuração da profundidade da ferida pode ser obtida introduzindo uma espátula estéril ou seringa de insulina sem agulha no ponto mais profundo da lesão. Na altura da margem da ferida mais próxima ao local onde está inserida a seringa, marca-se o ponto correspondente à altura, na espátula ou seringa.",
+      "answer": false,
+      "id": "0634"
+    },
+    {
+      "question": "A mensuração da profundidade da ferida pode ser obtida introduzindo uma espátula estéril ou seringa de insulina sem agulha no ponto mais profundo da lesão. Na altura da borda da ferida mais próxima ao local onde está inserida a seringa, marca-se o ponto correspondente à altura, na espátula ou seringa.",
+      "answer": true,
+      "id": "457d"
+    },
+    {
+      "question": "O tecido de granulação é uma estrutura formada durante o processo de cicatrização de feridas. Ele é composto por células especializadas, como fibroblastos, macrófagos e células endoteliais, além de uma matriz extracelular rica em colágeno.",
+      "answer": true,
+      "id": "2f3d"
+    },
+    {
+      "question": "O tecido de granulação inviável é caracterizado por apresentar uma coloração avermelhada ou rosada, devido à presença de vasos sanguíneos recém-formados.",
+      "answer": false,
+      "id": "a09e"
+    },
+    {
+      "question": "Necrose indica morte celular ou de tecidos no organismo. Sabe-se que o processo de necrose envolve também o processo inflamatório, fibroblastos, macrófagos e células endoteliais no local. Várias são as causas de necrose, entre elas, diminuição do aporte de sangue ou falta de oxigenação com a presença de toxinas e enzimas que levam à morte celular.",
+      "answer": true,
+      "id": "4938"
+    },
+    {
+      "question": "Necrose indica morte celular ou de tecidos no organismo. Sabe-se que o processo de necrose envolve também o processo inflamatório no local. Várias são as causas de necrose, entre elas, diminuição do aporte de sangue ou falta de oxigenação com a presença de toxinas e enzimas que levam à morte celular.",
+      "answer": false,
+      "id": "c51c"
+    },
+    {
+      "question": "Desbridamento é o processo de remoção de tecido necrótico ou materiais biológicos de uma lesão, com o objetivo de expor o tecido saudável e promover a cicatrização.",
+      "answer": true,
+      "id": "7702"
+    },
+    {
+      "question": "Desbridamento não é o processo de remoção de tecido necrótico ou materiais biológicos de uma lesão, com o objetivo de expor o tecido saudável e promover a cicatrização.",
+      "answer": false,
+      "id": "c600"
+    },
+    {
+      "question": "Os tipos de desbridamento são autolítico, mecânico, instrumental e enzimático.",
+      "answer": true,
+      "id": "37be"
+    },
+    {
+      "question": "Os tipos de desbridamento são auto mecânico, mecânico, instrumental e enzimático.",
+      "answer": false,
+      "id": "4bc1"
+    },
+    {
+      "question": "Desbridamento autolítico promove a manutenção de um leito úmido e em temperatura em torno de 37°C a fim de atrair neutrófilos e macrófagos para a lesão, os quais irão liberar enzimas lisossomais para digerir os detritos. Proporciona maior lise e fagocitose do tecido necrótico, do qual deriva o nome autólise – que significa a autodestruição.",
+      "answer": true,
+      "id": "0038"
+    },
+    {
+      "question": "Desbridamento autolítico promove a manutenção de um leito seco e em temperatura em torno de 37°C a fim de atrair neutrófilos e macrófagos para a lesão, os quais irão liberar enzimas lisossomais para digerir os detritos. Proporciona maior lise e fagocitose do tecido necrótico, do qual deriva o nome autólise – que significa a autodestruição.",
+      "answer": false,
+      "id": "5115"
+    },
+    {
+      "question": "O desbridamento mecânico é realizado com a utilização de um curativo adesivo ou uma solução salina estéril. No desbridamento mecânico por solução salina, é realizado um processo de irrigação da lesão para remover tecidos necróticos.",
+      "answer": true,
+      "id": "b9a8"
+    },
+    {
+      "question": "O desbridamento mecânico é realizado com a utilização de um curativo adesivo ou uma solução salina estéril. No desbridamento mecânico por solução salina, é realizado um processo de irrigação da lesão para remover tecidos viáveis.",
+      "answer": false,
+      "id": "443c"
+    },
+    {
+      "question": "O desbridamento instrumental é realizado por meio de pinças, tesouras e curetas, para a remoção de tecido necrótico ou devitalizado.",
+      "answer": true,
+      "id": "d883"
+    },
+    {
+      "question": "O desbridamento instrumental é realizado por meio de pinças, tesouras e curetas, para a remoção de tecido viável ou necrótico.",
+      "answer": false,
+      "id": "0876"
+    },
+    {
+      "question": "O desbridamento enzimático é feito com a utilização de produtos que contêm enzimas proteolíticas para a digestão de proteínas e tecidos necróticos.",
+      "answer": true,
+      "id": "e954"
+    },
+    {
+      "question": "O desbridamento enzimático é feito com a utilização de produtos que contêm enzimas lipolíticas para a digestão de lipídios e tecidos necróticos.",
+      "answer": false,
+      "id": "a99b"
+    }
+  ]
+}
