@@ -17,8 +17,11 @@ export class GameComponent implements OnInit {
   board: { question: string }[] = [];
   currentPosition: number = 0;
   diceValue: number | null = null;
-  dicePosition = 'translate(0px, 0px)';
-  colors!: string[];
+  markerPosition = 'translate(0px, 0px)';
+  diceRotation = 0;
+  colors: string[] = [];
+  currentQuestion: { question: string, answer: boolean } | null = null;
+  isQuestionAnswered: boolean = false;
 
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
 
@@ -34,7 +37,6 @@ export class GameComponent implements OnInit {
     this.http.get<Game>(`http://localhost:3000/game/${id}`).subscribe({
       next: value => {
         this.jogo = value;
-        // Opcional: você pode definir um valor padrão para garantir que o `jogo` não seja `undefined`
         if (!this.jogo) {
           this.toastr.error('Dados do jogo não encontrados');
         }
@@ -48,11 +50,8 @@ export class GameComponent implements OnInit {
   initializeBoard() {
     const totalCells = 20;
     this.board = Array.from({ length: totalCells }, (_, i) => {
-      // Determine se a linha é par ou ímpar
       const rowIndex = Math.floor(i / 5);
       const isEvenRow = rowIndex % 2 === 1;
-
-      // Ajuste o índice para uma ordem crescente ou decrescente
       const adjustedIndex = isEvenRow 
           ? (rowIndex + 1) * 5 - (i % 5) - 1
           : i;
@@ -65,32 +64,67 @@ export class GameComponent implements OnInit {
 
   rollDice() {
     this.diceValue = Math.floor(Math.random() * 6) + 1;
-    this.movePlayer(this.diceValue);
+    this.animateDice();
+
+    // Exibir uma nova pergunta para o jogador responder
+    this.currentQuestion = this.getRandomQuestion();
+    this.isQuestionAnswered = false;
+  }
+
+  animateDice() {
+    const diceElement = document.querySelector('.dice') as HTMLElement;
+    if (diceElement) {
+      this.diceRotation += 360; // Incrementa a rotação a cada clique
+      diceElement.style.transform = `rotate(${this.diceRotation}deg)`;
+    }
   }
 
   movePlayer(roll: number) {
-    const newPosition = Math.min(this.currentPosition + roll, this.board.length - 1);
-    this.currentPosition = newPosition;
-    this.animateDice(newPosition);
+    const totalCells = this.board.length;
+    let newPosition = this.currentPosition + roll;
+
+    // Se a nova posição exceder o total de células, ajusta para a última célula
+    if (newPosition >= totalCells) {
+      newPosition = totalCells - 1; // Define a posição máxima
+    }
+
+    // Atualiza a posição do marcador célula por célula
+    this.animateMarker(this.currentPosition, newPosition);
   }
 
-  animateDice(newPosition: number) {
-    const position = this.getPosition(newPosition);
-    this.dicePosition = `translate(${position.x}px, ${position.y}px)`;
+  animateMarker(start: number, end: number) {
+    const interval = setInterval(() => {
+      if (start === end) {
+        clearInterval(interval);
+        return;
+      }
+      
+      // Avançar célula por célula
+      this.currentPosition = start;
+      const position = this.getPosition(start);
+      this.markerPosition = `translate(${position.x}px, ${position.y}px)`;
+      start++;
+
+      // Atualiza a posição do marcador para a próxima célula
+      setTimeout(() => {
+        this.currentPosition = start;
+        const newPosition = this.getPosition(start);
+        this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
+      }, 100); // Ajuste o tempo para a animação
+    }, 100); // Intervalo para a animação
   }
 
   getPosition(index: number) {
     const row = Math.floor(index / 5);
     const col = index % 5;
     return {
-      x: col * 160,
-      y: row * 160
+      x: col * 160 + 15,
+      y: row * 160 + 15
     };
   }
 
-  getItemClass(index: number): string {
-    const rowIndex = Math.floor(index / 5) + 1;
-    return rowIndex % 2 === 0 ? 'even-row' : 'odd-row';
+  getItemStyle(i: number): string {
+    return this.colors[i];
   }
 
   generateRandomColors() {
@@ -106,7 +140,26 @@ export class GameComponent implements OnInit {
     return color;
   }
 
-  getItemStyle(i: number) {
-    return this.colors[i];
+  getRandomQuestion(): { question: string, answer: boolean } {
+    const questions = [
+      { question: 'A Terra é plana?', answer: false },
+      { question: 'O Sol é uma estrela?', answer: true },
+      { question: 'A água ferve a 100°C?', answer: true },
+      { question: 'O Brasil é um continente?', answer: false }
+    ];
+    return questions[Math.floor(Math.random() * questions.length)];
+  }
+
+  answerQuestion(answer: boolean) {
+    if (this.currentQuestion) {
+      if (this.currentQuestion.answer === answer) {
+        this.toastr.success('Resposta correta!');
+        this.movePlayer(this.diceValue!);
+      } else {
+        this.toastr.error('Resposta incorreta. Tente novamente!');
+      }
+      this.isQuestionAnswered = true;
+      this.currentQuestion = null; // Ocultar a pergunta após responder
+    }
   }
 }

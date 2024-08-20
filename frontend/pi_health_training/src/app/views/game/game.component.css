@@ -4,72 +4,74 @@
     align-items: center;
     flex-direction: column; 
     max-width: 2000px;
-    margin: 0 auto; /* Centraliza horizontalmente */
-    min-height: 100vh; /* Garante que o conteúdo esteja centralizado verticalmente */
+    margin: 0 auto;
+    min-height: 100vh;
     padding: 20px;
 }
 
 .dashboard {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: flex-start; /* Alinha ao topo */
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
     flex-direction: row;
 }
 
 .board {
     display: grid;
-    grid-template-columns: repeat(5, 150px); 
-    grid-template-rows: repeat(4, 150px);   
+    grid-template-columns: repeat(5, 150px);
+    grid-template-rows: repeat(4, 150px);
     gap: 21px 0px;
     justify-content: center;
     position: relative;
-    margin-top: 30px; /* Move o tabuleiro um pouco para cima */
+    margin-top: 30px;
 }
-  
+
 .cell:nth-child(5n) {
-    border-radius: 0% 80% 0% 0%; /* top right bottom left*/
-}  
+    border-radius: 0% 80% 0% 0%;
+}
 
 .cell:nth-child(11) {
-    border-radius: 0% 0% 0% 80%; /* top right bottom left*/
-}  
+    border-radius: 0% 0% 0% 80%;
+}
 
 .cell:nth-child(6) {
-    border-radius: 80% 0% 0% 0%; /* top right bottom left*/
-}  
+    border-radius: 80% 0% 0% 0%;
+}
 
 .cell:nth-child(10n) {
     border-radius: 0% 0% 80% 0%;
-}  
+}
 
 .cell {
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid #ccc;
-    width: 150px; /* Ajuste conforme o tamanho das células */
-    height: 150px; /* Ajuste conforme o tamanho das células */
+    width: 150px;
+    height: 150px;
     font-size: 1em;
     background-color: #f9f9f9;
-    color: #f9f9f9;
+    color: #333;
 }
 
 .dice {
-    position: absolute;
-    width: 150px; /* Deve corresponder ao tamanho das células */
-    height: 150px; /* Deve corresponder ao tamanho das células */
+    position: relative;
+    width: 100px;
+    height: 100px;
     font-size: 2em;
-    transition: transform 1s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1; /* Garante que o dado esteja acima das células */
-    pointer-events: none; /* Garante que o dado não interfira com os cliques */
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    transition: transform 1s ease;
+    margin-top: 20px;
 }
 
-.active {
-    border: 2px solid #ff0;
+.dice span {
+    display: inline-block;
 }
 
 .status {
@@ -77,9 +79,26 @@
     background-color: #fff;
     border: 1px solid #000;
     border-left: 0;
-    height: 720px;
+    height: auto;
     border-radius: 10px;
-    width: 300px; /* Ajuste conforme necessário */
-    box-sizing: border-box; /* Inclui o padding e border no cálculo da largura e altura */
-    margin-left: 20px; /* Espaço extra para a direita */
+    width: 300px;
+    box-sizing: border-box;
+    margin-left: 20px;
 }
+
+.status div {
+    margin-top: 20px;
+}
+
+.status button {
+    margin: 5px;
+}
+
+.marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+  }

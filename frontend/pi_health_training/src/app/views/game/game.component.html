@@ -1,30 +1,38 @@
 <div class="main">
     <div class="info">
-        <h1>Jogo Health Training</h1>
-        <p> Jogo Health Training. Explore conhecimentos de saúde enquanto se diverte com desafios interativos.</p>
+      <h1>Jogo Health Training</h1>
+      <p>Jogo Health Training. Explore conhecimentos de saúde enquanto se diverte com desafios interativos.</p>
     </div>
     <div class="dashboard">
-        <div class="board">
-            <div *ngFor="let cell of board; let i = index" 
-                 [ngStyle]="{ 'background-color': getItemStyle(i)}"
-                 [ngClass]="{'active': i === currentPosition}"
-                 class="cell">
-                {{ cell?.question }}
-            </div>
-            <div class="dice" [ngStyle]="{'transform': dicePosition}">
-                🎲
-            </div>
+      <div class="board">
+        <div *ngFor="let cell of board; let i = index"
+             [ngStyle]="{ 'background-color': getItemStyle(i) }"
+             [ngClass]="{ 'active': i === currentPosition }"
+             class="cell">
+          {{ cell.question }}
         </div>
-
-        <div class="status">
-            <h2>Detalhes do Jogo</h2>
-            <p>Jogo: <span id="gameId">{{jogo.id}}</span></p>
-            <p>Fase Atual: <span id="currentPhase">{{jogo.nivel_atual}}</span></p>
-            <p>Status do Jogo: <span id="gameStatus">{{jogo.status}}</span></p>
-            <p>Número de acertos: <span id="score">{{jogo.numero_acertos}}</span></p>
-            <p>Número de erros: <span id="errors">{{jogo.numero_erros}}</span></p>
-            <p>Data de inicio: <span id="time">{{jogo.data_de_criacao}}</span></p>
-            <button (click)="rollDice()">Rodar Dado</button>
+        <div class="marker" [ngStyle]="{ 'transform': markerPosition }"></div>
+      </div>
+  
+      <div class="status">
+        <h2>Detalhes do Jogo</h2>
+        <p>Jogo: <span id="gameId">{{ jogo.id }}</span></p>
+        <p>Fase Atual: <span id="currentPhase">{{ jogo.nivel_atual }}</span></p>
+        <p>Status do Jogo: <span id="gameStatus">{{ jogo.status }}</span></p>
+        <p>Número de acertos: <span id="score">{{ jogo.numero_acertos }}</span></p>
+        <p>Número de erros: <span id="errors">{{ jogo.numero_erros }}</span></p>
+        <p>Data de inicio: <span id="time">{{ jogo.data_de_criacao }}</span></p>
+        <button (click)="rollDice()">Rodar Dado</button>
+        <div class="dice" (click)="rollDice()">
+          <span *ngIf="diceValue !== null">{{ diceValue }}</span>
         </div>
+        <!-- Pergunta Verdadeira ou Falsa -->
+        <div *ngIf="currentQuestion && !isQuestionAnswered">
+          <p>{{ currentQuestion.question }}</p>
+          <button (click)="answerQuestion(true)">Verdadeiro</button>
+          <button (click)="answerQuestion(false)">Falso</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  
