@@ -96,9 +96,11 @@
 
 .marker {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-    border-radius: 50%;
+    width: 50px; /* Ajuste o tamanho conforme necessário */
+    height: 50px; /* Ajuste o tamanho conforme necessário */
+    background-image: url('/assets/character.png'); /* Caminho para a imagem */
+    background-size: cover; /* Faz com que a imagem cubra todo o elemento */
+    background-position: center; /* Centraliza a imagem */
+    border-radius: 50%; /* Mantém o formato circular, se desejado */
     transition: transform 0.5s ease;
-  }
+}
