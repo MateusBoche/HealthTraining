@@ -22,6 +22,7 @@ export class GameComponent implements OnInit {
   colors: string[] = [];
   currentQuestion: { question: string, answer: boolean } | null = null;
   isQuestionAnswered: boolean = false;
+  questions: { question: string, answer: boolean }[] = []; // Array para armazenar perguntas
 
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
 
@@ -34,6 +35,7 @@ export class GameComponent implements OnInit {
   carregar_jogo() {
     const id = this.router.url.split('/')[2];
 
+    // Carregar dados do jogo
     this.http.get<Game>(`http://localhost:3000/game/${id}`).subscribe({
       next: value => {
         this.jogo = value;
@@ -43,6 +45,16 @@ export class GameComponent implements OnInit {
       },
       error: error => {
         this.toastr.error('Erro ao carregar o jogo');
+      }
+    });
+
+    // Carregar perguntas
+    this.http.get<{ question: string, answer: boolean }[]>('http://localhost:3000/questions').subscribe({
+      next: questions => {
+        this.questions = questions;
+      },
+      error: error => {
+        this.toastr.error('Erro ao carregar as perguntas');
       }
     });
   }
@@ -153,13 +165,10 @@ export class GameComponent implements OnInit {
   }
 
   getRandomQuestion(): { question: string, answer: boolean } {
-    const questions = [
-      { question: 'A Terra é plana?', answer: false },
-      { question: 'O Sol é uma estrela?', answer: true },
-      { question: 'A água ferve a 100°C?', answer: true },
-      { question: 'O Brasil é um continente?', answer: false }
-    ];
-    return questions[Math.floor(Math.random() * questions.length)];
+    if (this.questions.length === 0) {
+      return { question: 'Pergunta não disponível', answer: false };
+    }
+    return this.questions[Math.floor(Math.random() * this.questions.length)];
   }
 
   answerQuestion(answer: boolean) {
