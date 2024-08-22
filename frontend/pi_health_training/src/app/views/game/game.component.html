@@ -19,8 +19,8 @@
       <p>Jogo: <span id="gameId">{{ jogo.id }}</span></p>
       <p>Fase Atual: <span id="currentPhase">{{ jogo.nivel_atual }}</span></p>
       <p>Status do Jogo: <span id="gameStatus">{{ jogo.status }}</span></p>
-      <p>Número de acertos: <span id="score">{{ jogo.numero_acertos }}</span></p>
-      <p>Número de erros: <span id="errors">{{ jogo.numero_erros }}</span></p>
+      <p>Número de acertos: <span id="numberOfCorrectAnswers">{{ numberOfCorrectAnswers }}</span></p>
+      <p>Número de erros: <span id="numberOfErrors">{{ numberOfErrors }}</span></p>
       <p>Data de início: <span id="time">{{ jogo.data_de_criacao }}</span></p>
       <p>Pontuação: <span id="score">{{ score }}</span></p>
       <button class="btn-primary" (click)="rollDice()" [disabled]="!canRoll">Rodar Dado</button>

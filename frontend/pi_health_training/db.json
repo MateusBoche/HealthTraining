@@ -334,6 +334,15 @@
       "numero_acertos": 0,
       "numero_erros": 0,
       "data_de_criacao": "2024-08-22 18:30:40"
+    },
+    {
+      "id": "0b80",
+      "usuario_id": "c490",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-22 19:20:47"
     }
   ],
   "questions": [
