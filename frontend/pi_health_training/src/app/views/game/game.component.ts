@@ -20,20 +20,18 @@ export class GameComponent implements OnInit {
   markerPosition = 'translate(0px, 0px)';
   diceRotation = 0;
   colors: string[] = [];
-  currentQuestion: { question: string, answer: boolean } | null = null;
+  currentQuestion: { question: string, answer: boolean, category: string } | null = null;
   isQuestionAnswered: boolean = false;
-  questions: { question: string, answer: boolean }[] = []; 
+  questions: { question: string, answer: boolean, category: string }[] = []; 
   rolling: boolean = false; 
   canRoll: boolean = true; 
   score: number = 0;
-  numberOfCorrectAnswers: number = 0; // Adicionado
-  numberOfErrors: number = 0;         // Adicionado
+  numberOfCorrectAnswers: number = 0;
+  numberOfErrors: number = 0;
 
-  // Armadilhas no tabuleiro
   trapCells: { index: number, penalty: number }[] = [
-    { index: 5, penalty: 2 },  // Exemplo: Casa 6 é uma armadilha que faz o jogador voltar 2 casas
-    { index: 14, penalty: 3 }, // Casa 15 é uma armadilha que faz o jogador voltar 3 casas
-    // Adicione outras armadilhas conforme necessário
+    { index: 5, penalty: 2 },
+    { index: 14, penalty: 3 },
   ];
 
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
@@ -59,7 +57,7 @@ export class GameComponent implements OnInit {
       }
     });
 
-    this.http.get<{ question: string, answer: boolean }[]>('http://localhost:3000/questions').subscribe({
+    this.http.get<{ question: string, answer: boolean, category: string }[]>('http://localhost:3000/questions').subscribe({
       next: questions => {
         this.questions = questions;
       },
@@ -85,28 +83,28 @@ export class GameComponent implements OnInit {
   }
 
   rollDice() {
-    if (!this.canRoll) return; 
+    if (!this.canRoll) return;
 
-    this.canRoll = false; 
+    this.canRoll = false;
     this.rolling = true;
-    
+
     this.diceValue = Math.floor(Math.random() * 6) + 1;
 
     const intervalId = setInterval(() => {
         this.diceValue = Math.floor(Math.random() * 6) + 1;
-    }, 1000); 
+    }, 1000);
 
     setTimeout(() => {
-        clearInterval(intervalId); 
-        this.diceValue = Math.floor(Math.random() * 6) + 1; 
+        clearInterval(intervalId);
+        this.diceValue = Math.floor(Math.random() * 6) + 1;
 
         setTimeout(() => {
-            this.rolling = false; 
+            this.rolling = false;
 
-            this.currentQuestion = this.getRandomQuestion(); 
+            this.currentQuestion = this.getRandomQuestion();
             this.isQuestionAnswered = false;
-        }, 1500); 
-    }, 1500); 
+        }, 1500);
+    }, 1500);
   }
 
   movePlayer(roll: number) {
@@ -114,14 +112,14 @@ export class GameComponent implements OnInit {
     let newPosition = this.currentPosition + roll;
 
     if (newPosition >= totalCells) {
-      newPosition = totalCells - 1; 
+      newPosition = totalCells - 1;
     }
 
     const trap = this.trapCells.find(cell => cell.index === newPosition);
     if (trap) {
       this.toastr.warning(`Você caiu em uma armadilha! Volte ${trap.penalty} casas.`);
       newPosition -= trap.penalty;
-      if (newPosition < 0) newPosition = 0;  // Evitar posições negativas
+      if (newPosition < 0) newPosition = 0;
     }
 
     this.animateMarker(this.currentPosition, newPosition);
@@ -138,7 +136,7 @@ export class GameComponent implements OnInit {
       const newRow = Math.floor((start + 1) / 5);
 
       if (currentRow !== newRow) {
-        start++; 
+        start++;
         this.currentPosition = start;
         const newPosition = this.getPosition(start);
         this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
@@ -184,9 +182,9 @@ export class GameComponent implements OnInit {
     return color;
   }
 
-  getRandomQuestion(): { question: string, answer: boolean } {
+  getRandomQuestion(): { question: string, answer: boolean, category: string } {
     if (this.questions.length === 0) {
-      return { question: 'Pergunta não disponível', answer: false };
+      return { question: 'Pergunta não disponível', answer: false, category: 'Categoria não disponível' };
     }
     return this.questions[Math.floor(Math.random() * this.questions.length)];
   }
@@ -195,18 +193,18 @@ export class GameComponent implements OnInit {
     if (this.currentQuestion) {
       if (this.currentQuestion.answer === answer) {
         this.toastr.success('Resposta correta!');
-        this.score += 10; // Ganhar 10 pontos por resposta correta
-        this.numberOfCorrectAnswers++; // Incrementa o número de acertos
+        this.score += 10;
+        this.numberOfCorrectAnswers++;
         this.movePlayer(this.diceValue!);
       } else {
         this.toastr.error('Resposta incorreta. Tente novamente!');
-        this.score -= 5; // Perder 5 pontos por resposta errada
-        this.numberOfErrors++; // Incrementa o número de erros
+        this.score -= 5;
+        this.numberOfErrors++;
       }
       this.isQuestionAnswered = true;
-      this.currentQuestion = null; 
+      this.currentQuestion = null;
 
-      this.canRoll = true; 
+      this.canRoll = true;
     }
   }
 }

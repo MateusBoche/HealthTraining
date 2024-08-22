@@ -57,6 +57,7 @@
       <p *ngIf="!rolling && diceValue !== null">Número sorteado: {{ diceValue }}</p>
 
       <div *ngIf="currentQuestion && !isQuestionAnswered">
+        <p><strong>Categoria:</strong> {{ currentQuestion.category }}</p>
         <p>{{ currentQuestion.question }}</p>
         <button class="btn-true" (click)="answerQuestion(true)">Verdadeiro</button>
         <button class="btn-false" (click)="answerQuestion(false)">Falso</button>
