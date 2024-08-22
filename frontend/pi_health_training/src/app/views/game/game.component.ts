@@ -27,13 +27,6 @@ export class GameComponent implements OnInit {
   canRoll: boolean = true; 
   score: number = 0;
 
-  // Armadilhas no tabuleiro
-  trapCells: { index: number, penalty: number }[] = [
-    { index: 5, penalty: 2 },  // Exemplo: Casa 6 é uma armadilha que faz o jogador voltar 2 casas
-    { index: 14, penalty: 3 }, // Casa 15 é uma armadilha que faz o jogador voltar 3 casas
-    // Adicione outras armadilhas conforme necessário
-  ];
-
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
@@ -113,13 +106,6 @@ export class GameComponent implements OnInit {
 
     if (newPosition >= totalCells) {
       newPosition = totalCells - 1; 
-    }
-
-    const trap = this.trapCells.find(cell => cell.index === newPosition);
-    if (trap) {
-      this.toastr.warning(`Você caiu em uma armadilha! Volte ${trap.penalty} casas.`);
-      newPosition -= trap.penalty;
-      if (newPosition < 0) newPosition = 0;  // Evitar posições negativas
     }
 
     this.animateMarker(this.currentPosition, newPosition);
