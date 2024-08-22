@@ -25,6 +25,14 @@ export class GameComponent implements OnInit {
   questions: { question: string, answer: boolean }[] = []; 
   rolling: boolean = false; 
   canRoll: boolean = true; 
+  score: number = 0;
+
+  // Armadilhas no tabuleiro
+  trapCells: { index: number, penalty: number }[] = [
+    { index: 5, penalty: 2 },  // Exemplo: Casa 6 é uma armadilha que faz o jogador voltar 2 casas
+    { index: 14, penalty: 3 }, // Casa 15 é uma armadilha que faz o jogador voltar 3 casas
+    // Adicione outras armadilhas conforme necessário
+  ];
 
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
 
@@ -49,7 +57,6 @@ export class GameComponent implements OnInit {
       }
     });
 
-    
     this.http.get<{ question: string, answer: boolean }[]>('http://localhost:3000/questions').subscribe({
       next: questions => {
         this.questions = questions;
@@ -81,7 +88,6 @@ export class GameComponent implements OnInit {
     this.canRoll = false; 
     this.rolling = true;
     
-    
     this.diceValue = Math.floor(Math.random() * 6) + 1;
 
     const intervalId = setInterval(() => {
@@ -92,7 +98,6 @@ export class GameComponent implements OnInit {
         clearInterval(intervalId); 
         this.diceValue = Math.floor(Math.random() * 6) + 1; 
 
-        
         setTimeout(() => {
             this.rolling = false; 
 
@@ -100,18 +105,23 @@ export class GameComponent implements OnInit {
             this.isQuestionAnswered = false;
         }, 1500); 
     }, 1500); 
-}
+  }
 
   movePlayer(roll: number) {
     const totalCells = this.board.length;
     let newPosition = this.currentPosition + roll;
 
-    
     if (newPosition >= totalCells) {
       newPosition = totalCells - 1; 
     }
 
-    
+    const trap = this.trapCells.find(cell => cell.index === newPosition);
+    if (trap) {
+      this.toastr.warning(`Você caiu em uma armadilha! Volte ${trap.penalty} casas.`);
+      newPosition -= trap.penalty;
+      if (newPosition < 0) newPosition = 0;  // Evitar posições negativas
+    }
+
     this.animateMarker(this.currentPosition, newPosition);
   }
 
@@ -125,7 +135,6 @@ export class GameComponent implements OnInit {
       const currentRow = Math.floor(start / 5);
       const newRow = Math.floor((start + 1) / 5);
 
-     
       if (currentRow !== newRow) {
         start++; 
         this.currentPosition = start;
@@ -138,7 +147,6 @@ export class GameComponent implements OnInit {
         this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
       }
 
-      
       setTimeout(() => {
         this.currentPosition = start;
         const newPosition = this.getPosition(start);
@@ -185,9 +193,11 @@ export class GameComponent implements OnInit {
     if (this.currentQuestion) {
       if (this.currentQuestion.answer === answer) {
         this.toastr.success('Resposta correta!');
+        this.score += 10; // Ganhar 10 pontos por resposta correta
         this.movePlayer(this.diceValue!);
       } else {
         this.toastr.error('Resposta incorreta. Tente novamente!');
+        this.score -= 5; // Perder 5 pontos por resposta errada
       }
       this.isQuestionAnswered = true;
       this.currentQuestion = null; 

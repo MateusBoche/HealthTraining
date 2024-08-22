@@ -22,6 +22,7 @@
       <p>Número de acertos: <span id="score">{{ jogo.numero_acertos }}</span></p>
       <p>Número de erros: <span id="errors">{{ jogo.numero_erros }}</span></p>
       <p>Data de início: <span id="time">{{ jogo.data_de_criacao }}</span></p>
+      <p>Pontuação: <span id="score">{{ score }}</span></p>
       <button class="btn-primary" (click)="rollDice()" [disabled]="!canRoll">Rodar Dado</button>
 
       <div class="dice-modal" *ngIf="rolling">
