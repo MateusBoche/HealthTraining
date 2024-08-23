@@ -115,12 +115,7 @@ export class GameComponent implements OnInit {
       newPosition = totalCells - 1;
     }
 
-    const trap = this.trapCells.find(cell => cell.index === newPosition);
-    if (trap) {
-      this.toastr.warning(`Você caiu em uma armadilha! Volte ${trap.penalty} casas.`);
-      newPosition -= trap.penalty;
-      if (newPosition < 0) newPosition = 0;
-    }
+
 
     this.animateMarker(this.currentPosition, newPosition);
   }
