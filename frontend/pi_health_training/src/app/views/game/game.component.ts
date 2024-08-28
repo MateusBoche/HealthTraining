@@ -85,6 +85,11 @@ export class GameComponent implements OnInit {
   rollDice() {
     if (!this.canRoll) return;
 
+    if (this.jogo.nivel_atual === 3 && this.currentPosition >= this.board.length - 1) {
+        this.toastr.info('Jogo encerrado. Obrigado por jogar!');
+        return;
+    }
+
     this.canRoll = false;
     this.rolling = true;
 
@@ -112,13 +117,34 @@ export class GameComponent implements OnInit {
     let newPosition = this.currentPosition + roll;
 
     if (newPosition >= totalCells) {
-      newPosition = totalCells - 1;
-    }
-
-
-
-    this.animateMarker(this.currentPosition, newPosition);
+      // Caso ultrapasse, reinicia a contagem para a próxima fase
+      if (this.jogo.nivel_atual === 1) {
+          this.toastr.success('Parabéns, a Fase 1 foi concluída!');
+          this.jogo.nivel_atual = 2;
+          this.resetForNextPhase();
+          newPosition = newPosition - totalCells; // Ajusta a posição para a nova fase
+      } else if (this.jogo.nivel_atual === 2) {
+          this.toastr.success('Parabéns, a Fase 2 foi concluída!');
+          this.jogo.nivel_atual = 3;
+          this.resetForNextPhase();
+          newPosition = newPosition - totalCells; // Ajusta a posição para a nova fase
+      } else if (this.jogo.nivel_atual === 3) {
+          this.toastr.success('Parabéns, o jogo foi concluído!');
+          this.canRoll = false; // Impede de rodar o dado novamente
+          return;
+      }
   }
+
+  // Atualiza a posição do jogador
+  this.animateMarker(this.currentPosition, newPosition);
+  this.currentPosition = newPosition;
+}
+
+resetForNextPhase() {
+  this.currentPosition = 0; // Volta ao início da nova fase
+  this.initializeBoard(); // Reinicializa o tabuleiro para a nova fase
+  this.canRoll = true; // Permite rolar o dado na nova fase
+}
 
   animateMarker(start: number, end: number) {
     const interval = setInterval(() => {

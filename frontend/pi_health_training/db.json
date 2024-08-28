@@ -343,200 +343,245 @@
       "numero_acertos": 0,
       "numero_erros": 0,
       "data_de_criacao": "2024-08-22 19:20:47"
+    },
+    {
+      "id": "f4e6",
+      "usuario_id": "842f",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-28 13:39:01"
     }
   ],
   "questions": [
     {
       "question": "Feridas crônicas ocorrem quando, fisiologicamente, o processo de cicatrização não ocorre da forma esperada. Alguns autores indicam que toda ferida com mais de 5 dias é considerada uma lesão crônica.",
       "answer": false,
-      "category": "Feridas crônicas"
+      "category": "Feridas crônicas",
+      "id": "125f"
     },
     {
       "question": "Feridas crônicas ocorrem quando, fisiologicamente, o processo de cicatrização não ocorre da forma esperada.",
       "answer": true,
-      "category": "Feridas crônicas"
+      "category": "Feridas crônicas",
+      "id": "5359"
     },
     {
       "question": "Feridas agudas são aquelas em que a cicatrização ocorre dentro do período esperado e sem complicações.",
       "answer": true,
-      "category": "Feridas agudas"
+      "category": "Feridas agudas",
+      "id": "2f92"
     },
     {
       "question": "Feridas agudas são aquelas em que a cicatrização ocorre dentro do período esperado e sem complicações. Alguns autores indicam que toda ferida com mais de 20 dias é considerada uma lesão crônica.",
       "answer": false,
-      "category": "Feridas agudas"
+      "category": "Feridas agudas",
+      "id": "0d08"
     },
     {
       "question": "Os fatores que afetam a cicatrização são estado nutricional, infecção, idade, medicamentos, tabagismo, unidade, cisalhamento e pressão.",
       "answer": true,
-      "category": "Fatores que afetam a cicatrização"
+      "category": "Fatores que afetam a cicatrização",
+      "id": "ace2"
     },
     {
       "question": "Os fatores que afetam a cicatrização são estado nutricional, infecção, idade, medicamentos, tabagismo, unidade, cisalhamento, pressão e fica no posição em pé por muito tempo.",
       "answer": false,
-      "category": "Fatores que afetam a cicatrização"
+      "category": "Fatores que afetam a cicatrização",
+      "id": "0415"
     },
     {
       "question": "As feridas podem ser classificadas quanto ao agente causal como incisivas ou cirúrgicas e contusas, lacerantes e perfurantes.",
       "answer": true,
-      "category": "Classificação das feridas"
+      "category": "Classificação das feridas",
+      "id": "5eb5"
     },
     {
       "question": "As características clínicas, especificando a sua localização, seu tamanho, característica da pele, quantidade de exsudato, odor, tipo de tecido presente na lesão.",
       "answer": false,
-      "category": "Classificação das feridas"
+      "category": "Classificação das feridas",
+      "id": "3e92"
     },
     {
       "question": "Os itens essenciais que devem ser avaliados em uma ferida são: tipo de lesão, localização da lesão, caracterização do leito da ferida, tipo e quantidade do exsudato, tamanho, profundidade e localização, características da margem da ferida, condição da pele perilesional, presença de túneis e/ou cavidades.",
       "answer": true,
-      "category": "Itens essenciais que devem ser avaliados em uma ferida"
+      "category": "Itens essenciais que devem ser avaliados em uma ferida",
+      "id": "3695"
     },
     {
       "question": "Os itens essenciais que devem ser avaliados em uma ferida são: tipo de lesão, localização da lesão, caracterização do leito da ferida, tipo do exsudato, tamanho, profundidade e localização, características da margem da ferida.",
       "answer": false,
-      "category": "Itens essenciais que devem ser avaliados em uma ferida"
+      "category": "Itens essenciais que devem ser avaliados em uma ferida",
+      "id": "bd33"
     },
     {
       "question": "As características clínicas, especificando a sua localização, seu tamanho, característica da pele, quantidade de exsudato, odor, tipo de tecido presente na lesão, dor e os aspectos da pele peri lesão.",
       "answer": true,
-      "category": "Itens que devem ser registrados na anotação de enfermagem"
+      "category": "Itens que devem ser registrados na anotação de enfermagem",
+      "id": "9405"
     },
     {
       "question": "As feridas podem ser classificadas quanto ao grau de contaminação das feridas, podendo ser limpas, limpas-contaminadas e contaminadas.",
       "answer": false,
-      "category": "Itens que devem ser registrados na anotação de enfermagem"
+      "category": "Itens que devem ser registrados na anotação de enfermagem",
+      "id": "0637"
     },
     {
       "question": "Os tipos de exsudatos podem ser seroso, serossanguinolento, sanguinolento, purulento, amarelo, marrom ou verde.",
       "answer": true,
-      "category": "Tipo do exsudato"
+      "category": "Tipo do exsudato",
+      "id": "d265"
     },
     {
       "question": "Os tipos de exsudatos podem ser serossanguinolento, sanguinolento, purulento, amarelo, marrom ou verde.",
       "answer": false,
-      "category": "Tipo do exsudato"
+      "category": "Tipo do exsudato",
+      "id": "a85f"
     },
     {
       "question": "São condições da pele perilesional que devem ser verificadas ao redor da ferida: maceração, vermelhidão, edema, calor e rubor.",
       "answer": true,
-      "category": "Condições da pele perilesional"
+      "category": "Condições da pele perilesional",
+      "id": "7dbe"
     },
     {
       "question": "São condições da pele perilesional que devem ser verificadas ao redor da ferida: maceração, vermelhidão, edema e calor.",
       "answer": false,
-      "category": "Condições da pele perilesional"
+      "category": "Condições da pele perilesional",
+      "id": "5a6b"
     },
     {
       "question": "Para mensuração da largura da ferida, o profissional deve utilizar uma régua limpa e descartável, medir o maior comprimento cefalocaudal (ou seja, de cima para baixo) da ferida, medir a maior largura perpendicular (90° em relação ao comprimento) da ferida. Essas medidas ajudam a determinar a área total da lesão.",
       "answer": true,
-      "category": "Comprimento e largura da ferida"
+      "category": "Comprimento e largura da ferida",
+      "id": "f004"
     },
     {
       "question": "Para mensuração da largura da ferida, o profissional deve utilizar uma régua limpa e descartável, medir o maior comprimento cefalocaudal (ou seja, de baixo para cima) da ferida, medir a maior largura perpendicular (90° em relação ao comprimento) da ferida. Essas medidas ajudam a determinar a área total da lesão.",
       "answer": false,
-      "category": "Comprimento e largura da ferida"
+      "category": "Comprimento e largura da ferida",
+      "id": "80fc"
     },
     {
       "question": "Na avaliação dos pés dos pacientes, os profissionais devem verificar a pele dos pés em busca de qualquer alteração, como feridas, calosidades, bolhas ou áreas avermelhadas e fungos.",
       "answer": true,
-      "category": "Avaliação dos pés em pacientes"
+      "category": "Avaliação dos pés em pacientes",
+      "id": "9501"
     },
     {
       "question": "Na avaliação dos pés dos pacientes não é necessário que o profissional avalie as áreas de maior pressão, como calcanhares e região plantar.",
       "answer": false,
-      "category": "Avaliação dos pés em pacientes"
+      "category": "Avaliação dos pés em pacientes",
+      "id": "f034"
     },
     {
       "question": "Na avaliação dos pés dos pacientes, os profissionais devem verificar a presença de deformidades nos pés, como dedos em garra, proeminências de metatarsos ou alterações articulares.",
       "answer": true,
-      "category": "Avaliação dos pés em pacientes"
+      "category": "Avaliação dos pés em pacientes",
+      "id": "0165"
     },
     {
       "question": "Na avaliação dos pés em pacientes, os profissionais devem avaliar os pulsos pediosos e tibiais posteriores. A ausência de pulsos pode indicar doença vascular periférica.",
       "answer": true,
-      "category": "Avaliação dos pés em pacientes"
+      "category": "Avaliação dos pés em pacientes",
+      "id": "a947"
     },
     {
       "question": "Não é necessário avaliar a sensibilidade dos pés utilizando o teste de monofilamento de 20g (para sensibilidade tátil).",
       "answer": false,
-      "category": "Avaliação dos pés em pacientes"
+      "category": "Avaliação dos pés em pacientes",
+      "id": "9256"
     },
     {
       "question": "Não é necessário avaliar a sensibilidade dos pés utilizando o teste de diapasão de 140 Hz (para sensibilidade vibratória).",
       "answer": false,
-      "category": "Avaliação dos pés em pacientes"
+      "category": "Avaliação dos pés em pacientes",
+      "id": "a528"
     },
     {
       "question": "Não é necessário avaliar a sensibilidade dos pés utilizando o teste de pino ou palito (para sensibilidade dolorosa).",
       "answer": true,
-      "category": "Avaliação dos pés em pacientes"
+      "category": "Avaliação dos pés em pacientes",
+      "id": "185d"
     },
     {
       "question": "Não é necessário avaliar a sensibilidade dos pés utilizando o teste de martelo (para reflexo aquileu).",
       "answer": true,
-      "category": "Avaliação dos pés em pacientes"
+      "category": "Avaliação dos pés em pacientes",
+      "id": "6328"
     },
     {
       "question": "A mensuração da profundidade da ferida pode ser obtida introduzindo uma espátula estéril ou seringa de insulina sem agulha no ponto mais profundo da lesão. Na altura da borda da ferida mais próxima ao local onde está inserida a seringa, marca-se o ponto correspondente à altura, na espátula ou seringa.",
       "answer": true,
-      "category": "Mensuração de ferida"
+      "category": "Mensuração de ferida",
+      "id": "4c44"
     },
     {
       "question": "A mensuração da profundidade da ferida pode ser obtida introduzindo uma espátula estéril ou seringa de insulina sem agulha no ponto mais profundo da lesão. Na altura da margem da ferida mais próxima ao local onde está inserida a seringa, marca-se o ponto correspondente à altura, na espátula ou seringa.",
       "answer": false,
-      "category": "Mensuração de ferida"
+      "category": "Mensuração de ferida",
+      "id": "718e"
     },
     {
       "question": "O tecido de granulação é uma estrutura formada durante o processo de cicatrização de feridas. Ele é composto por células especializadas, como fibroblastos, macrófagos e células endoteliais, além de uma matriz extracelular rica em colágeno.",
       "answer": true,
-      "category": "Definição de tecido de granulação"
+      "category": "Definição de tecido de granulação",
+      "id": "87ae"
     },
     {
       "question": "O tecido de granulação inviável é uma estrutura formada durante o processo de cicatrização de feridas. Ele é composto por células especializadas, como fibroblastos, macrófagos e células endoteliais, além de uma matriz extracelular rica em colágeno.",
       "answer": false,
-      "category": "Definição de tecido de granulação"
+      "category": "Definição de tecido de granulação",
+      "id": "c0ce"
     },
     {
       "question": "O tecido epitelial é a camada de células que cobre a superfície da pele e a mucosa, e está envolvido na cicatrização de feridas ao promover o fechamento da lesão com uma camada de células epiteliais.",
       "answer": true,
-      "category": "Definição de tecido epitelial"
+      "category": "Definição de tecido epitelial",
+      "id": "74d5"
     },
     {
       "question": "O tecido epitelial é a camada de células que cobre a superfície da pele e a mucosa, e está envolvido na cicatrização de feridas ao promover o fechamento da lesão com uma camada de tecido fibroso.",
       "answer": false,
-      "category": "Definição de tecido epitelial"
+      "category": "Definição de tecido epitelial",
+      "id": "70bd"
     },
     {
       "question": "Para tratar feridas com necrose, a abordagem inicial pode incluir a remoção do tecido necrosado, limpeza adequada da ferida e aplicação de curativos que favoreçam a cicatrização.",
       "answer": true,
-      "category": "Tratamento de feridas com necrose"
+      "category": "Tratamento de feridas com necrose",
+      "id": "e2cd"
     },
     {
       "question": "Para tratar feridas com necrose, a abordagem inicial pode incluir o uso de medicamentos anti-inflamatórios e curativos que evitem a remoção do tecido necrosado.",
       "answer": false,
-      "category": "Tratamento de feridas com necrose"
+      "category": "Tratamento de feridas com necrose",
+      "id": "5be5"
     },
     {
       "question": "A escolha do tipo de curativo para uma ferida deve considerar a quantidade de exsudato, o estágio da cicatrização e a presença de tecido necrosado ou infectado.",
       "answer": true,
-      "category": "Escolha do curativo"
+      "category": "Escolha do curativo",
+      "id": "c996"
     },
     {
       "question": "A escolha do tipo de curativo para uma ferida deve considerar apenas a quantidade de exsudato e o estágio da cicatrização.",
       "answer": false,
-      "category": "Escolha do curativo"
+      "category": "Escolha do curativo",
+      "id": "58f2"
     },
     {
       "question": "Os curativos hidrocolóides são indicados para feridas com baixo a moderado exsudato e podem promover a cicatrização em ambiente úmido.",
       "answer": true,
-      "category": "Tipos de curativos"
+      "category": "Tipos de curativos",
+      "id": "b769"
     },
     {
       "question": "Os curativos hidrocolóides são indicados para feridas com alto exsudato e podem promover a cicatrização em ambiente seco.",
       "answer": false,
-      "category": "Tipos de curativos"
+      "category": "Tipos de curativos",
+      "id": "134a"
     }
   ]
-  
-  
 }
