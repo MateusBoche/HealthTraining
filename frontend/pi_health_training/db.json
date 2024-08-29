@@ -361,6 +361,15 @@
       "numero_acertos": 0,
       "numero_erros": 0,
       "data_de_criacao": "2024-08-29 13:22:15"
+    },
+    {
+      "id": "e3df",
+      "usuario_id": "c490",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-08-29 22:31:44"
     }
   ],
   "questions": [
@@ -465,7 +474,8 @@
       "question": "São condições da pele perilesional que devem ser verificadas ao redor da ferida: maceração, vermelhidão, edema, calor e rubor.",
       "answer": true,
       "category": "Condições da pele perilesional",
-      "id": "7dbe"
+      "id": "7dbe",
+      "phase": 1
     },
     {
       "question": "São condições da pele perilesional que devem ser verificadas ao redor da ferida: maceração, vermelhidão, edema e calor.",

@@ -22,9 +22,9 @@ export class GameComponent implements OnInit {
   colors: string[] = [];
   currentQuestion: { question: string, answer: boolean, category: string } | null = null;
   isQuestionAnswered: boolean = false;
-  questions: { question: string, answer: boolean, category: string }[] = []; 
-  rolling: boolean = false; 
-  canRoll: boolean = true; 
+  questions: { question: string, answer: boolean, category: string, id: string, phase: number }[] = [];
+  rolling: boolean = false;
+  canRoll: boolean = true;
   score: number = 0;
   numberOfCorrectAnswers: number = 0;
   numberOfErrors: number = 0;
@@ -57,7 +57,7 @@ export class GameComponent implements OnInit {
       }
     });
 
-    this.http.get<{ question: string, answer: boolean, category: string }[]>('http://localhost:3000/questions').subscribe({
+    this.http.get<{ question: string, answer: boolean, category: string, id: string, phase: number }[]>('http://localhost:3000/questions').subscribe({
       next: questions => {
         this.questions = questions;
       },
@@ -72,7 +72,7 @@ export class GameComponent implements OnInit {
     this.board = Array.from({ length: totalCells }, (_, i) => {
       const rowIndex = Math.floor(i / 5);
       const isEvenRow = rowIndex % 2 === 1;
-      const adjustedIndex = isEvenRow 
+      const adjustedIndex = isEvenRow
           ? (rowIndex + 1) * 5 - (i % 5) - 1
           : i;
 
@@ -133,18 +133,18 @@ export class GameComponent implements OnInit {
           this.canRoll = false; // Impede de rodar o dado novamente
           return;
       }
+    }
+
+    // Atualiza a posição do jogador
+    this.animateMarker(this.currentPosition, newPosition);
+    this.currentPosition = newPosition;
   }
 
-  // Atualiza a posição do jogador
-  this.animateMarker(this.currentPosition, newPosition);
-  this.currentPosition = newPosition;
-}
-
-resetForNextPhase() {
-  this.currentPosition = 0; // Volta ao início da nova fase
-  this.initializeBoard(); // Reinicializa o tabuleiro para a nova fase
-  this.canRoll = true; // Permite rolar o dado na nova fase
-}
+  resetForNextPhase() {
+    this.currentPosition = 0; // Volta ao início da nova fase
+    this.initializeBoard(); // Reinicializa o tabuleiro para a nova fase
+    this.canRoll = true; // Permite rolar o dado na nova fase
+  }
 
   animateMarker(start: number, end: number) {
     const interval = setInterval(() => {
@@ -204,10 +204,11 @@ resetForNextPhase() {
   }
 
   getRandomQuestion(): { question: string, answer: boolean, category: string } {
-    if (this.questions.length === 0) {
+    const filteredQuestions = this.questions.filter(q => q.phase === this.jogo.nivel_atual);
+    if (filteredQuestions.length === 0) {
       return { question: 'Pergunta não disponível', answer: false, category: 'Categoria não disponível' };
     }
-    return this.questions[Math.floor(Math.random() * this.questions.length)];
+    return filteredQuestions[Math.floor(Math.random() * filteredQuestions.length)];
   }
 
   answerQuestion(answer: boolean) {
