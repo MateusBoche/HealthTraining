@@ -15,7 +15,14 @@
 
                         <div class="div_detalhes_ordens">
                             <label class="titulo_detalhes_ordens">Descrição da Fase:</label>
-                            <label>Lorem ipsum dolor.</label>
+                            <label>
+                                <ng-container [ngSwitch]="jogo.nivel_atual">
+                                    <span *ngSwitchCase=1>Avaliação da ferida</span>
+                                    <span *ngSwitchCase=2>Tipo de tecido e limpeza da ferida</span>
+                                    <span *ngSwitchCase=3>Medidas preventivas e tratamento de lesões</span>
+                                    <span *ngSwitchDefault>Descrição não disponível</span>
+                                </ng-container>
+                            </label>
                         </div>
 
                         <div class="div_detalhes_ordens">
