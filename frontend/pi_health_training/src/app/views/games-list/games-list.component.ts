@@ -4,17 +4,19 @@ import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../../models/user';
 import { firstValueFrom } from 'rxjs';
+import { CommonModule } from '@angular/common';  // Importar CommonModule
+import { RouterModule } from '@angular/router';  // Importar RouterModule
 
 @Component({
   selector: 'app-games-list',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterModule],  // Adicionar RouterModule aqui
   templateUrl: './games-list.component.html',
-  styleUrl: './games-list.component.css'
+  styleUrls: ['./games-list.component.css']
 })
 export class GamesListComponent implements OnInit {
 
-  jogos!: Game[]
+  jogos!: Game[];
   usuario!: User;
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
@@ -33,7 +35,6 @@ export class GamesListComponent implements OnInit {
         this.toastr.error('Erro ao carregar os jogos');
       }
     });
-  
   }
 
   async buscar_dados_usuario() {
@@ -43,6 +44,9 @@ export class GamesListComponent implements OnInit {
     const resposta = await firstValueFrom(this.http.get<User[]>(`http://localhost:3000/user?email=${email}&senha=${senha}`))
     this.usuario = resposta[0];
   }
-
-
+  async atualizarJogos() {
+    await this.buscar_dados_usuario();  // Recarregar dados do usuário
+    this.carregar_jogos();  // Recarregar a lista de jogos
+  }
+  
 }

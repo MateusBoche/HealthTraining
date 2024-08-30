@@ -4,9 +4,8 @@
         <div class="div_topo_ordens">
             <h2>Últimos jogos</h2>
             <div class="orders-container">
-                @for (jogo of jogos; track $index){
-                <div class="order-container">
-                    <a href="/jogo/{{jogo.id}}" class="id_ordem">Jogo: {{jogo.id}}</a>
+                <div *ngFor="let jogo of jogos; let i = index" class="order-container">
+                    <a [routerLink]="['/game', jogo.id]" class="id_ordem">Jogo: {{jogo.id}}</a>
 
                     <div class="order-details">
                         <div class="div_detalhes_ordens">
@@ -32,17 +31,15 @@
                         <h5 class="data_ordem">{{jogo.data_de_criacao}}</h5>
 
                         <div>
-                            <div class="status status-{{jogo.status.toLocaleLowerCase()}}">{{jogo.status}}</div>
+                            <div [ngClass]="'status status-' + jogo.status.toLocaleLowerCase()">{{jogo.status}}</div>
                         </div>
 
                     </div>
                 </div>
-                }
-                @if (jogos.length == 0){
-                <div class="order-container alinhar_ao_centro">
+
+                <div *ngIf="jogos.length === 0" class="order-container alinhar_ao_centro">
                     <label>Você ainda não criou nenhum jogo.</label>
                 </div>
-                }
             </div>
         </div>
 
@@ -52,5 +49,4 @@
             <button id="pagina_posterior">►</button>
         </div>
     </div>
-
 </div>

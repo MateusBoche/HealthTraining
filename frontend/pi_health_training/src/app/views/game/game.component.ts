@@ -29,17 +29,13 @@ export class GameComponent implements OnInit {
   numberOfCorrectAnswers: number = 0;
   numberOfErrors: number = 0;
 
-  trapCells: { index: number, penalty: number }[] = [
-    { index: 5, penalty: 2 },
-    { index: 14, penalty: 3 },
-  ];
-
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.carregar_jogo();
     this.initializeBoard();
     this.generateRandomColors();
+    this.loadGame(); // Carrega o estado salvo do jogo
   }
 
   carregar_jogo() {
@@ -117,33 +113,31 @@ export class GameComponent implements OnInit {
     let newPosition = this.currentPosition + roll;
 
     if (newPosition >= totalCells) {
-      // Caso ultrapasse, reinicia a contagem para a próxima fase
       if (this.jogo.nivel_atual === 1) {
           this.toastr.success('Parabéns, a Fase 1 foi concluída!');
           this.jogo.nivel_atual = 2;
           this.resetForNextPhase();
-          newPosition = newPosition - totalCells; // Ajusta a posição para a nova fase
+          newPosition = newPosition - totalCells;
       } else if (this.jogo.nivel_atual === 2) {
           this.toastr.success('Parabéns, a Fase 2 foi concluída!');
           this.jogo.nivel_atual = 3;
           this.resetForNextPhase();
-          newPosition = newPosition - totalCells; // Ajusta a posição para a nova fase
+          newPosition = newPosition - totalCells;
       } else if (this.jogo.nivel_atual === 3) {
           this.toastr.success('Parabéns, o jogo foi concluído!');
-          this.canRoll = false; // Impede de rodar o dado novamente
+          this.canRoll = false;
           return;
       }
     }
 
-    // Atualiza a posição do jogador
     this.animateMarker(this.currentPosition, newPosition);
     this.currentPosition = newPosition;
   }
 
   resetForNextPhase() {
-    this.currentPosition = 0; // Volta ao início da nova fase
-    this.initializeBoard(); // Reinicializa o tabuleiro para a nova fase
-    this.canRoll = true; // Permite rolar o dado na nova fase
+    this.currentPosition = 0;
+    this.initializeBoard();
+    this.canRoll = true;
   }
 
   animateMarker(start: number, end: number) {
@@ -225,7 +219,52 @@ export class GameComponent implements OnInit {
       }
       this.isQuestionAnswered = true;
       this.currentQuestion = null;
+  
+      this.canRoll = true;
+  
+      this.saveGameState();  // Salvar o estado do jogo após responder a uma pergunta
+    }
+  }
+  
 
+
+  saveGameState() {
+    if (!this.jogo) return;
+    this.http.put(`http://localhost:3000/game/${this.jogo.id}`, {
+      nivel_atual: this.jogo.nivel_atual,
+      numero_acertos: this.numberOfCorrectAnswers,
+      numero_erros: this.numberOfErrors,
+      data_de_criacao: this.jogo.data_de_criacao,
+      status: this.jogo.status
+    }).subscribe({
+      next: () => {
+        this.toastr.success('Estado do jogo salvo com sucesso');
+      },
+      error: () => {
+        this.toastr.error('Erro ao salvar o estado do jogo');
+      }
+    });
+  }
+  
+  
+  
+
+  loadGame() {
+    const savedState = localStorage.getItem(`gameState_${this.jogo.id}`);
+    if (savedState) {
+      const gameState = JSON.parse(savedState);
+
+      this.currentPosition = gameState.currentPosition;
+      this.score = gameState.score;
+      this.numberOfCorrectAnswers = gameState.numberOfCorrectAnswers;
+      this.numberOfErrors = gameState.numberOfErrors;
+      this.diceValue = gameState.diceValue;
+      this.currentQuestion = gameState.currentQuestion;
+      this.isQuestionAnswered = gameState.isQuestionAnswered;
+      this.jogo.nivel_atual = gameState.nivel_atual;
+
+      const newPosition = this.getPosition(this.currentPosition);
+      this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
       this.canRoll = true;
     }
   }
