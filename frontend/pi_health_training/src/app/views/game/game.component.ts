@@ -113,62 +113,55 @@ export class GameComponent implements OnInit {
     let newPosition = this.currentPosition + roll;
 
     if (newPosition >= totalCells) {
-      if (this.jogo.nivel_atual === 1) {
-          this.toastr.success('Parabéns, a Fase 1 foi concluída!');
-          this.jogo.nivel_atual = 2;
-          this.resetForNextPhase();
-          newPosition = newPosition - totalCells;
-      } else if (this.jogo.nivel_atual === 2) {
-          this.toastr.success('Parabéns, a Fase 2 foi concluída!');
-          this.jogo.nivel_atual = 3;
-          this.resetForNextPhase();
-          newPosition = newPosition - totalCells;
-      } else if (this.jogo.nivel_atual === 3) {
-          this.toastr.success('Parabéns, o jogo foi concluído!');
-          this.canRoll = false;
-          return;
-      }
+        if (this.jogo.nivel_atual === 1) {
+            this.toastr.success('Parabéns, a Fase 1 foi concluída!');
+            this.jogo.nivel_atual = 2;
+            this.resetForNextPhase(); // Reinicia a fase sem animação adicional
+        } else if (this.jogo.nivel_atual === 2) {
+            this.toastr.success('Parabéns, a Fase 2 foi concluída!');
+            this.jogo.nivel_atual = 3;
+            this.resetForNextPhase();
+        } else if (this.jogo.nivel_atual === 3) {
+            this.toastr.success('Parabéns, o jogo foi concluído!');
+            this.canRoll = false;
+            return;
+        }
+    } else {
+        this.animateMarker(this.currentPosition, newPosition);
+        this.currentPosition = newPosition;
     }
+}
 
-    this.animateMarker(this.currentPosition, newPosition);
-    this.currentPosition = newPosition;
-  }
-
-  resetForNextPhase() {
-    this.currentPosition = 0;
+resetForNextPhase() {
+    this.currentPosition = 0; // Define a posição do personagem para a casa inicial
+    const newPosition = this.getPosition(0);
+    this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`; // Atualiza a posição do marcador
     this.initializeBoard();
     this.canRoll = true;
-  }
+}
 
-  animateMarker(start: number, end: number) {
+animateMarker(start: number, end: number) {
+    if (start === end) {
+        return; // Garante que não haverá loop se já estiver na posição final
+    }
+
     const interval = setInterval(() => {
-      if (start === end) {
-        clearInterval(interval);
-        return;
-      }
+        if (start === end) {
+            clearInterval(interval);
+            return;
+        }
 
-      const currentRow = Math.floor(start / 5);
-      const newRow = Math.floor((start + 1) / 5);
-
-      if (currentRow !== newRow) {
         start++;
         this.currentPosition = start;
         const newPosition = this.getPosition(start);
         this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
-      } else {
-        start++;
-        this.currentPosition = start;
-        const newPosition = this.getPosition(start);
-        this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
-      }
 
-      setTimeout(() => {
-        this.currentPosition = start;
-        const newPosition = this.getPosition(start);
-        this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;
-      }, 100);
-    }, 300);
-  }
+        if (start === end) {
+            clearInterval(interval);
+        }
+    }, 300); // Ajuste o tempo do intervalo conforme necessário
+}
+
 
   getPosition(index: number) {
     const row = Math.floor(index / 5);
