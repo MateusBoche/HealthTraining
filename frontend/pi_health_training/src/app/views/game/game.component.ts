@@ -35,7 +35,7 @@ export class GameComponent implements OnInit {
     this.carregar_jogo();
     this.initializeBoard();
     this.generateRandomColors();
-    this.loadGame(); // Carrega o estado salvo do jogo
+    this.loadGame(); 
   }
 
   carregar_jogo() {
@@ -46,22 +46,28 @@ export class GameComponent implements OnInit {
         this.jogo = value;
         if (!this.jogo) {
           this.toastr.error('Dados do jogo não encontrados');
+        } else {
+          const dataCriacaoUtc = new Date(this.jogo.data_de_criacao);
+          dataCriacaoUtc.setHours(dataCriacaoUtc.getHours() - 3);
+          const day = String(dataCriacaoUtc.getDate()).padStart(2, '0');
+          const month = String(dataCriacaoUtc.getMonth() + 1).padStart(2, '0'); 
+          const year = dataCriacaoUtc.getFullYear();
+          const hours = String(dataCriacaoUtc.getHours()).padStart(2, '0');
+          const minutes = String(dataCriacaoUtc.getMinutes()).padStart(2, '0');
+          const seconds = String(dataCriacaoUtc.getSeconds()).padStart(2, '0');
+          this.jogo.data_de_criacao = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
         }
       },
       error: error => {
         this.toastr.error('Erro ao carregar o jogo');
       }
     });
+}
 
-    this.http.get<{ question: string, answer: boolean, category: string, id: string, phase: number }[]>('http://localhost:3000/questions').subscribe({
-      next: questions => {
-        this.questions = questions;
-      },
-      error: error => {
-        this.toastr.error('Erro ao carregar as perguntas');
-      }
-    });
-  }
+
+
+
+
 
   initializeBoard() {
     const totalCells = 30;
