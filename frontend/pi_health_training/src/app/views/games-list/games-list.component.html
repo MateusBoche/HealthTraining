@@ -17,9 +17,9 @@
                             <label class="titulo_detalhes_ordens">Descrição da Fase:</label>
                             <label>
                                 <ng-container [ngSwitch]="jogo.nivel_atual">
-                                    <span *ngSwitchCase=1>Avaliação da ferida</span>
-                                    <span *ngSwitchCase=2>Tipo de tecido e limpeza da ferida</span>
-                                    <span *ngSwitchCase=3>Medidas preventivas e tratamento de lesões</span>
+                                    <span *ngSwitchCase="1">Avaliação da ferida</span>
+                                    <span *ngSwitchCase="2">Tipo de tecido e limpeza da ferida</span>
+                                    <span *ngSwitchCase="3">Medidas preventivas e tratamento de lesões</span>
                                     <span *ngSwitchDefault>Descrição não disponível</span>
                                 </ng-container>
                             </label>
@@ -41,6 +41,8 @@
                             <div [ngClass]="'status status-' + jogo.status.toLocaleLowerCase()">{{jogo.status}}</div>
                         </div>
 
+                        <!-- Botão de excluir para cada jogo -->
+                        <button (click)="deleteGame(jogo.id!)">Excluir</button>
                     </div>
                 </div>
 

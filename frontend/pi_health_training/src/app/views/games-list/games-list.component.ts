@@ -48,5 +48,14 @@ export class GamesListComponent implements OnInit {
     await this.buscar_dados_usuario();  // Recarregar dados do usuário
     this.carregar_jogos();  // Recarregar a lista de jogos
   }
+
+  deleteGame(gameId: string | undefined): void {
+    if (!gameId) return; // Verifica se gameId é undefined e retorna para evitar erros
+  
+    // Filtra a lista de jogos para remover o jogo com o ID fornecido
+    this.jogos = this.jogos.filter(game => game.id !== gameId);
+  }
   
 }
+  
+

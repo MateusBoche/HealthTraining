@@ -131,6 +131,40 @@
       "data_de_criacao": "31/08/2024 19:18:09",
       "status": "Pendente",
       "id": "d0d9"
+    },
+    {
+      "nivel_atual": 2,
+      "numero_acertos": 9,
+      "numero_erros": 1,
+      "data_de_criacao": "02/09/2024 13:52:54",
+      "status": "Pendente",
+      "id": "3919"
+    },
+    {
+      "id": "5c51",
+      "usuario_id": "c490",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-09-02 17:09:24"
+    },
+    {
+      "id": "d2bc",
+      "usuario_id": "c490",
+      "status": "Pendente",
+      "nivel_atual": 1,
+      "numero_acertos": 0,
+      "numero_erros": 0,
+      "data_de_criacao": "2024-09-02 17:10:03"
+    },
+    {
+      "nivel_atual": 2,
+      "numero_acertos": 10,
+      "numero_erros": 2,
+      "data_de_criacao": "02/09/2024 14:16:04",
+      "status": "Pendente",
+      "id": "e60e"
     }
   ],
   "questions": [
