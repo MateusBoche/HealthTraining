@@ -1,4 +1,4 @@
-drop database if exists health_traning;
+rop database if exists health_traning;
 create database health_traning;
 \c health_traning
 
@@ -7,41 +7,44 @@ begin;
 
 
 --relacao pessoa
-create table pessoa(
+create table usuario(
   id serial primary key,
   nome character varying(200) not null,
   email character varying(200) not null,
   senha character varying(200) not null,
   status_pessoa character varying(200) not null,
   datahora_criacao timestamp without time zone not null,
-  preferencia json,
-  tipo_usuario boolean not null,
   numero_de_jogos integer,
-  tipo_administrador boolean not null,
   telefone_contato numeric(12),
-  permissao character varying(200),
   unique(email)
 );
 
---relacao registro de auditoria
-create table registro_de_auditoria(
-  id serial primary key,
-  tabela_modificada character varying(100) not null,
-  data_modificada timestamp without time zone not null,
-  pessoa_id integer not null references pessoa(id) on update cascade,
-  unique(pessoa_id,data_modificada)
-  
 
-);
 
 --relacao jogo
 create table jogo(
   id serial primary key,
   data_criacao timestamp without time zone not null,
-  status_jogo json ,
-  pessoa_id integer not null references pessoa(id) on update cascade,
-  unique(pessoa_id)
+  dado character varying(200) not null,
+  casa character varying(200) not null,
+  status_jogo character varying(200),
+  usuario_id integer not null references usuario(id) on update cascade,
+  unique(usuario_id)
 );
+
+--relacao joga
+create table joga(
+    id serial primary key,
+    horario_fim timestamp without time zone not null default now(),
+    horario_inicio timestamp without time zone not null default now(),
+    data_inicio date,
+    data_fim date,
+    usuario_id integer not null references usuario(id) on update cascade,
+    jogo_id integer not null references jogo(id) on update cascade,
+    unique(usuario_id, jogo_id)
+);
+
+
 
 --relacao fase
 create table fase(
