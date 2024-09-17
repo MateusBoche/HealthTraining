@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="14.30" multi-file="no" uid="simpddf934d3600f4fe8bd9f9981553908b6" creation-date="08/30/2024 23:31:59">
+  <meta>
+    <name>HealthTrainingDiagramaDeImplantacao</name>
+    <authors>Dilton Thales</authors>
+    <description />
+  </meta>
+  <counters models="1">
+    <entity-names>
+      <counter>
+        <item-type type-id="node" type="Node" />
+        <value>5</value>
+      </counter>
+      <counter>
+        <item-type type-id="artifact" type="Artifact" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type stereotype="component" type-id="component" type="Component" />
+        <value>9</value>
+      </counter>
+    </entity-names>
+    <entity-ids>
+      <counter>
+        <item-type type-id="node" type="Node" />
+        <value>6</value>
+      </counter>
+      <counter>
+        <item-type type-id="artifact" type="Artifact" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="component" type="Component" />
+        <value>10</value>
+      </counter>
+      <counter>
+        <item-type type-id="relationship" type="Association" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="property" type="Property" />
+        <value>5</value>
+      </counter>
+      <counter>
+        <item-type type-id="generalization" type="Generalization" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="dependency" type="Dependency" />
+        <value>3</value>
+      </counter>
+    </entity-ids>
+    <diagrams>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlDeploymentDiagram</type>
+        <value>1</value>
+      </counter>
+    </diagrams>
+    <fields />
+  </counters>
+  <alias-groups />
+  <management uid="md-1cc87121ee184ff8bd58e3d21a4c60af" name="" task-id-sequence="0">
+    <working-schedule uid="ws-6ebd6674bef942cd8b022847d9fa3864" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+    <persons>
+      <person id="">
+        <first-name>Dilton</first-name>
+        <last-name>Thales</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-371388e44a194a3a8519c52fe2b033f9" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Dilton</first-name>
+        <last-name>Thales</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <teams />
+    <sprints />
+    <projects />
+    <modules />
+    <tasks />
+    <to-dos />
+  </management>
+  <glossary id="glsr-626a28c1bfc649f09e08ad56056aef82" name="" order-index="-1" />
+  <types default="UML">
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types>
+      <parameters />
+      <types>
+        <type id="Class:dc0296e6372e44418c6aa18f8d300123" name="Node.js" class-ref="dc0296e6372e44418c6aa18f8d300123" />
+        <type id="Class:9b6fe224714f4529a41a7b96fde05715" name="HTML/CSS" class-ref="9b6fe224714f4529a41a7b96fde05715" />
+      </types>
+    </custom-types>
+  </types>
+  <items />
+  <models>
+    <model id="pcf6118b4a5fc45a0b6c23db5df046427_716087075" name="Model1" namespace="" order-index="1">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>08/30/2024 23:32:17</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="uml-deployment" id="p6e4e8e67f9b1495ea3af16b31b4dbc5f_547202121" name="DeploymentDiagram1" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="0,80" zoom="0.8">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>08/30/2024 23:32:17</creation-date>
+          <change-date>08/30/2024 23:43:57</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="1bcfb43e06a047c69d68f1149f720fb6" cid="CPT008" type="component" name="Component8" creator="" creation-date="08/30/2024 23:40:54" visibility="undefined">
+            <stereotypes>
+              <stereotype name="component" />
+            </stereotypes>
+            <stereotype-instances>
+              <stereotype id="1bcfb43e06a047c69d68f1149f720fb6_component_c" type="component" creation-date="08/30/2024 23:40:54" ref="" />
+            </stereotype-instances>
+            <component />
+          </item>
+          <item id="dc0296e6372e44418c6aa18f8d300123" cid="CPT003" type="component" name="Node.js" owner="250fa62a7b804d0e85027e1ab4877f79" creator="" creation-date="08/30/2024 23:35:33" visibility="undefined">
+            <stereotypes>
+              <stereotype name="component" />
+            </stereotypes>
+            <stereotype-instances>
+              <stereotype id="dc0296e6372e44418c6aa18f8d300123_component_c" type="component" creation-date="08/30/2024 23:35:33" ref="" />
+            </stereotype-instances>
+            <component />
+          </item>
+          <item id="d8fe4698cd4c4f9eb0b6a2f7908aab16" cid="DEP002" type="dependency" name="SQL" creator="" creation-date="08/30/2024 23:43:49" from="dc0296e6372e44418c6aa18f8d300123" to="62cb986f4439407ab46752a6ef65432b" visibility="package" />
+          <item id="e953ef1a0d9c4fa598298b1e5a93bb04" cid="CPT007" type="component" name="Angular" creator="" creation-date="08/30/2024 23:40:29" visibility="undefined">
+            <stereotypes>
+              <stereotype name="component" />
+            </stereotypes>
+            <stereotype-instances>
+              <stereotype id="e953ef1a0d9c4fa598298b1e5a93bb04_component_c" type="component" creation-date="08/30/2024 23:40:29" ref="" />
+            </stereotype-instances>
+            <component />
+          </item>
+          <item id="7cf802ebf79a4871a9acf7a7a5b0a638" cid="CPT009" type="component" name="node.js" creator="" creation-date="08/30/2024 23:41:30" visibility="undefined">
+            <stereotypes>
+              <stereotype name="component" />
+            </stereotypes>
+            <stereotype-instances>
+              <stereotype id="7cf802ebf79a4871a9acf7a7a5b0a638_component_c" type="component" creation-date="08/30/2024 23:41:30" ref="" />
+            </stereotype-instances>
+            <component />
+          </item>
+          <item id="4af00b9a576743e391ac61e2719ee4cd" cid="CPT004" type="component" name="ngx-toastr" owner="250fa62a7b804d0e85027e1ab4877f79" creator="" creation-date="08/30/2024 23:35:52" visibility="undefined">
+            <stereotypes>
+              <stereotype name="component" />
+            </stereotypes>
+            <stereotype-instances>
+              <stereotype id="4af00b9a576743e391ac61e2719ee4cd_component_c" type="component" creation-date="08/30/2024 23:35:52" ref="" />
+            </stereotype-instances>
+            <component />
+          </item>
+          <item id="0071d57791bd43b39b611327bde7abff" cid="CPT006" type="component" name="postgreSQL" owner="62cb986f4439407ab46752a6ef65432b" creator="" creation-date="08/30/2024 23:39:03" visibility="undefined">
+            <stereotypes>
+              <stereotype name="component" />
+            </stereotypes>
+            <stereotype-instances>
+              <stereotype id="0071d57791bd43b39b611327bde7abff_component_c" type="component" creation-date="08/30/2024 23:39:03" ref="" />
+            </stereotype-instances>
+            <component />
+          </item>
+          <item id="3d220b9fd65848e7af2bcc0c758cf85f" cid="CPT001" type="component" name="Angular" owner="d40a800f85db4752ab6f206357d5a64a" creator="" creation-date="08/30/2024 23:34:34" visibility="undefined">
+            <stereotypes>
+              <stereotype name="component" />
+            </stereotypes>
+            <stereotype-instances>
+              <stereotype id="3d220b9fd65848e7af2bcc0c758cf85f_component_c" type="component" creation-date="08/30/2024 23:34:34" ref="" />
+            </stereotype-instances>
+            <component />
+          </item>
+          <item id="9bf5140df7794c78be91ee783d45e132" cid="DEP001" type="dependency" name="HTTP" creator="" creation-date="08/30/2024 23:43:04" from="9b6fe224714f4529a41a7b96fde05715" to="dc0296e6372e44418c6aa18f8d300123" visibility="package" />
+          <item id="1b7c258a7c874d5c92c8a7c103af4e1f" cid="CPT005" type="component" name="Deployado" owner="62cb986f4439407ab46752a6ef65432b" creator="" creation-date="08/30/2024 23:38:40" visibility="undefined">
+            <stereotypes>
+              <stereotype name="component" />
+            </stereotypes>
+            <stereotype-instances>
+              <stereotype id="1b7c258a7c874d5c92c8a7c103af4e1f_component_c" type="component" creation-date="08/30/2024 23:38:40" ref="" />
+            </stereotype-instances>
+            <component />
+          </item>
+          <item id="9b6fe224714f4529a41a7b96fde05715" cid="CPT002" type="component" name="HTML/CSS" owner="d40a800f85db4752ab6f206357d5a64a" creator="" creation-date="08/30/2024 23:34:50" visibility="undefined">
+            <stereotypes>
+              <stereotype name="component" />
+            </stereotypes>
+            <stereotype-instances>
+              <stereotype id="9b6fe224714f4529a41a7b96fde05715_component_c" type="component" creation-date="08/30/2024 23:34:50" ref="" />
+            </stereotype-instances>
+            <component />
+          </item>
+          <item id="62cb986f4439407ab46752a6ef65432b" cid="NOD003" type="node" name="Banco de dodos" creator="" creation-date="08/30/2024 23:38:14" visibility="undefined">
+            <owned-items />
+          </item>
+          <item id="d40a800f85db4752ab6f206357d5a64a" cid="NOD001" type="node" name="Navegador Web (Cliente)" creator="" creation-date="08/30/2024 23:33:40" visibility="undefined">
+            <owned-items />
+          </item>
+          <item id="250fa62a7b804d0e85027e1ab4877f79" cid="NOD002" type="node" name="Servidor de Aplicaçao" creator="" creation-date="08/30/2024 23:35:14" visibility="undefined">
+            <owned-items />
+          </item>
+        </abstract-items>
+        <layer id="39b9e5e5f74e46aebb001e1064c02432" name="Default" visible="true" enabled="true" locked="false">
+          <item id="d40a800f85db4752ab6f206357d5a64a" iid="f10ce28e040c450d81c31dcea2ad0f0e" creation-date="08/30/2024 23:33:40" order-index="0" type="entity">
+            <layout ax="164" ay="85" awidth="362" aheight="291" x="164" y="85" width="362" height="291" expanded="164,85,362,291" collapsed="0,0,0,0" />
+          </item>
+          <item id="3d220b9fd65848e7af2bcc0c758cf85f" iid="2216e7fb4e9c4a03a31a56baa71b1f21" container="d40a800f85db4752ab6f206357d5a64a" container-iid="f10ce28e040c450d81c31dcea2ad0f0e" show-fields="false" creation-date="08/30/2024 23:34:34" order-index="1" type="entity">
+            <layout ax="178" ay="156.5" awidth="140" aheight="160" x="178" y="156.5" width="140" height="160" expanded="178,156.5,140,160" collapsed="0,0,0,0" />
+          </item>
+          <item id="9b6fe224714f4529a41a7b96fde05715" iid="bf514d8746fd4885a234ef95f201ebf4" container="d40a800f85db4752ab6f206357d5a64a" container-iid="f10ce28e040c450d81c31dcea2ad0f0e" show-fields="false" creation-date="08/30/2024 23:34:50" order-index="2" type="entity">
+            <layout ax="346" ay="156.5" awidth="140" aheight="160" x="346" y="156.5" width="140" height="160" expanded="346,156.5,140,160" collapsed="0,0,0,0" />
+          </item>
+          <item id="250fa62a7b804d0e85027e1ab4877f79" iid="92d2c32828534ac38ddbc2deb9207768" creation-date="08/30/2024 23:35:14" order-index="3" type="entity">
+            <layout ax="699" ay="85" awidth="344" aheight="261" x="699" y="85" width="344" height="261" expanded="699,85,344,261" collapsed="0,0,0,0" />
+          </item>
+          <item id="dc0296e6372e44418c6aa18f8d300123" iid="4c5dd4aec1884709bb715bc40bd3b84e" container="250fa62a7b804d0e85027e1ab4877f79" container-iid="92d2c32828534ac38ddbc2deb9207768" show-fields="false" creation-date="08/30/2024 23:35:33" order-index="4" type="entity">
+            <layout ax="714" ay="156.5" awidth="140" aheight="160" x="634" y="156.5" width="140" height="160" expanded="712,171.5,140,160" collapsed="0,0,0,0" />
+          </item>
+          <item id="4af00b9a576743e391ac61e2719ee4cd" iid="a27ea941be5943d89f569ab5da77c145" container="250fa62a7b804d0e85027e1ab4877f79" container-iid="92d2c32828534ac38ddbc2deb9207768" show-fields="false" creation-date="08/30/2024 23:35:52" order-index="5" type="entity">
+            <layout ax="882" ay="156.5" awidth="140" aheight="160" x="802" y="156.5" width="140" height="160" expanded="880,171.5,140,160" collapsed="0,0,0,0" />
+          </item>
+          <item id="62cb986f4439407ab46752a6ef65432b" iid="c56dc78195734a8a976534ff513a1bb2" creation-date="08/30/2024 23:38:14" order-index="6" type="entity">
+            <layout ax="176" ay="457" awidth="338" aheight="291" x="176" y="457" width="338" height="291" expanded="176,457,338,291" collapsed="0,0,0,0" />
+          </item>
+          <item id="0071d57791bd43b39b611327bde7abff" iid="b9144db0ae1e4ddab0e75a3f82370c08" container="62cb986f4439407ab46752a6ef65432b" container-iid="c56dc78195734a8a976534ff513a1bb2" show-fields="false" creation-date="08/30/2024 23:39:03" order-index="8" type="entity">
+            <layout ax="221.5" ay="543.5" awidth="109" aheight="118" x="193.5" y="549.5" width="109" height="118" expanded="193.5,549.5,109,118" collapsed="0,0,0,0" />
+          </item>
+          <item id="9bf5140df7794c78be91ee783d45e132" iid="314dc6dd9ad4403d96cc091ecaec1fda" creation-date="08/30/2024 23:43:04" order-index="11" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="486" y1="236" x2="714" y2="236" start-border-pos="0.37421875" end-border-pos="0.87578125" name-position="0,20">
+              <points>
+                <point x="486" y="236" />
+                <point x="714" y="236" />
+              </points>
+            </layout>
+            <relation from="9b6fe224714f4529a41a7b96fde05715" from-iid="bf514d8746fd4885a234ef95f201ebf4" to="dc0296e6372e44418c6aa18f8d300123" to-iid="4c5dd4aec1884709bb715bc40bd3b84e" />
+          </item>
+          <item id="d8fe4698cd4c4f9eb0b6a2f7908aab16" iid="a8936a1adbb54c2c83b6d7a77b983ee5" creation-date="08/30/2024 23:43:49" order-index="12" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="714" y1="294" x2="514" y2="461" start-border-pos="0.7845938682556153" end-border-pos="0.25352449187708065" name-position="0,20">
+              <points>
+                <point x="714" y="294" />
+                <point x="514" y="461" />
+              </points>
+            </layout>
+            <relation from="dc0296e6372e44418c6aa18f8d300123" from-iid="4c5dd4aec1884709bb715bc40bd3b84e" to="62cb986f4439407ab46752a6ef65432b" to-iid="c56dc78195734a8a976534ff513a1bb2" />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+</sim-project>
