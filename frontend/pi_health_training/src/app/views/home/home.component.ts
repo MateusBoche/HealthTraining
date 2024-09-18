@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Game } from '../../models/game';
+import { Game } from '../../domain/model/game';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
-import { User } from '../../models/user';
+import { User } from '../../domain/model/user';
 import { Router } from '@angular/router';
 
 @Component({
@@ -27,12 +27,12 @@ export class HomeComponent implements OnInit {
     console.log(this.usuario);
 
     this.jogo = {
-      usuario_id: this.usuario.id,
+      usuarioID: this.usuario.id,
       status: "Pendente",
-      nivel_atual: 1,
-      numero_acertos: 0,
-      numero_erros: 0,
-      data_de_criacao: new Date().toISOString().replace('T', ' ').replace('Z', '').split('.')[0]
+      nivelAtual: 1,
+      numeroAcertos: 0,
+      numeroErros: 0,
+      dataDeCriacao: new Date().toISOString().replace('T', ' ').replace('Z', '').split('.')[0]
     }
 
     this.http.post<Game>('http://localhost:3000/game', this.jogo).subscribe({

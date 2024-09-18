@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Game } from '../../models/game';
+import { Game } from '../../domain/model/game';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
@@ -47,7 +47,7 @@ export class GameComponent implements OnInit {
         if (!this.jogo) {
           this.toastr.error('Dados do jogo não encontrados');
         } else {
-          const dataCriacaoUtc = new Date(this.jogo.data_de_criacao);
+          const dataCriacaoUtc = new Date(this.jogo.dataDeCriacao);
 
           // Verifica se a data é válida
           if (isNaN(dataCriacaoUtc.getTime())) {
@@ -62,7 +62,7 @@ export class GameComponent implements OnInit {
             const minutes = String(dataCriacaoUtc.getMinutes()).padStart(2, '0');
             const seconds = String(dataCriacaoUtc.getSeconds()).padStart(2, '0');
 
-            this.jogo.data_de_criacao = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+            this.jogo.dataDeCriacao = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
           }
         }
       },
@@ -104,7 +104,7 @@ export class GameComponent implements OnInit {
   rollDice() {
     if (!this.canRoll) return;
 
-    if (this.jogo.nivel_atual === 3 && this.currentPosition >= this.board.length - 1) {
+    if (this.jogo.nivelAtual === 3 && this.currentPosition >= this.board.length - 1) {
         this.toastr.info('Jogo encerrado. Obrigado por jogar!');
         return;
     }
@@ -136,15 +136,15 @@ export class GameComponent implements OnInit {
     let newPosition = this.currentPosition + roll;
 
     if (newPosition >= totalCells) {
-        if (this.jogo.nivel_atual === 1) {
+        if (this.jogo.nivelAtual === 1) {
             this.toastr.success('Parabéns, a Fase 1 foi concluída!');
-            this.jogo.nivel_atual = 2;
+            this.jogo.nivelAtual = 2;
             this.resetForNextPhase(); // Reinicia a fase sem animação adicional
-        } else if (this.jogo.nivel_atual === 2) {
+        } else if (this.jogo.nivelAtual === 2) {
             this.toastr.success('Parabéns, a Fase 2 foi concluída!');
-            this.jogo.nivel_atual = 3;
+            this.jogo.nivelAtual = 3;
             this.resetForNextPhase();
-        } else if (this.jogo.nivel_atual === 3) {
+        } else if (this.jogo.nivelAtual === 3) {
             this.toastr.success('Parabéns, o jogo foi concluído!');
             this.canRoll = false;
             return;
@@ -214,7 +214,7 @@ animateMarker(start: number, end: number) {
   }
 
   getRandomQuestion(): { question: string, answer: boolean, category: string } {
-    const filteredQuestions = this.questions.filter(q => q.phase === this.jogo.nivel_atual);
+    const filteredQuestions = this.questions.filter(q => q.phase === this.jogo.nivelAtual);
     if (filteredQuestions.length === 0) {
       return { question: 'Pergunta não disponível', answer: false, category: 'Categoria não disponível' };
     }
@@ -247,10 +247,10 @@ animateMarker(start: number, end: number) {
   saveGameState() {
     if (!this.jogo) return;
     this.http.put(`http://localhost:3000/game/${this.jogo.id}`, {
-      nivel_atual: this.jogo.nivel_atual,
-      numero_acertos: this.numberOfCorrectAnswers,
-      numero_erros: this.numberOfErrors,
-      data_de_criacao: this.jogo.data_de_criacao,
+      nivelAtual: this.jogo.nivelAtual,
+      numeroAcertos: this.numberOfCorrectAnswers,
+      numeroErros: this.numberOfErrors,
+      dataDeCriacao: this.jogo.dataDeCriacao,
       status: this.jogo.status
     }).subscribe({
       next: () => {
@@ -277,7 +277,7 @@ animateMarker(start: number, end: number) {
       this.diceValue = gameState.diceValue;
       this.currentQuestion = gameState.currentQuestion;
       this.isQuestionAnswered = gameState.isQuestionAnswered;
-      this.jogo.nivel_atual = gameState.nivel_atual;
+      this.jogo.nivelAtual = gameState.nivelAtual;
 
       const newPosition = this.getPosition(this.currentPosition);
       this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`;

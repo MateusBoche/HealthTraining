@@ -10,13 +10,13 @@
                     <div class="order-details">
                         <div class="div_detalhes_ordens">
                             <label class="titulo_detalhes_ordens">Fase atual:</label>
-                            <label>{{jogo.nivel_atual}}</label>
+                            <label>{{jogo.nivelAtual}}</label>
                         </div>
 
                         <div class="div_detalhes_ordens">
                             <label class="titulo_detalhes_ordens">Descrição da Fase:</label>
                             <label>
-                                <ng-container [ngSwitch]="jogo.nivel_atual">
+                                <ng-container [ngSwitch]="jogo.nivelAtual">
                                     <span *ngSwitchCase="1">Avaliação da ferida</span>
                                     <span *ngSwitchCase="2">Tipo de tecido e limpeza da ferida</span>
                                     <span *ngSwitchCase="3">Medidas preventivas e tratamento de lesões</span>
@@ -27,15 +27,15 @@
 
                         <div class="div_detalhes_ordens">
                             <label class="titulo_detalhes_ordens">Acertos:</label>
-                            <label>{{jogo.numero_acertos}}</label>
+                            <label>{{jogo.numeroAcertos}}</label>
                         </div>
 
                         <div class="div_detalhes_ordens">
                             <label class="titulo_detalhes_ordens">Erros:</label>
-                            <label>{{jogo.numero_erros}}</label>
+                            <label>{{jogo.numeroErros}}</label>
                         </div>
 
-                        <h5 class="data_ordem">{{jogo.data_de_criacao}}</h5>
+                        <h5 class="data_ordem">{{jogo.dataDeCriacao}}</h5>
 
                         <div>
                             <div [ngClass]="'status status-' + jogo.status.toLocaleLowerCase()">{{jogo.status}}</div>

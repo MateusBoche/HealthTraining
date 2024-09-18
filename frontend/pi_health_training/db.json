@@ -39,132 +39,28 @@
   ],
   "game": [
     {
-      "nivel_atual": 1,
-      "numero_acertos": 1,
-      "numero_erros": 2,
-      "data_de_criacao": "2024-08-30 14:35:58",
+      "nivelAtual": 1,
+      "numeroAcertos": 1,
+      "numeroErros": 2,
+      "dataDeCriacao": "2024-08-30 14:35:58",
       "status": "Pendente",
       "id": "d023"
     },
     {
-      "nivel_atual": 3,
-      "numero_acertos": 23,
-      "numero_erros": 0,
-      "data_de_criacao": "2024-08-30 14:38:27",
+      "nivelAtual": 3,
+      "numeroAcertos": 23,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-08-30 14:38:27",
       "status": "Pendente",
       "id": "bedc"
     },
     {
-      "id": "4de3",
-      "usuario_id": "53fc",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 1,
+      "dataDeCriacao": "17/09/2024 22:11:02",
       "status": "Pendente",
-      "nivel_atual": 1,
-      "numero_acertos": 0,
-      "numero_erros": 0,
-      "data_de_criacao": "2024-08-31 22:09:03"
-    },
-    {
-      "id": "cd69",
-      "usuario_id": "53fc",
-      "status": "Pendente",
-      "nivel_atual": 1,
-      "numero_acertos": 0,
-      "numero_erros": 0,
-      "data_de_criacao": "2024-08-31 22:10:18"
-    },
-    {
-      "id": "1ae6",
-      "usuario_id": "53fc",
-      "status": "Pendente",
-      "nivel_atual": 1,
-      "numero_acertos": 0,
-      "numero_erros": 0,
-      "data_de_criacao": "2024-08-31 22:10:40"
-    },
-    {
-      "id": "e3b8",
-      "usuario_id": "53fc",
-      "status": "Pendente",
-      "nivel_atual": 1,
-      "numero_acertos": 0,
-      "numero_erros": 0,
-      "data_de_criacao": "2024-08-31 22:11:37"
-    },
-    {
-      "id": "3967",
-      "usuario_id": "53fc",
-      "status": "Pendente",
-      "nivel_atual": 1,
-      "numero_acertos": 0,
-      "numero_erros": 0,
-      "data_de_criacao": "2024-08-31 22:12:05"
-    },
-    {
-      "nivel_atual": 1,
-      "numero_acertos": 0,
-      "numero_erros": 1,
-      "data_de_criacao": "31/08/2024 19:12:20",
-      "status": "Pendente",
-      "id": "d747"
-    },
-    {
-      "nivel_atual": 1,
-      "numero_acertos": 1,
-      "numero_erros": 1,
-      "data_de_criacao": "NaN/NaN/NaN NaN:NaN:NaN",
-      "status": "Pendente",
-      "id": "1bdc"
-    },
-    {
-      "id": "ff7d",
-      "usuario_id": "53fc",
-      "status": "Pendente",
-      "nivel_atual": 1,
-      "numero_acertos": 0,
-      "numero_erros": 0,
-      "data_de_criacao": "2024-08-31 22:18:04"
-    },
-    {
-      "nivel_atual": 1,
-      "numero_acertos": 2,
-      "numero_erros": 1,
-      "data_de_criacao": "31/08/2024 19:18:09",
-      "status": "Pendente",
-      "id": "d0d9"
-    },
-    {
-      "nivel_atual": 2,
-      "numero_acertos": 9,
-      "numero_erros": 1,
-      "data_de_criacao": "02/09/2024 13:52:54",
-      "status": "Pendente",
-      "id": "3919"
-    },
-    {
-      "id": "5c51",
-      "usuario_id": "c490",
-      "status": "Pendente",
-      "nivel_atual": 1,
-      "numero_acertos": 0,
-      "numero_erros": 0,
-      "data_de_criacao": "2024-09-02 17:09:24"
-    },
-    {
-      "id": "d2bc",
-      "usuario_id": "c490",
-      "status": "Pendente",
-      "nivel_atual": 1,
-      "numero_acertos": 0,
-      "numero_erros": 0,
-      "data_de_criacao": "2024-09-02 17:10:03"
-    },
-    {
-      "nivel_atual": 2,
-      "numero_acertos": 10,
-      "numero_erros": 2,
-      "data_de_criacao": "02/09/2024 14:16:04",
-      "status": "Pendente",
-      "id": "e60e"
+      "id": "556b"
     }
   ],
   "questions": [

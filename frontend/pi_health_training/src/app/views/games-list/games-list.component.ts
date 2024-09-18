@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Game } from '../../models/game';
+import { Game } from '../../domain/model/game';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
-import { User } from '../../models/user';
+import { User } from '../../domain/model/user';
 import { firstValueFrom } from 'rxjs';
 import { CommonModule } from '@angular/common';  // Importar CommonModule
 import { RouterModule } from '@angular/router';  // Importar RouterModule
