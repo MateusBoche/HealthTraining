@@ -16,6 +16,6 @@ export class QuestionReadService {
   }
 
   findAll(): Promise<Question[]>{
-    return firstValueFrom(this.http.get<Question>('http://localhost:3000/question'));
+    return firstValueFrom(this.http.get<Question[]>('http://localhost:3000/question'));
   }
 }
