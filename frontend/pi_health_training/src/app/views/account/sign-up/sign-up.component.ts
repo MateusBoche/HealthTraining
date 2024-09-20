@@ -47,7 +47,7 @@ export class SignUpComponent {
       return this.http.post("http://localhost:3000/user", usuario).subscribe({
         next: value => {
           this.toastr.success("Cadastro feito com sucesso!")
-          this.router.navigate(['/entrar'])
+          this.router.navigate(['/sign-in'])
         },
         error: error => {
           this.toastr.error("Houve um erro ao inserir o usuário no sistema!")

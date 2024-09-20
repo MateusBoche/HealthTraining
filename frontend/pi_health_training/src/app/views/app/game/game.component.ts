@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Game } from '../../domain/model/game';
+import { Game } from '../../../domain/model/game';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
@@ -41,7 +41,7 @@ export class GameComponent implements OnInit {
   carregar_jogo() {
     const id = this.router.url.split('/')[2];
 
-    this.http.get<Game>(`http://localhost:3000/game/${id}`).subscribe({
+    this.http.get<Game>(`http://localhost:3000/game/game/${id}`).subscribe({
       next: value => {
         this.jogo = value;
         if (!this.jogo) {

@@ -36,22 +36,22 @@
 
           <div class="nav">
             <a href="/">Jogar</a>
-            <a href="/suporte">Suporte</a>
-            <a href="/sobre">Sobre</a>
+            <a href="/support">Suporte</a>
+            <a href="/about-us">Sobre</a>
           </div>
         </div>
         @if(!logado){
         <div class="login_e_cadastro">
-          <a href="/entrar">Entrar</a>
-          <a href="/cadastrar">Registrar</a>
+          <a href="/account/sign-in">Entrar</a>
+          <a href="/account/sign-up">Registrar</a>
         </div>
         } @else if (logado){
         <div class="menu-perfil">
           <div class="dropdown">
             <label id="minha-conta">Minha Conta ▼</label>
             <div class="dropdown-content">
-              <a href="/jogos">Meus Jogos</a>
-              <a href="/meu-perfil">Minha conta</a>
+              <a href="/game/game">Meus Jogos</a>
+              <a href="/my-account">Minha conta</a>
               <a (click)="sair()" id="botao_sair">Sair</a>
             </div>
           </div>
@@ -69,14 +69,14 @@
         <div class="links-menu">
           <label>Health Training</label>
           <a href="/">Jogar</a>
-          <a href="/suporte">Suporte</a>
-          <a href="/sobre">Sobre</a>
+          <a href="/support">Suporte</a>
+          <a href="/about-us">Sobre</a>
         </div>
         @if(!logado){
         <div class="entrar-cadastrar-menu">
           <label>Conta</label>
-          <a href="/entrar">Entrar</a>
-          <a href="/cadastrar">Registrar</a>
+          <a href="/account/sign-in">Entrar</a>
+          <a href="/account/sign-up">Registrar</a>
         </div>
         } @else if (logado){
         <div class="entrar-cadastrar-menu">
