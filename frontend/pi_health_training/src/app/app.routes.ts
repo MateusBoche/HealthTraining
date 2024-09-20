@@ -75,3 +75,16 @@ export const routes: Routes = [
 
 
 ];
+
+//antiga rota
+/**    { path: '', component: HomeComponent },
+    { path: 'entrar', component: SignInComponent },
+    { path: 'cadastrar', component: SignUpComponent },
+    { path: 'alterar-senha', component: PasswordRecoveryComponent },
+    { path: 'sobre', component: AboutUsComponent },
+    { path: 'suporte', component: SupportComponent },
+    { path: 'jogos', component: GamesListComponent },
+    { path: 'meu-perfil', component: AccountComponent },
+    { path: 'termos-de-uso', component: TermsComponent },
+    { path: 'jogo/:id', component: GameComponent },
+    { path: '**', redirect */
