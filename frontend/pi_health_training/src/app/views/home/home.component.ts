@@ -35,12 +35,13 @@ export class HomeComponent implements OnInit {
       dataDeCriacao: new Date().toISOString().replace('T', ' ').replace('Z', '').split('.')[0]
     }
 
-    this.http.post<Game>('http://localhost:3000/game/game', this.jogo).subscribe({
+    this.http.post<Game>('http://localhost:3000/game/', this.jogo).subscribe({
       next: value => {
         this.jogo = value;
         this.toastr.success('Jogo iniciado com sucesso');
+        console.log(this.jogo)
 
-        this.router.navigate([`/game/game${this.jogo.id}`]);
+        this.router.navigate(["game", "game", this.jogo.id]);
       },
       error: error => {
         this.toastr.error('Erro ao iniciar o jogo');

@@ -4,6 +4,7 @@ import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms'
 import { Router } from '@angular/router'
 import { ToastrService } from 'ngx-toastr';
 import { firstValueFrom } from 'rxjs';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -20,7 +21,7 @@ export class SignInComponent implements OnInit {
   email = new FormControl(null)
   senha = new FormControl(null)
 
-  constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
+  constructor(private http: HttpClient, private toastr: ToastrService, private router: Router, private authenticationService:AuthenticationService) { }
 
   ngOnInit(): void {
     this.esta_logado();
@@ -59,8 +60,7 @@ export class SignInComponent implements OnInit {
     if (!usuario)
       return this.toastr.error("Email ou senha incorretos!")
     else {
-      localStorage.setItem("email", email)
-      localStorage.setItem("senha", senha)
+      this.authenticationService.addCredentialsToLocalStorage(email)
       this.toastr.success(`Logado com sucesso como ${email} ${senha}`)
       return window.location.reload()
     }

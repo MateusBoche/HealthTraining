@@ -33,11 +33,8 @@ export const routes: Routes = [
         component: AboutUsComponent,
 
     },
+
     {
-        path: 'support',
-        component: SupportComponent,
-    },
-        {
         path: 'support',
         component: SupportComponent,
     },

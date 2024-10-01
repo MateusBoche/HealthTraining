@@ -32,6 +32,7 @@ export class GameComponent implements OnInit {
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
+    console.log("wefewf")
     this.carregar_jogo();
     this.initializeBoard();
     this.generateRandomColors();
