@@ -24,11 +24,11 @@ export class SignInComponent implements OnInit {
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router, private authenticationService:AuthenticationService) { }
 
   ngOnInit(): void {
-    this.esta_logado();
+    this.estaLogado();
   }
 
 
-  async esta_logado() {
+  async estaLogado() {
 
     const email = localStorage.getItem('email');
     const senha = localStorage.getItem('senha');
