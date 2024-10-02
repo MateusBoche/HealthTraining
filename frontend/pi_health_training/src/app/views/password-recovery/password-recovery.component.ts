@@ -27,7 +27,7 @@ export class PasswordRecoveryComponent {
   constructor(private toastr: ToastrService, private http: HttpClient, private router: Router) { }
 
 
-  async receber_email() {
+  async receberEmail() {
     if (!this.email.value) {
       this.toastr.error("Preencha o campo de email!");
       return;
@@ -44,7 +44,7 @@ export class PasswordRecoveryComponent {
     alert(`O código de recuperação é: ${this.codigo_de_recuperacao_certo}`);
   }
 
-  async recuperar_senha() {
+  async recuperarSenha() {
     if (!this.email.value) {
       this.toastr.error("Preencha o campo de email!");
       return;

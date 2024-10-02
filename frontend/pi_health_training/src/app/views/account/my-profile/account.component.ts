@@ -15,10 +15,10 @@ export class AccountComponent implements OnInit {
   usuario!: User;
 
   ngOnInit() {
-    this.buscar_dados();
+    this.buscarDados();
   }
 
-  async buscar_dados() {
+  async buscarDados() {
     const email = localStorage.getItem('email');
     const senha = localStorage.getItem('senha');
 

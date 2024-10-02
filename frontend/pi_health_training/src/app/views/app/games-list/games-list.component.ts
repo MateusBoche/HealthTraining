@@ -22,7 +22,7 @@ export class GamesListComponent implements OnInit {
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 
   async ngOnInit() {
-    await this.buscar_dados_usuario();
+    await this.buscarDadosUsuario();
     this.carregar_jogos();
   }
 
@@ -37,7 +37,7 @@ export class GamesListComponent implements OnInit {
     });
   }
 
-  async buscar_dados_usuario() {
+  async buscarDadosUsuario() {
     const email = localStorage.getItem('email');
     const senha = localStorage.getItem('senha');
 
@@ -45,7 +45,7 @@ export class GamesListComponent implements OnInit {
     this.usuario = resposta[0];
   }
   async atualizarJogos() {
-    await this.buscar_dados_usuario();  // Recarregar dados do usuário
+    await this.buscarDadosUsuario();  // Recarregar dados do usuário
     this.carregar_jogos();  // Recarregar a lista de jogos
   }
 

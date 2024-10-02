@@ -430,6 +430,51 @@
       "numeroAcertos": 0,
       "numeroErros": 0,
       "dataDeCriacao": "2024-10-02 01:59:42"
+    },
+    {
+      "id": "93c4",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-02 12:05:40"
+    },
+    {
+      "id": "86f5",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-02 12:05:43"
+    },
+    {
+      "id": "a519",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-02 12:05:44"
+    },
+    {
+      "id": "048e",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-02 12:05:54"
+    },
+    {
+      "id": "9f35",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-02 12:18:12"
     }
   ],
   "questions": [

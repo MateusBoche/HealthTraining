@@ -23,10 +23,10 @@ export class AppComponent implements OnInit {
   title = 'pi_health_training';
 
   ngOnInit() {
-    this.esta_logado();
+    this.estaLogado();
   }
 
-  async esta_logado() {
+  async estaLogado() {
     const email = localStorage.getItem('email');
     const senha = localStorage.getItem('senha');
 

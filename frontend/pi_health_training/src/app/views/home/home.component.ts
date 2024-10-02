@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
-    this.buscar_dados_usuario();
+    this.buscarDadosUsuario();
   }
 
   startGame() {
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  async buscar_dados_usuario() {
+  async buscarDadosUsuario() {
     const email = localStorage.getItem('email');
     const senha = localStorage.getItem('senha');
 
