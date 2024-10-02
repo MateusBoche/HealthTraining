@@ -9,7 +9,6 @@ import { GamesListComponent } from './views/app/games-list/games-list.component'
 import { AccountComponent } from './views/account/my-profile/account.component';
 import { TermsComponent } from './views/terms/terms.component';
 import { GameComponent } from './views/app/game/game.component';
-import { MainComponent } from './views/main/main.component';
 import { authenticationGuard } from './services/security/guard/authentication.guard';
 import { HelpComponent } from './views/help/help.component';
 
@@ -53,6 +52,10 @@ export const routes: Routes = [
         canActivate: [authenticationGuard],
         children: [
             {
+                path: '',
+                component: HomeComponent,
+               },
+            {
                 path: 'game',
                 children:[
                     {
@@ -61,7 +64,7 @@ export const routes: Routes = [
                     },
 
                 ],
-            },
+            }
         ],
     },
     { path: '**', redirectTo: '' },

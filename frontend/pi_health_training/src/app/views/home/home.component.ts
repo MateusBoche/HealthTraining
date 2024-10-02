@@ -41,7 +41,12 @@ export class HomeComponent implements OnInit {
         this.toastr.success('Jogo iniciado com sucesso');
         console.log(this.jogo)
 
-        this.router.navigate(["game", "game", this.jogo.id]);
+        let route = '/game/game/' + this.jogo.id;
+        console.log('1:' + route);
+
+        this.router.navigate([route]);
+        console.log('2');
+        // this.router.navigate(["game", "game", this.jogo.id]);
       },
       error: error => {
         this.toastr.error('Erro ao iniciar o jogo');
@@ -53,9 +58,12 @@ export class HomeComponent implements OnInit {
     const email = localStorage.getItem('email');
     const senha = localStorage.getItem('senha');
 
+    console.log(`${email} - ${senha}`);
+
     return this.http.get<User[]>(`http://localhost:3000/user?email=${email}&senha=${senha}`).subscribe({
       next: value => {
         this.usuario = value[0];
+        console.log(this.usuario);
 
       },
       error: error => {

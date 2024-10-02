@@ -40,12 +40,12 @@
             <a href="/about-us">Sobre</a>
           </div>
         </div>
-        @if(!logado){
+        <!-- @if(!logado){ -->
         <div class="login_e_cadastro">
           <a href="/account/sign-in">Entrar</a>
           <a href="/account/sign-up">Registrar</a>
         </div>
-        } @else if (logado){
+        <!-- } @else if (logado){ -->
         <div class="menu-perfil">
           <div class="dropdown">
             <label id="minha-conta">Minha Conta ▼</label>
@@ -56,14 +56,14 @@
             </div>
           </div>
         </div>
-        }
+        <!-- } -->
         <button (click)="alternarMenu()" class="nav_button">☰</button>
       </div>
 
     </header>
 
     <!-- Adicione o elemento do menu que cobre a tela -->
-    @if (menu){
+    <!-- @if (menu){
     <div class="menu-overlay" id="menuOverlay">
       <div class="menu-content">
         <div class="links-menu">
@@ -86,12 +86,9 @@
           <a (click)="sair()" id="botao_sair_menu">Sair</a>
         </div>
         }
-
-
       </div>
-
     </div>
-    }
+    } -->
 
     <div class="div-troca">
       <router-outlet></router-outlet>

@@ -51,19 +51,24 @@ export class SignInComponent implements OnInit {
     const email = this.email.value
     const senha = this.senha.value
 
-    if (!email || !senha)
-      return this.toastr.error("Preecha os campos de email e senha!")
-
+    if (!email || !senha){
+      this.toastr.error("Preecha os campos de email e senha!");
+      return;
+    }
+    
     const retorno = await firstValueFrom(this.http.get<Object[]>(`http://localhost:3000/user?email=${email}&senha=${senha}`))
     const usuario = retorno[0]
     
     if (!usuario)
-      return this.toastr.error("Email ou senha incorretos!")
+      this.toastr.error("Email ou senha incorretos!")
     else {
+      localStorage.setItem('senha', senha);
       this.authenticationService.addCredentialsToLocalStorage(email)
       this.toastr.success(`Logado com sucesso como ${email} ${senha}`)
-      return window.location.reload()
+      await this.router.navigate(['/']);
     }
+
+
   }
 
 }

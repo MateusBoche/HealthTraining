@@ -49,13 +49,12 @@ export class AppComponent implements OnInit {
     });
   }
 
-  sair() {
+  async sair() {
     localStorage.removeItem('email');
     localStorage.removeItem('senha');
     this.logado = false;
 
-    this.router.navigate(['/entrar']);
-
+    await this.router.navigate(['/account/sign-in']);
   }
 
   alternarMenu() {
