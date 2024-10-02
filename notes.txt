@@ -1,0 +1,16 @@
+Diagramas de Classes
+
+* OK
+
+Diagrama de componentes:
+
+* Ok
+
+Digrama de implantação 
+* A aplicação inteira de vocês vai ficar no servidor Web?
+
+Diagrama de Pacotes:
+* ok
+
+Diagrama de Sequencia
+* Usar o nome dos métodos nas trocas de mensagem
