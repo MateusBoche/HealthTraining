@@ -475,6 +475,123 @@
       "numeroAcertos": 0,
       "numeroErros": 0,
       "dataDeCriacao": "2024-10-02 12:18:12"
+    },
+    {
+      "id": "beac",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:36:22"
+    },
+    {
+      "id": "0a9a",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:36:27"
+    },
+    {
+      "id": "5d5a",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:36:27"
+    },
+    {
+      "id": "4c91",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:36:28"
+    },
+    {
+      "id": "0cb3",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:36:29"
+    },
+    {
+      "id": "8690",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:36:32"
+    },
+    {
+      "id": "4628",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:36:33"
+    },
+    {
+      "id": "c6cd",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:36:33"
+    },
+    {
+      "id": "6973",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:36:34"
+    },
+    {
+      "id": "a73e",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:42:03"
+    },
+    {
+      "id": "acba",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:56:34"
+    },
+    {
+      "id": "9b1d",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:56:42"
+    },
+    {
+      "id": "4d9d",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-03 11:59:01"
     }
   ],
   "questions": [

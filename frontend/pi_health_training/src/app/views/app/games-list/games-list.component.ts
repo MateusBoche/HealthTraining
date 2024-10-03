@@ -5,7 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from '../../../domain/model/user';
 import { firstValueFrom } from 'rxjs';
 import { CommonModule } from '@angular/common';  // Importar CommonModule
-import { RouterModule } from '@angular/router';  // Importar RouterModule
+import { Router, RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-games-list',
@@ -19,7 +20,7 @@ export class GamesListComponent implements OnInit {
   jogos!: Game[];
   usuario!: User;
 
-  constructor(private http: HttpClient, private toastr: ToastrService) { }
+  constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
 
   async ngOnInit() {
     await this.buscarDadosUsuario();

@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 import { firstValueFrom } from 'rxjs';
 
@@ -10,7 +11,8 @@ import { firstValueFrom } from 'rxjs';
   standalone: true,
   imports: [
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   templateUrl: './password-recovery.component.html',
   styleUrl: './password-recovery.component.css'

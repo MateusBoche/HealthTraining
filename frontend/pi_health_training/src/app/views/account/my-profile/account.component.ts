@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../domain/model/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -10,7 +11,7 @@ import { User } from '../../../domain/model/user';
   styleUrl: './account.component.css'
 })
 export class AccountComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
   
   usuario!: User;
 

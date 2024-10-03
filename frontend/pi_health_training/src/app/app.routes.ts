@@ -62,6 +62,15 @@ export const routes: Routes = [
                         path: 'game/:id',
                         component: GameComponent,
                     },
+                    {
+                        path: 'game/game-list',
+                        component: GamesListComponent,
+    
+                    },
+                    {
+                        path: 'game/my-account',
+                        component: AccountComponent,
+                    },
 
                 ],
             }

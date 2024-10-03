@@ -3,12 +3,13 @@ import { Game } from '../../domain/model/game';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../../domain/model/user';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -35,7 +36,7 @@ export class HomeComponent implements OnInit {
       dataDeCriacao: new Date().toISOString().replace('T', ' ').replace('Z', '').split('.')[0]
     }
 
-    this.http.post<Game>('http://localhost:3000/game/', this.jogo).subscribe({
+    this.http.post<Game>('http://localhost:3000/game', this.jogo).subscribe({
       next: value => {
         this.jogo = value;
         this.toastr.success('Jogo iniciado com sucesso');

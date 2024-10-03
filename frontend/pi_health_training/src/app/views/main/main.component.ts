@@ -1,13 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
+
+
 import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet
+    RouterOutlet,
+    RouterModule
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'

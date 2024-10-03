@@ -11,6 +11,6 @@ export class GameCreateService {
   constructor(private http: HttpClient) { }
 
   async create(game: Game){
-    return firstValueFrom(this.http.post('http://localhost:3000/game', game));
+    return firstValueFrom(this.http.post('http://localhost:3000/game/game', game));
   }
 }

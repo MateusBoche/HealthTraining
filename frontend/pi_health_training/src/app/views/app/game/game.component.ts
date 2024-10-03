@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Game } from '../../../domain/model/game';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
@@ -42,17 +42,20 @@ export class GameComponent implements OnInit {
   carregar_jogo() {
     const id = this.router.url.split('/')[2];
 
-    this.http.get<Game>(`http://localhost:3000/game/game/${id}`).subscribe({
+    this.http.get<Game>(`http://localhost:3000/game/${id}`).subscribe({
       next: value => {
         this.jogo = value;
         if (!this.jogo) {
           this.toastr.error('Dados do jogo não encontrados');
+          console.log('1')
         } else {
           const dataCriacaoUtc = new Date(this.jogo.dataDeCriacao);
+          console.log('2')
 
           // Verifica se a data é válida
           if (isNaN(dataCriacaoUtc.getTime())) {
             this.toastr.error('Data inválida no jogo');
+            console.log('3')
           } else {
             dataCriacaoUtc.setHours(dataCriacaoUtc.getHours() - 3);
 
@@ -64,10 +67,12 @@ export class GameComponent implements OnInit {
             const seconds = String(dataCriacaoUtc.getSeconds()).padStart(2, '0');
 
             this.jogo.dataDeCriacao = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+            console.log('4')
           }
         }
       },
       error: error => {
+        console.log('5')
         this.toastr.error('Erro ao carregar o jogo');
       }
     });
