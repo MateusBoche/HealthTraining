@@ -1,0 +1,280 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 2000px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  flex-direction: row;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 150px);
+  grid-template-rows: repeat(4, 150px);
+  gap: 21px 0px;
+  justify-content: center;
+  position: relative;
+  margin-top: 30px;
+}
+
+.cell:nth-child(5n) {
+  border-radius: 0% 80% 0% 0%;
+}
+
+.cell:nth-child(11) {
+  border-radius: 0% 0% 0% 80%;
+}
+
+.cell:nth-child(6) {
+  border-radius: 80% 0% 0% 0%;
+}
+
+.cell:nth-child(10n) {
+  border-radius: 0% 0% 80% 0%;
+}
+
+.cell:nth-child(21) {
+  border-radius: 0% 0% 0% 80%;
+}
+
+.cell:nth-child(16) {
+  border-radius: 80% 0% 0% 0%;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  width: 150px;
+  height: 150px;
+  font-size: 1em;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.dice {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  transition: transform 1s ease;
+  margin-top: 20px;
+}
+
+.dice span {
+  display: inline-block;
+}
+
+.status {
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-left: 0;
+  height: auto;
+  border-radius: 10px;
+  width: 300px;
+  box-sizing: border-box;
+  margin-left: 20px;
+}
+
+.status div {
+  margin-top: 20px;
+}
+
+
+.status .roll-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.status .roll-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+
+.status .roll-button:active {
+  background-color: #004085;
+  transform: scale(0.95);
+}
+
+
+.btn-true {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.btn-true:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+
+.btn-true:active {
+  background-color: #1e7e34;
+  transform: scale(0.95);
+}
+
+
+.btn-false {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.btn-false:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+
+.btn-false:active {
+  background-color: #bd2130;
+  transform: scale(0.95);
+}
+
+.marker {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url('/assets/character.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+}
+
+.dice-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dice {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+  box-sizing: border-box;
+}
+
+.dice rect {
+  fill: #f9f9f9;
+  stroke: #333;
+  stroke-width: 5;
+}
+
+.dice circle {
+  fill: #333;
+}
+
+.rolling {
+  animation: roll 1s cubic-bezier(0.5, 0.2, 0.3, 1) forwards;
+}
+
+@keyframes roll {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.dice-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dice-modal-content {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinning {
+  animation: spin 1s infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.btn-primary:active {
+  background-color: #004085;
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

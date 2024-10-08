@@ -1,0 +1,51 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="/product/list">Produto</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Lista</li>
+    </ol>
+</nav>
+<h1>Lista de produtos</h1>
+<hr>
+
+<div class="mat-elevation-z8">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Preço</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of products; track $index) {
+            <tr>
+                <th scope="row">{{item.id}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <div class="row">
+                        <div class="col-4">
+                            <a class="btn btn-primary" routerLink="/product/detail/{{item.id}}">
+                                <fa-icon [icon]="fa.faAddressCard"></fa-icon>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a class="btn btn-warning" routerLink="/product/edit/{{item.id}}">
+                                <fa-icon [icon]="fa.faEdit"></fa-icon>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <a class="btn btn-danger" (click)="deleteProduct(item.id!)">
+                                <fa-icon [icon]="fa.faRemove"></fa-icon>
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

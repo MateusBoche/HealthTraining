@@ -1,0 +1,46 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="/product/list">Produto</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Criar</li>
+    </ol>
+</nav>
+<h1>Criar produto</h1>
+<hr>
+
+<form class="form" [formGroup]="form" (ngSubmit)="create()">
+    <div class="form-row">
+        <div class="form-group col-12 mt-2">
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" id="name" placeholder="Nome" formControlName="name">
+
+            @if (form.controls['name'].hasError('required')) {
+            <p class="text-danger">Campo obrigatório</p>
+            }
+            @else if (form.controls['name'].hasError('minlength')) {
+            <p class="text-danger">Nome deve ter no mínimo {{nameMinChar}} caracteres</p>
+            }
+            @else if (form.controls['name'].hasError('maxlength')) {
+            <p class="text-danger">Nome deve ter no máximo {{nameMaxChar}} caracteres</p>
+            }
+        </div>
+        <div class="form-group col-12 mt-2">
+            <label for="price">Preço</label>
+            <input type="text" class="form-control" id="price" placeholder="Preço" formControlName="price">
+
+            @if (form.controls['price'].hasError('required')) {
+            <p class="text-danger">Campo obrigatório</p>
+            }
+            @else if (form.controls['price'].hasError('min')) {
+            <p class="text-danger">Preço deve ser de no mínimo {{priceMinValue}} real/reais</p>
+            }
+            @else if (form.controls['price'].hasError('max')) {
+            <p class="text-danger">Preço deve ser de no máximo {{priceMaxValue}} reais</p>
+            }
+        </div>
+        <div class="col-12 text-end mt-2">
+            <button class="btn btn-primary" [disabled]="!validateFields()">Criar</button>
+        </div>
+    </div>
+</form>

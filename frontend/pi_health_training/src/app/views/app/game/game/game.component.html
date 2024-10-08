@@ -16,14 +16,13 @@
 
     <div class="status">
       <h2>Detalhes do Jogo</h2>
-      <p>Jogo: <span id="gameId">{{ jogo.id }}</span></p>
-      <p>Fase Atual: <span id="currentPhase">{{ jogo.nivelAtual }}</span></p>
-      <p>Status do Jogo: <span id="gameStatus">{{ jogo.status }}</span></p>
+      <p>Jogo: <span id="gameId">{{ jogo?.id }}</span></p>
+      <p>Fase Atual: <span id="currentPhase">{{ jogo?.nivelAtual }}</span></p>
+      <p>Status do Jogo: <span id="gameStatus">{{ jogo?.status }}</span></p>
       <p>Número de acertos: <span id="numberOfCorrectAnswers">{{ numberOfCorrectAnswers }}</span></p>
       <p>Número de erros: <span id="numberOfErrors">{{ numberOfErrors }}</span></p>
-      <p>Data de início: <span id="time">{{ jogo.dataDeCriacao }}</span></p>
+      <p>Data de início: <span id="time">{{ jogo?.dataDeCriacao }}</span></p>
       <p>Pontuação: <span id="score">{{ score }}</span></p>
-
 
 
       <button class="btn-primary" (click)="rollDice()" [disabled]="!canRoll">Rodar Dado</button>
@@ -32,27 +31,27 @@
         <div class="dice-modal-content spinning">
           <svg class="dice" viewBox="0 0 100 100">
             <rect width="100" height="100" rx="15" ry="15" fill="white" stroke="black" stroke-width="5"></rect>
-            <circle *ngIf="diceValue === 1" cx="50" cy="50" r="8" />
-            <circle *ngIf="diceValue === 2" cx="25" cy="25" r="8" />
-            <circle *ngIf="diceValue === 2" cx="75" cy="75" r="8" />
-            <circle *ngIf="diceValue === 3" cx="25" cy="25" r="8" />
-            <circle *ngIf="diceValue === 3" cx="50" cy="50" r="8" />
-            <circle *ngIf="diceValue === 3" cx="75" cy="75" r="8" />
-            <circle *ngIf="diceValue === 4" cx="25" cy="25" r="8" />
-            <circle *ngIf="diceValue === 4" cx="75" cy="25" r="8" />
-            <circle *ngIf="diceValue === 4" cx="25" cy="75" r="8" />
-            <circle *ngIf="diceValue === 4" cx="75" cy="75" r="8" />
-            <circle *ngIf="diceValue === 5" cx="25" cy="25" r="8" />
-            <circle *ngIf="diceValue === 5" cx="75" cy="25" r="8" />
-            <circle *ngIf="diceValue === 5" cx="50" cy="50" r="8" />
-            <circle *ngIf="diceValue === 5" cx="25" cy="75" r="8" />
-            <circle *ngIf="diceValue === 5" cx="75" cy="75" r="8" />
-            <circle *ngIf="diceValue === 6" cx="25" cy="25" r="8" />
-            <circle *ngIf="diceValue === 6" cx="75" cy="25" r="8" />
-            <circle *ngIf="diceValue === 6" cx="25" cy="50" r="8" />
-            <circle *ngIf="diceValue === 6" cx="75" cy="50" r="8" />
-            <circle *ngIf="diceValue === 6" cx="25" cy="75" r="8" />
-            <circle *ngIf="diceValue === 6" cx="75" cy="75" r="8" />
+            <circle *ngIf="diceValue === 1" cx="50" cy="50" r="8"/>
+            <circle *ngIf="diceValue === 2" cx="25" cy="25" r="8"/>
+            <circle *ngIf="diceValue === 2" cx="75" cy="75" r="8"/>
+            <circle *ngIf="diceValue === 3" cx="25" cy="25" r="8"/>
+            <circle *ngIf="diceValue === 3" cx="50" cy="50" r="8"/>
+            <circle *ngIf="diceValue === 3" cx="75" cy="75" r="8"/>
+            <circle *ngIf="diceValue === 4" cx="25" cy="25" r="8"/>
+            <circle *ngIf="diceValue === 4" cx="75" cy="25" r="8"/>
+            <circle *ngIf="diceValue === 4" cx="25" cy="75" r="8"/>
+            <circle *ngIf="diceValue === 4" cx="75" cy="75" r="8"/>
+            <circle *ngIf="diceValue === 5" cx="25" cy="25" r="8"/>
+            <circle *ngIf="diceValue === 5" cx="75" cy="25" r="8"/>
+            <circle *ngIf="diceValue === 5" cx="50" cy="50" r="8"/>
+            <circle *ngIf="diceValue === 5" cx="25" cy="75" r="8"/>
+            <circle *ngIf="diceValue === 5" cx="75" cy="75" r="8"/>
+            <circle *ngIf="diceValue === 6" cx="25" cy="25" r="8"/>
+            <circle *ngIf="diceValue === 6" cx="75" cy="25" r="8"/>
+            <circle *ngIf="diceValue === 6" cx="25" cy="50" r="8"/>
+            <circle *ngIf="diceValue === 6" cx="75" cy="50" r="8"/>
+            <circle *ngIf="diceValue === 6" cx="25" cy="75" r="8"/>
+            <circle *ngIf="diceValue === 6" cx="75" cy="75" r="8"/>
           </svg>
         </div>
       </div>
