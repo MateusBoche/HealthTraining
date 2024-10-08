@@ -1,19 +1,19 @@
 .suport-box {
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 2rem 2rem;
-    max-width: 900px;
-    border-radius: 10px;
-    border: 1px solid #cccccc;
-    padding-bottom: 10px;
-    text-align: left;
-    margin-bottom: 30px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 2rem 2rem;
+  max-width: 900px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  padding-bottom: 10px;
+  text-align: left;
+  margin-bottom: 30px;
 }
 
 .suport-box h2 {
-    color: #333;
+  color: #333;
 }
 
 .suport-box p, .suport-box ul{
-    color: #555;
+  color: #555;
 }
