@@ -1,5 +1,5 @@
 <div class="main">
-  
+
   <form id="login-form">
     <h2>Entrar</h2>
     <br>
@@ -7,9 +7,9 @@
     <input [formControl]="email" type="text" id="email" name="email">
 
     <label for="senha">Senha:</label>
-    <input [formControl]="senha" type="password" id="senha" name="senha">
+    <input [formControl]="password" type="password" id="senha" name="senha">
     <br>
-    <button (click)="entrar()" type="submit" class="submit">Entrar</button>
+    <button (click)="login()" type="submit" class="submit">Entrar</button>
     <br><br>
     <div class="cadastrar-ou-esqueci-minha-senha">
       <a href="/account/sign-up">Cadastre-se</a>

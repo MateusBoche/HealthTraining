@@ -1,105 +1,20 @@
-.background-troca{
-    background: none;
-}
-
-.main{
-    padding-top: 100px;
-}
-
-#cadastro-form {
-    max-width: 500px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 10px;
+.base-form {
+    height: 100%;
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, #4050b5, rgb(202, 246, 255) 100%);
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    /* text-align: center; */
 }
 
-
-.entrar-ou-esqueci-minha-senha {
-    width: 60%;
-    display: flex;
-    justify-content: space-evenly;
-}
-.entrar-ou-esqueci-minha-senha a{
-    color: #1c4488;
+.form {
+    width: 30rem;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 4rem 1rem;
+    border-radius: 1rem;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 45px;
-    align-items: center;
-}
-
-#cadastro-form label {
+mat-form-field {
     display: block;
-    margin-bottom: 5px;
-}
-
-#cadastro-form input,
-#cadastro-form select {
-    padding: 5px;
-    font-size: 23px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    outline: none;
-    width: 90%;
-}
-
-
-#cadastro-form label {
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-#cadastro-form input {
-    width: 80%;
-    padding: 5px;
-    margin-bottom: 15px;
-    font-size: 23px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    outline: none;
-}
-
-/* ou, para um seletor específico de input */
-#cadastro-form input::placeholder {
-    color: #d1d1d1;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-#cadastro-form select{
-    width: 90%;
-}
-
-#cadastro-form button {
-    background-color: #1c4488;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    width: 60%;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-top: 15px;
-}
-
-#cadastro-form button:hover {
-    background-color: #1c4488;
-}
-
-
-@media screen and (max-width: 750px) {
-    .grid-container {
-        display: block;
-    }
-    .grid-item {
-        margin-top: 30px;
-    }
 }

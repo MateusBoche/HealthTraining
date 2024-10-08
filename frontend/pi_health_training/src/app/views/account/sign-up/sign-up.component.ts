@@ -1,61 +1,90 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router'
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatError, MatInputModule } from '@angular/material/input';
+import { User } from '../../../domain/model/user.model';
+import { UserCreateService } from '../../../services/user/user-create.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
   imports: [
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatError,
   ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
 
-  constructor(private http: HttpClient, private toastr: ToastrService, private router : Router) { }
+  form: FormGroup;
 
-  nome_completo = new FormControl(null)
-  email = new FormControl(null)
-  senha = new FormControl(null)
-  confirmacao_da_senha = new FormControl(null)
+  fullNameMinChar: number = 2;
+  fullNameMaxChar: number = 10;
+  passwordMinChar: number = 2;
+  passwordMaxChar: number = 10;
 
-  cadastrar() {
-    const nome_completo = this.nome_completo.value
-    const email = this.email.value
-    const senha = this.senha.value
-    const confirmacao_da_senha = this.confirmacao_da_senha.value
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private userCreateService: UserCreateService) {
 
-    const usuario = {
-      nome_completo,
-      email,
-      senha
-    }
-
-    if (!nome_completo || !email || !senha || !confirmacao_da_senha){
-      return this.toastr.error("Preencha todos os campos antes de continuar!")
-    }
-
-    if (confirmacao_da_senha != senha){
-      return this.toastr.error("As senhas não se coincidem!")
-    }
-
-    try {
-      return this.http.post("http://localhost:3000/user", usuario).subscribe({
-        next: value => {
-          this.toastr.success("Cadastro feito com sucesso!")
-          this.router.navigate(['/sign-in'])
-        },
-        error: error => {
-          this.toastr.error("Houve um erro ao inserir o usuário no sistema!")
-        }
-      })
-      
-    } catch (error) {
-      return this.toastr.error("Houve um erro ao fazer o cadastro!")
-    }
+    this.initializeForm();
   }
+
+  ngOnInit(): void {
+
+  }
+
+  initializeForm() {
+    this.form = this.formBuilder.group({
+      fullName: ['', [Validators.required, Validators.minLength(this.fullNameMinChar), Validators.maxLength(this.fullNameMaxChar)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(this.passwordMinChar), Validators.maxLength(this.passwordMaxChar)]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(this.passwordMinChar), Validators.maxLength(this.passwordMaxChar)]],
+    });
+  }
+
+  createAccount() {
+    let user: User = {
+      fullName: this.form.controls['fullName'].value,
+      email: this.form.controls['email'].value,
+      password: this.form.controls['password'].value,
+    };
+
+    this.userCreateService.create(user)
+      .subscribe({
+        next: value => {
+          console.log(value);
+          this.router.navigate(['account/sign-in']);
+        },
+        error: err => {
+          console.error(err);
+        }
+      });
+  }
+
+  arePasswordsValid() {
+    return this.form.controls['password'].value === this.form.controls['confirmPassword'].value;
+  }
+
+  validateFields() {
+    if (!this.form.controls['password'].valid
+      || !this.form.controls['confirmPassword'].valid) {
+      return false;
+    }
+
+    if (!this.arePasswordsValid()) {
+      return false;
+    }
+
+    return this.form.controls['fullName'].valid
+      && this.form.controls['email'].valid;
+  }
+
+
 }
