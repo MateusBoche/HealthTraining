@@ -1390,6 +1390,15 @@
       "dataDeCriacao": "08/10/2024 08:34:26",
       "status": "Pendente",
       "id": "8d78"
+    },
+    {
+      "id": "0dbb",
+      "usuarioID": "c490",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-08 11:51:56"
     }
   ],
   "questions": [

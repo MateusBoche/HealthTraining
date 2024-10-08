@@ -24,6 +24,7 @@ export class GameListComponent implements OnInit {
 
   async ngOnInit() {
     await this.buscarDadosUsuario();
+    console.log(1)
     this.carregar_jogos();
   }
 
@@ -31,6 +32,7 @@ export class GameListComponent implements OnInit {
     this.http.get<Game[]>(`http://localhost:3000/game?usuario_id=${this.usuario.id}`).subscribe({
       next: value => {
         this.jogos = value;
+        console.log(2)
       },
       error: error => {
         this.toastr.error('Erro ao carregar os jogos');
