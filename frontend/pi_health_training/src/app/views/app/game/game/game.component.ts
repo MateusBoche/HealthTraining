@@ -2,10 +2,10 @@ import {Component} from '@angular/core';
 import {Game} from "../../../../domain/model/game";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
-import {HttpClient} from "@angular/common/http";
 import {OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
+import { GameService } from '../../../../services/game/game.service';
 
 @Component({
   selector: 'app-game',
@@ -14,7 +14,7 @@ import {RouterModule} from '@angular/router';
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
-export class GameComponent {
+export class GameComponent implements OnInit {
   jogo!: Game;
   board: { question: string }[] = [];
   currentPosition: number = 0;
@@ -31,7 +31,7 @@ export class GameComponent {
   numberOfCorrectAnswers: number = 0;
   numberOfErrors: number = 0;
 
-  constructor(private http: HttpClient,
+  constructor(private gameService: GameService,
               private toastr: ToastrService,
               private router: Router,
               private route: ActivatedRoute) {
@@ -41,65 +41,47 @@ export class GameComponent {
     let gameId = this.route.snapshot.paramMap.get('id');
     console.log(gameId);
     this.carregar_jogo(gameId!);
-    // this.initializeBoard();
-    // this.generateRandomColors();
-    // this.loadGame();
   }
 
-  carregar_jogo(id: String) {
-    // const id = this.router.url.split('/')[2];
-
-    this.http.get<Game>(`http://localhost:3000/game/${id}`).subscribe({
-      next: value => {
-        this.jogo = value;
-        if (!this.jogo) {
-          this.toastr.error('Dados do jogo não encontrados');
-          console.log('1')
-          return;
-        }
-        const dataCriacaoUtc = new Date(this.jogo.dataDeCriacao);
-        console.log('2')
-
-        // Verifica se a data é válida
-        if (isNaN(dataCriacaoUtc.getTime())) {
-          this.toastr.error('Data inválida no jogo');
-          console.log('3')
-        } else {
-          dataCriacaoUtc.setHours(dataCriacaoUtc.getHours() - 3);
-
-          const day = String(dataCriacaoUtc.getDate()).padStart(2, '0');
-          const month = String(dataCriacaoUtc.getMonth() + 1).padStart(2, '0');
-          const year = dataCriacaoUtc.getFullYear();
-          const hours = String(dataCriacaoUtc.getHours()).padStart(2, '0');
-          const minutes = String(dataCriacaoUtc.getMinutes()).padStart(2, '0');
-          const seconds = String(dataCriacaoUtc.getSeconds()).padStart(2, '0');
-
-          this.jogo.dataDeCriacao = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
-          console.log('4')
-        }
-        this.initializeBoard();
-        this.generateRandomColors();
-        this.loadGame();
-      },
-      error: error => {
-        console.log('5')
-        this.toastr.error('Erro ao carregar o jogo');
+  carregar_jogo(id: string) {
+    this.gameService.findById(id).then(value => {
+      this.jogo = value;
+      if (!this.jogo) {
+        this.toastr.error('Dados do jogo não encontrados');
+        console.log('1')
+        return;
       }
+      const dataCriacaoUtc = new Date(this.jogo.dataDeCriacao);
+      console.log('2')
+
+      if (isNaN(dataCriacaoUtc.getTime())) {
+        this.toastr.error('Data inválida no jogo');
+        console.log('3')
+      } else {
+        dataCriacaoUtc.setHours(dataCriacaoUtc.getHours() - 3);
+
+        const day = String(dataCriacaoUtc.getDate()).padStart(2, '0');
+        const month = String(dataCriacaoUtc.getMonth() + 1).padStart(2, '0');
+        const year = dataCriacaoUtc.getFullYear();
+        const hours = String(dataCriacaoUtc.getHours()).padStart(2, '0');
+        const minutes = String(dataCriacaoUtc.getMinutes()).padStart(2, '0');
+        const seconds = String(dataCriacaoUtc.getSeconds()).padStart(2, '0');
+
+        this.jogo.dataDeCriacao = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+        console.log('4')
+      }
+      this.initializeBoard();
+      this.generateRandomColors();
+      this.loadGame();
+    }).catch(error => {
+      console.log('5')
+      this.toastr.error('Erro ao carregar o jogo');
     });
 
-    this.http.get<{
-      question: string,
-      answer: boolean,
-      category: string,
-      id: string,
-      phase: number
-    }[]>('http://localhost:3000/questions').subscribe({
-      next: questions => {
-        this.questions = questions;
-      },
-      error: error => {
-        this.toastr.error('Erro ao carregar as perguntas');
-      }
+    this.gameService.findAllQuestions().then(questions => {
+      this.questions = questions;
+    }).catch(error => {
+      this.toastr.error('Erro ao carregar as perguntas');
     });
   }
 
@@ -256,28 +238,30 @@ export class GameComponent {
 
       this.canRoll = true;
 
-      this.saveGameState();  // Salvar o estado do jogo após responder a uma pergunta
+      this.saveGameState();  
     }
   }
 
 
   saveGameState() {
-    if (!this.jogo) return;
-    this.http.put(`http://localhost:3000/game/${this.jogo.id}`, {
+    if (!this.jogo || !this.jogo.id) {  
+      this.toastr.error('Estado do jogo ou ID não encontrado');
+      return;
+    }
+    
+    this.gameService.saveGameState(this.jogo.id, {
       nivelAtual: this.jogo.nivelAtual,
       numeroAcertos: this.numberOfCorrectAnswers,
       numeroErros: this.numberOfErrors,
       dataDeCriacao: this.jogo.dataDeCriacao,
       status: this.jogo.status
-    }).subscribe({
-      next: () => {
-        this.toastr.success('Estado do jogo salvo com sucesso');
-      },
-      error: () => {
-        this.toastr.error('Erro ao salvar o estado do jogo');
-      }
+    }).then(() => {
+      this.toastr.success('Estado do jogo salvo com sucesso');
+    }).catch(() => {
+      this.toastr.error('Erro ao salvar o estado do jogo');
     });
   }
+  
 
 
   loadGame() {
