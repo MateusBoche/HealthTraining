@@ -1399,6 +1399,87 @@
       "numeroAcertos": 0,
       "numeroErros": 0,
       "dataDeCriacao": "2024-10-08 11:51:56"
+    },
+    {
+      "id": "14dc",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-09 20:28:28"
+    },
+    {
+      "id": "d297",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-09 21:16:02"
+    },
+    {
+      "id": "a318",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-09 21:39:37"
+    },
+    {
+      "id": "4c93",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-09 21:46:30"
+    },
+    {
+      "id": "8026",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-09 21:46:35"
+    },
+    {
+      "id": "9a40",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-09 22:03:32"
+    },
+    {
+      "id": "075c",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-09 22:06:36"
+    },
+    {
+      "id": "d3c2",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-09 22:06:49"
+    },
+    {
+      "id": "a0b0",
+      "usuarioID": "53fc",
+      "status": "Pendente",
+      "nivelAtual": 1,
+      "numeroAcertos": 0,
+      "numeroErros": 0,
+      "dataDeCriacao": "2024-10-09 22:08:49"
     }
   ],
   "questions": [

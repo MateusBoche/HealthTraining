@@ -69,13 +69,14 @@ export const routes: Routes = [
             component: PrepareToStartComponent
           },
           {
-            path: 'game/:id',
-            component: GameComponent,
-          },
-          {
             path: 'game/list',
             component: GameListComponent
           },
+          {
+            path: 'game/:id',
+            component: GameComponent,
+          },
+
         ]
       },
       {
