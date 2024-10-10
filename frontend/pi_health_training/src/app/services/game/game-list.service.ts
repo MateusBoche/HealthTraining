@@ -14,11 +14,14 @@ export class GameListService {
 
   
   getGamesByUserId(userId: string): Promise<Game[]> {
-    return firstValueFrom(this.http.get<Game[]>(`${this.apiUrl}/game?usuario_id=${userId}`));
+    return firstValueFrom(this.http.get<Game[]>(`${this.apiUrl}/game?usuarioID=${userId}`));
   }
 
   
   getUserByEmailAndPassword(email: string | null, senha: string | null): Promise<User[]> {
-    return firstValueFrom(this.http.get<User[]>(`${this.apiUrl}/user?email=${email}&senha=${senha}`));
+    const encodedEmail = encodeURIComponent(email || '');
+    const encodedSenha = encodeURIComponent(senha || '');
+    return firstValueFrom(this.http.get<User[]>(`${this.apiUrl}/user?email=${encodedEmail}&senha=${encodedSenha}`));
   }
+  
 }
