@@ -26,10 +26,10 @@ export class GameListComponent implements OnInit {
   async ngOnInit() {
     await this.buscarDadosUsuario();
     console.log(1)
-    this.carregar_jogos();
+    this.carregarJogos();
   }
 
-  async carregar_jogos() {
+  async carregarJogos() {
     if (!this.usuario || !this.usuario.id) return;
 
     try {
@@ -54,7 +54,7 @@ export class GameListComponent implements OnInit {
 
   async atualizarJogos() {
     await this.buscarDadosUsuario();  
-    this.carregar_jogos();  
+    this.carregarJogos();  
   }
 
   deleteGame(gameId: string | undefined): void {

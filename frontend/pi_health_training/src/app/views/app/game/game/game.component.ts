@@ -40,10 +40,10 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     let gameId = this.route.snapshot.paramMap.get('id');
     console.log(gameId);
-    this.carregar_jogo(gameId!);
+    this.carregarJogo(gameId!);
   }
 
-  carregar_jogo(id: string) {
+  carregarJogo(id: string) {
     this.gameService.findById(id).then(value => {
       this.jogo = value;
       if (!this.jogo) {
