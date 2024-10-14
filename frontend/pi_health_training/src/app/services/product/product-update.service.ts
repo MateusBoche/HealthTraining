@@ -20,7 +20,7 @@ export class ProductUpdateService {
     }
     itemToUpdate.name = name;
     itemToUpdate.price = price;
-    return await firstValueFrom(this.http.put(`http://localhost:3000/product/${id}`, itemToUpdate));
+    return await firstValueFrom(this.http.put(`http://localhost:8081/product/${id}`, itemToUpdate));
   }
 
 }

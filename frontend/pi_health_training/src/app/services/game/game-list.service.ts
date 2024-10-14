@@ -8,7 +8,7 @@ import { User } from '../../domain/model/user.model';
   providedIn: 'root',
 })
 export class GameListService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:8081';
 
   constructor(private http: HttpClient) {}
 

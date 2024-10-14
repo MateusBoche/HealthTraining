@@ -12,6 +12,6 @@ export class ProductCreateService {
 
   async create(product: Product) {
     console.log(product);
-    return firstValueFrom(this.http.post(`http://localhost:3000/product`, product));
+    return firstValueFrom(this.http.post(`http://localhost:8081/product`, product));
   }
 }

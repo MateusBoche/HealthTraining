@@ -15,7 +15,8 @@ export class AuthenticationService {
   authenticate(credentials: UserCredential): Observable<User[]> {
     console.log(`trying to authenticate...`);
     console.log(credentials);
-    return this.http.get<User[]>(`http://localhost:3000/user?email=${credentials.email}&senha=${credentials.password}`);
+    // return this.http.get<User[]>(`http://localhost:8081/user?email=${credentials.email}&senha=${credentials.password}`);
+    return this.http.get<User[]>(`http://localhost:8081/api/user/${credentials.email}/${credentials.password}`);
   }
 
   addDataToLocalStorage(email: string, password: string) {

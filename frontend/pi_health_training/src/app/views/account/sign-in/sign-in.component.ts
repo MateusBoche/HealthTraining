@@ -60,13 +60,16 @@ export class SignInComponent implements OnInit {
         next: (value) => {
           console.log(value);
 
-          if (!value || value.length !== 1) {
+          if (!value) {
             this.isLoginIncorrect = true;
+            console.log('!value');
             return;
           }
 
+          console.log('deu boa, tentando add to local storage');
           this.isLoginIncorrect = true;
           this.authenticationService.addDataToLocalStorage(credentials.email, credentials.password);
+          console.log(' local storage ok');
           this.router.navigate(['']);
         },
         error: (err) => {

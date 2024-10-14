@@ -35,6 +35,12 @@
       "nome_completo": "mateus",
       "email": "mateus@gmail",
       "senha": "123"
+    },
+    {
+      "id": "4aed",
+      "fullName": "teste",
+      "email": "teste@gmail.com",
+      "password": "1234"
     }
   ],
   "game": [
