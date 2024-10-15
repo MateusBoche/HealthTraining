@@ -19,11 +19,14 @@ export class GameListService {
   }
 
   
-  getUserByEmailAndPassword(email: string | null, senha: string | null): Promise<User[]> {
-    const encodedEmail = encodeURIComponent(email || '');
-    const encodedSenha = encodeURIComponent(senha || '');
-    return firstValueFrom(this.http.get<User[]>(`http://localhost:8081/api/user/${email}`));
-    
+  async getUserByEmailAndPassword(email: string, senha: string): Promise<User> {
+    const encodedEmail = encodeURIComponent(email);
+    const encodedSenha = encodeURIComponent(senha);
+    return firstValueFrom(
+      this.http.get<User>(`http://localhost:8081/api/user/${encodedEmail}/${encodedSenha}`)
+    );
   }
+  
+  
   
 }

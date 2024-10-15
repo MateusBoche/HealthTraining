@@ -17,7 +17,7 @@ import { GameListService } from '../../../../services/game/game-list.service';
 })
 export class GameListComponent implements OnInit {
 
-  jogos!: Game[];
+  jogos: Game[] = [];
   usuario!: User;
 
   constructor(private http: HttpClient, private toastr: ToastrService, private router: Router, private gameListService: GameListService) {
@@ -42,15 +42,34 @@ export class GameListComponent implements OnInit {
 
   async buscarDadosUsuario() {
     const email = localStorage.getItem('email');
-    const senha = localStorage.getItem('senha');
-
+    const senha = localStorage.getItem('password');
+  
+    console.log('Email:', email);
+    console.log('Senha:', senha);
+  
+    if (!email || !senha) {
+      this.toastr.error('Email ou senha não encontrados. Por favor, faça login novamente.');
+      return;
+    }
+  
     try {
       const resposta = await this.gameListService.getUserByEmailAndPassword(email, senha);
-      this.usuario = resposta[0];
+      console.log('Resposta do backend:', resposta);
+  
+      // Verifique se a resposta é um objeto em vez de um array
+      if (resposta) {
+        this.usuario = resposta;
+        console.log('Usuário carregado:', this.usuario);
+      } else {
+        this.toastr.error('Usuário não encontrado');
+      }
     } catch (error) {
+      console.error('Erro ao buscar usuário:', error);
       this.toastr.error('Erro ao carregar os dados do usuário');
     }
   }
+  
+  
 
   async atualizarJogos() {
     await this.buscarDadosUsuario();  

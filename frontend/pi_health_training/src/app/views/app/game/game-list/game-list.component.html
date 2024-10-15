@@ -4,6 +4,13 @@
     <div class="div_topo_ordens">
       <h2>Últimos jogos</h2>
       <div class="orders-container">
+        
+        <!-- Se não houver jogos, mostra a mensagem -->
+        <div *ngIf="jogos && jogos.length === 0" class="order-container alinhar_ao_centro">
+          <label>Você ainda não criou nenhum jogo.</label>
+        </div>
+
+        <!-- Iteração sobre os jogos existentes -->
         <div *ngFor="let jogo of jogos; let i = index" class="order-container">
           <a [routerLink]="['/game', jogo.id]" class="id_ordem">Jogo: {{ jogo.id }}</a>
 
@@ -46,9 +53,6 @@
           </div>
         </div>
 
-        <div *ngIf="jogos.length === 0" class="order-container alinhar_ao_centro">
-          <label>Você ainda não criou nenhum jogo.</label>
-        </div>
       </div>
     </div>
 
