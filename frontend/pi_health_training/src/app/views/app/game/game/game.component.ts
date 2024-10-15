@@ -46,6 +46,7 @@ export class GameComponent implements OnInit {
   carregarJogo(id: number) {
     this.gameService.findById(id).then(value => {
       this.jogo = value;
+      console.log(value)
       if (!this.jogo) {
         this.toastr.error('Dados do jogo não encontrados');
         console.log('1')
@@ -71,16 +72,21 @@ export class GameComponent implements OnInit {
         console.log('4')
       }
       this.initializeBoard();
-      this.generateRandomColors();
-      this.loadGame();
-    }).catch(error => {
       console.log('5')
+      this.generateRandomColors();
+      console.log('6')
+      this.loadGame();
+      console.log('7')
+    }).catch(error => {
+      console.log('8')
       this.toastr.error('Erro ao carregar o jogo');
     });
-
+    
     this.gameService.findAllQuestions().then(questions => {
+      console.log('9')
       this.questions = questions;
     }).catch(error => {
+      console.log('10')
       this.toastr.error('Erro ao carregar as perguntas');
     });
   }

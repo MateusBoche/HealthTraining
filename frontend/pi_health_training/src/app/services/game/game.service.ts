@@ -8,13 +8,17 @@ import { firstValueFrom } from 'rxjs';
 })
 export class GameService {
 
-  private apiUrl = 'http://localhost:8081';
+  private apiUrl = 'http://localhost:8081/api';
 
   constructor(private http: HttpClient) { }
 
   findById(id: number): Promise<Game> {
     return firstValueFrom(this.http.get<Game>(`${this.apiUrl}/game/${id}`));
   }
+
+  //findById(id: number): Promise<Game> {
+  //  return firstValueFrom(this.http.get<Game>(`${this.apiUrl}/api/game/${id}`));
+  //}
 
   findAllQuestions(): Promise<{
     question: string,
@@ -29,7 +33,7 @@ export class GameService {
       category: string,
       id: number,
       phase: number
-    }[]>(`${this.apiUrl}/questions`));
+    }[]>(`${this.apiUrl}/question`));
   }
 
   saveGameState(id: number, gameState: any): Promise<any> {

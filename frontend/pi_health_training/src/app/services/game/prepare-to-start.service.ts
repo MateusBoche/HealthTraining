@@ -8,7 +8,7 @@ import { Game } from '../../domain/model/game';
   providedIn: 'root',
 })
 export class PrepareToStartService {
-  private apiUrl = 'http://localhost:8081';
+  private apiUrl = 'http://localhost:8081/api';
 
   constructor(private http: HttpClient) {}
 

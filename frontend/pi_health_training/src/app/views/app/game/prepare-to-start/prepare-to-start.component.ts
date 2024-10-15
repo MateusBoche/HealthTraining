@@ -45,6 +45,7 @@ export class PrepareToStartComponent implements OnInit {
   
     try {
       const novoJogo = await this.prepareToStartService.startNewGame(this.jogo); 
+      console.log(novoJogo)
       this.jogo = { ...this.jogo, ...novoJogo }; 
       this.toastr.success('Jogo iniciado com sucesso');
       console.log(this.jogo);

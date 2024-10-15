@@ -3,5 +3,5 @@ export interface Question {
   answer: boolean,
   category: string,
   id: number,
-  phase: number, // Adicione este campo para suportar a fase
+  phase: number // Adicione este campo para suportar a fase
 }
