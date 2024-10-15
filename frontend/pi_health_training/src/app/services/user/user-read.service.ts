@@ -10,7 +10,7 @@ export class UserReadService {
 
   constructor(private http: HttpClient) { }
 
-  findById(id: string): Promise<User> {
+  findById(id: number): Promise<User> {
     return firstValueFrom(this.http.get<User>(`http://localhost:8081/user/${id}`));
   }
 

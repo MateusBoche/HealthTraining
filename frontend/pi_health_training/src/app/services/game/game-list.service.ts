@@ -8,20 +8,22 @@ import { User } from '../../domain/model/user.model';
   providedIn: 'root',
 })
 export class GameListService {
-  private apiUrl = 'http://localhost:8081';
+  private apiUrl = 'http://localhost:8081/api/game';
 
   constructor(private http: HttpClient) {}
 
   
   getGamesByUserId(userId: number): Promise<Game[]> {
-    return firstValueFrom(this.http.get<Game[]>(`${this.apiUrl}/game?usuarioID=${userId}`));
+    //return firstValueFrom(this.http.get<Game[]>(`${this.apiUrl}/listar-jogos/${userId}`));
+    return firstValueFrom(this.http.get<Game[]>(`http://localhost:8081/api/game/listar-jogos/${userId}`));
   }
 
   
   getUserByEmailAndPassword(email: string | null, senha: string | null): Promise<User[]> {
     const encodedEmail = encodeURIComponent(email || '');
     const encodedSenha = encodeURIComponent(senha || '');
-    return firstValueFrom(this.http.get<User[]>(`${this.apiUrl}/user?email=${encodedEmail}&senha=${encodedSenha}`));
+    return firstValueFrom(this.http.get<User[]>(`http://localhost:8081/api/user/${email}`));
+    
   }
   
 }

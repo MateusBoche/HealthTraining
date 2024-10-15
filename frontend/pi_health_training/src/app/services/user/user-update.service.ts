@@ -13,7 +13,7 @@ export class UserUpdateService {
     private http: HttpClient,
     private userReadService: UserReadService) { }
 
-  async update(id: string, fullName: string) {
+  async update(id: number, fullName: string) {
     let userToUpdate: User = await this.userReadService.findById(id);
     if (userToUpdate == null) {
       throw new Error('usuario nao encontrado');
@@ -22,7 +22,7 @@ export class UserUpdateService {
     return await firstValueFrom(this.http.put(`http://localhost:8081/user/${id}`, userToUpdate));
   }
 
-  async updatePassword(id: string, oldPassword: string, newPassword: string) {
+  async updatePassword(id: number, oldPassword: string, newPassword: string) {
     let userToUpdate: User = await this.userReadService.findById(id);
     if (userToUpdate == null) {
       throw new Error('usuario nao encontrado');
