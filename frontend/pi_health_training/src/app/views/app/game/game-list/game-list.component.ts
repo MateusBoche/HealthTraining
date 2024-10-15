@@ -33,7 +33,7 @@ export class GameListComponent implements OnInit {
     if (!this.usuario || !this.usuario.id) return;
 
     try {
-      this.jogos = await this.gameListService.getGamesByUserId(this.usuario.id);
+      this.jogos = await this.gameListService.getGamesByUserId(Number(this.usuario.id));
       console.log(2);
     } catch (error) {
       this.toastr.error('Erro ao carregar os jogos');
@@ -57,7 +57,7 @@ export class GameListComponent implements OnInit {
     this.carregarJogos();  
   }
 
-  deleteGame(gameId: string | undefined): void {
+  deleteGame(gameId: number | undefined): void {
     if (!gameId) return; 
 
     

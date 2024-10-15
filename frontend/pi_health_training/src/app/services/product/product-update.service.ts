@@ -14,7 +14,7 @@ export class ProductUpdateService {
     private productReadService: ProductReadService) { }
 
   async update(id: string, name: string, price: number) {
-    let itemToUpdate: Product = await this.productReadService.findById(id);
+    let itemToUpdate: Product = await this.productReadService.findById(Number(id));
     if (itemToUpdate == null) {
       throw new Error('produto nao encontrado');
     }

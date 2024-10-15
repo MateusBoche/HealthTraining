@@ -10,7 +10,7 @@ export class ProductReadService {
 
   constructor(private http: HttpClient) { }
 
-  findById(id: string): Promise<Product> {
+  findById(id: number): Promise<Product> {
     return firstValueFrom(this.http.get<Product>(`http://localhost:8081/product/${id}`));
   }
 

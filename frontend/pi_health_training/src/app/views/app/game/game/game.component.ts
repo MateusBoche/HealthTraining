@@ -24,7 +24,7 @@ export class GameComponent implements OnInit {
   colors: string[] = [];
   currentQuestion: { question: string, answer: boolean, category: string } | null = null;
   isQuestionAnswered: boolean = false;
-  questions: { question: string, answer: boolean, category: string, id: string, phase: number }[] = [];
+  questions: { question: string, answer: boolean, category: string, id: number, phase: number }[] = [];
   rolling: boolean = false;
   canRoll: boolean = true;
   score: number = 0;
@@ -40,10 +40,10 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     let gameId = this.route.snapshot.paramMap.get('id');
     console.log(gameId);
-    this.carregarJogo(gameId!);
+    this.carregarJogo(Number(gameId!));
   }
 
-  carregarJogo(id: string) {
+  carregarJogo(id: number) {
     this.gameService.findById(id).then(value => {
       this.jogo = value;
       if (!this.jogo) {

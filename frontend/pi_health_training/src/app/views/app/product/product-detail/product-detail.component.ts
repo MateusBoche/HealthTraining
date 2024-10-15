@@ -25,10 +25,10 @@ export class ProductDetailComponent implements OnInit {
   }
   ngOnInit(): void {
     let productId = this.route.snapshot.paramMap.get('id');
-    this.loadProductById(productId!);
+    this.loadProductById(Number(productId!));
   }
 
-  async loadProductById(productId: string) {
+  async loadProductById(productId: number) {
     let product = await this.productReadService.findById(productId);
     this.product = product;
   }

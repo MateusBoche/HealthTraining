@@ -52,14 +52,14 @@ export class ProductEditComponent implements OnInit {
   }
 
   async loadProductById(productId: string) {
-    let product = await this.productReadService.findById(productId);
+    let product = await this.productReadService.findById(Number(productId));
     this.form.controls['name'].setValue(product.name);
     this.form.controls['price'].setValue(product.price);
   }
 
   async update() {
     const product: Product = {
-      id: this.productId,
+      id: Number(this.productId),
       name: this.form.controls['name'].value,
       price: this.form.controls['price'].value,
     }
@@ -67,7 +67,7 @@ export class ProductEditComponent implements OnInit {
     console.log(product);
 
     try {
-      await this.productUpdateService.update(product.id!, product.name, product.price);
+      await this.productUpdateService.update(String(product.id!), product.name, product.price);
       this.toastr.success('Dados salvos com sucesso!');
       this.router.navigate(['product/list']);
     } catch (error: any) {

@@ -1,7 +1,7 @@
 export interface Question {
-  question: string;
-  answer: boolean;
-  category: string;
-  id: string;
-  phase: number; // Adicione este campo para suportar a fase
+  question: string,
+  answer: boolean,
+  category: string,
+  id: number,
+  phase: number, // Adicione este campo para suportar a fase
 }

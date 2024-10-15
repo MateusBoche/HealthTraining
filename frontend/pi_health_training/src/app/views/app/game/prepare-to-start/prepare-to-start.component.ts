@@ -35,7 +35,7 @@ export class PrepareToStartComponent implements OnInit {
     console.log(this.usuario);
   
     this.jogo = {
-      usuarioID: this.usuario.id,
+      usuarioID: Number(this.usuario.id),
       status: "Pendente",
       nivelAtual: 1,
       numeroAcertos: 0,

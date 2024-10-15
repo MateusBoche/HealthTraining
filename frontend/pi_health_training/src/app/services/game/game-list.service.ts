@@ -13,7 +13,7 @@ export class GameListService {
   constructor(private http: HttpClient) {}
 
   
-  getGamesByUserId(userId: string): Promise<Game[]> {
+  getGamesByUserId(userId: number): Promise<Game[]> {
     return firstValueFrom(this.http.get<Game[]>(`${this.apiUrl}/game?usuarioID=${userId}`));
   }
 

@@ -12,7 +12,7 @@ export class GameService {
 
   constructor(private http: HttpClient) { }
 
-  findById(id: string): Promise<Game> {
+  findById(id: number): Promise<Game> {
     return firstValueFrom(this.http.get<Game>(`${this.apiUrl}/game/${id}`));
   }
 
@@ -20,19 +20,19 @@ export class GameService {
     question: string,
     answer: boolean,
     category: string,
-    id: string,
+    id: number,
     phase: number
   }[]> {
     return firstValueFrom(this.http.get<{
       question: string,
       answer: boolean,
       category: string,
-      id: string,
+      id: number,
       phase: number
     }[]>(`${this.apiUrl}/questions`));
   }
 
-  saveGameState(id: string, gameState: any): Promise<any> {
+  saveGameState(id: number, gameState: any): Promise<any> {
     return firstValueFrom(this.http.put(`${this.apiUrl}/game/${id}`, gameState));
   }
 }
