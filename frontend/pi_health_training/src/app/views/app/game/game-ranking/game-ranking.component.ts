@@ -78,21 +78,6 @@ export class GameRankingComponent implements OnInit {
     this.carregarJogos();  
   }
 
-  deleteGame(gameId: number | undefined): void {
-    if (!gameId) return;
-  
-    // Chamar o serviço para excluir o jogo no backend
-    this.gameRankingService.deleteGameRanking(gameId).subscribe({
-      next: () => {
-        // Remover o jogo da lista local após a exclusão bem-sucedida no backend
-        this.jogos = this.jogos.filter(game => game.id !== gameId);
-        this.toastr.success('Jogo excluído com sucesso!');
-      },
-      error: (err) => {
-        console.error('Erro ao excluir o jogo:', err);
-        this.toastr.error('Erro ao excluir o jogo.');
-      }
-    });
-  }
+
 
 }

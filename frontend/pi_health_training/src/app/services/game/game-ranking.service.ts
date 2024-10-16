@@ -35,9 +35,7 @@ export class GameRankingService {
     );
   }
 
-  deleteGameRanking(GameId: number): Observable<void>{
-    return this.http.delete<void>(`${this.apiUrl}/${GameId}`)
-  }
+
   
   
   
