@@ -18,6 +18,7 @@ import {PasswordRecoveryComponent} from "./views/password-recovery/password-reco
 import {PrepareToStartComponent} from "./views/app/game/prepare-to-start/prepare-to-start.component";
 import {GameListComponent} from "./views/app/game/game-list/game-list.component";
 import {GameComponent} from "./views/app/game/game/game.component";
+import { GameRankingComponent } from './views/app/game/game-ranking/game-ranking.component';
 
 export const routes: Routes = [
   {
@@ -71,6 +72,10 @@ export const routes: Routes = [
           {
             path: 'game/list',
             component: GameListComponent
+          },
+          {
+            path: 'game/ranking',
+            component: GameRankingComponent
           },
           {
             path: 'game/:id',
