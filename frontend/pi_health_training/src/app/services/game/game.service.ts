@@ -25,14 +25,16 @@ export class GameService {
     answer: boolean,
     category: string,
     id: number,
-    phase: number
+    phase: number,
+    link: string
   }[]> {
     return firstValueFrom(this.http.get<{
       question: string,
       answer: boolean,
       category: string,
       id: number,
-      phase: number
+      phase: number,
+      link: string
     }[]>(`${this.apiUrl}/question`));
   }
 

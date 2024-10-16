@@ -63,6 +63,9 @@
         <p>{{ currentQuestion.question }}</p>
         <button class="btn-true" (click)="answerQuestion(true)">Verdadeiro</button>
         <button class="btn-false" (click)="answerQuestion(false)">Falso</button>
+        <p><strong>Dúvidas sobre a pergunta? Acesse o link e tire suas duvidas para responde-la:</strong> 
+          <a *ngIf="currentQuestion.link" [href]="currentQuestion.link" target="_blank">{{ currentQuestion.link }}</a>
+      </p>
       </div>
     </div>
   </div>

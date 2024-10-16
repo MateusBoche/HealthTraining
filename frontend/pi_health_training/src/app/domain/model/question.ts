@@ -4,4 +4,5 @@ export interface Question {
   category: string,
   id: number,
   phase: number // Adicione este campo para suportar a fase
+  link: string,
 }

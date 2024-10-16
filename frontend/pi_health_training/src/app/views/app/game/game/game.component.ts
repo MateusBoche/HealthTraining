@@ -22,9 +22,9 @@ export class GameComponent implements OnInit {
   markerPosition = 'translate(0px, 0px)';
   diceRotation = 0;
   colors: string[] = [];
-  currentQuestion: { question: string, answer: boolean, category: string } | null = null;
+  currentQuestion: { question: string, answer: boolean, category: string, link: string} | null = null;
   isQuestionAnswered: boolean = false;
-  questions: { question: string, answer: boolean, category: string, id: number, phase: number }[] = [];
+  questions: { question: string, answer: boolean, category: string, id: number, phase: number, link: string }[] = [];
   rolling: boolean = false;
   canRoll: boolean = true;
   score: number = 0;
@@ -219,13 +219,18 @@ export class GameComponent implements OnInit {
     return color;
   }
 
-  getRandomQuestion(): { question: string, answer: boolean, category: string } {
+  getRandomQuestion(): { question: string, answer: boolean, category: string, link: string } {
     const filteredQuestions = this.questions.filter(q => q.phase === this.jogo.nivelAtual);
     if (filteredQuestions.length === 0) {
-      return {question: 'Pergunta não disponível', answer: false, category: 'Categoria não disponível'};
+        return {
+            question: 'Pergunta não disponível',
+            answer: false,
+            category: 'Categoria não disponível',
+            link: '' // ou um valor padrão
+        };
     }
     return filteredQuestions[Math.floor(Math.random() * filteredQuestions.length)];
-  }
+}
 
   answerQuestion(answer: boolean) {
     if (this.currentQuestion) {
