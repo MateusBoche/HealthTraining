@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Game } from '../../domain/model/game';
 import { User } from '../../domain/model/user.model';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +27,10 @@ export class GameListService {
     return firstValueFrom(
       this.http.get<User>(`http://localhost:8081/api/user/${encodedEmail}/${encodedSenha}`)
     );
+  }
+
+  deleteGame(gameId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${gameId}`);
   }
   
   
