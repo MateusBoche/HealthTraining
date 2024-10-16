@@ -17,6 +17,7 @@ export class AuthenticationService {
     console.log(credentials);
     // return this.http.get<User[]>(`http://localhost:8081/user?email=${credentials.email}&senha=${credentials.password}`);
     return this.http.get<User[]>(`http://localhost:8081/api/user/${credentials.email}/${credentials.password}`);
+    this.isAuthenticated();
   }
 
   addDataToLocalStorage(email: string, password: string) {
@@ -39,6 +40,7 @@ export class AuthenticationService {
       return true;
     }
     return false;
+    
   }
 
   getOnlineUserEmail() {

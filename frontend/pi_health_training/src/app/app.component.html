@@ -21,21 +21,21 @@
         </div>
       </div>
       <!-- @if(!logado){ -->
-      <div class="login_e_cadastro">
-        <a href="/account/sign-in">Entrar</a>
-        <a href="/account/sign-up">Registrar</a>
-      </div>
+        <div class="login_e_cadastro" *ngIf="!logado"> <!-- Esta div só será exibida se logado for false -->
+          <a href="/account/sign-in">Entrar</a>
+          <a href="/account/sign-up">Registrar</a>
+        </div>
       <!-- } @else if (logado){ -->
-      <div class="menu-perfil">
-        <div class="dropdown">
-          <label id="minha-conta">Minha Conta ▼</label>
-          <div class="dropdown-content">
-            <a href="/game/game/list">Meus Jogos</a>
-            <a href="account/my-profile">Minha conta</a>
-            <a (click)="sair()" id="botao_sair">Sair</a>
+        <div class="menu-perfil" *ngIf="logado"> <!-- Esta div só será exibida se logado for true -->
+          <div class="dropdown">
+            <label id="minha-conta">Minha Conta ▼</label>
+            <div class="dropdown-content">
+              <a href="/game/game/list">Meus Jogos</a>
+              <a href="/account/my-profile">Minha conta</a>
+              <a (click)="sair()" id="botao_sair">Sair</a>
+            </div>
           </div>
         </div>
-      </div>
       <!-- } -->
       <button (click)="alternarMenu()" class="nav_button">☰</button>
     </div>

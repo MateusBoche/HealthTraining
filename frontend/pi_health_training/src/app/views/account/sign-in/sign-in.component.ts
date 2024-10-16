@@ -71,6 +71,7 @@ export class SignInComponent implements OnInit {
           this.authenticationService.addDataToLocalStorage(credentials.email, credentials.password);
           console.log(' local storage ok');
           this.router.navigate(['']);
+          
         },
         error: (err) => {
           console.error(err);
