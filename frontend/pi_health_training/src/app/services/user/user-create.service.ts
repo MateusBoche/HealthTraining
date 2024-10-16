@@ -11,7 +11,7 @@ export class UserCreateService {
 
   create(user: User) {
     console.log(user);
-    return this.http.post(`http://localhost:8081/user`, user);
+    return this.http.post(`http://localhost:8081/api/user`, user);
   }
 
 }
