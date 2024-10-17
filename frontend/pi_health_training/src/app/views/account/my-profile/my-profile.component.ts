@@ -27,7 +27,7 @@ export class MyProfileComponent implements OnInit {
 
   fullNameMinChar: number = 2;
   fullNameMaxChar: number = 10;
-  passwordMinChar: number = 2;
+  passwordMinChar: number = 1;
   passwordMaxChar: number = 10;
 
   email: string = '';
@@ -66,13 +66,16 @@ export class MyProfileComponent implements OnInit {
 
   async retrieveLoggedUser(email: string) {
     let user = await this.userReadService.findByEmail(email);
-    this.currentUser = user[0];
+    console.log(user);
+    this.currentUser = user;
     this.dataForm.controls['fullName'].setValue(this.currentUser.fullName);
     this.email = this.currentUser.email;
   }
 
   async updateMyInformation() {
     try {
+      console.log(this.dataForm.controls['fullName'].value);
+      console.log(this.currentUser.id);
       await this.userUpdateService
         .update(this.currentUser.id!,
           this.dataForm.controls['fullName'].value!);
@@ -84,6 +87,7 @@ export class MyProfileComponent implements OnInit {
   }
 
   async updatePassword() {
+    console.error('1');
     try {
       await this.userUpdateService
         .updatePassword(this.currentUser.id!,

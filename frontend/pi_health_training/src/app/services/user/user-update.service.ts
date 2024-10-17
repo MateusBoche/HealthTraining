@@ -19,7 +19,7 @@ export class UserUpdateService {
       throw new Error('usuario nao encontrado');
     }
     userToUpdate.fullName = fullName;
-    return await firstValueFrom(this.http.put(`http://localhost:8081/user/${id}`, userToUpdate));
+    return await firstValueFrom(this.http.put(`http://localhost:8081/api/user/${id}`, userToUpdate));
   }
 
   async updatePassword(id: number, oldPassword: string, newPassword: string) {
@@ -33,10 +33,12 @@ export class UserUpdateService {
     }
 
     let data = {
-      password: newPassword
+      id : id,
+      oldPassword: oldPassword,
+      newPassword: newPassword
     };
 
-    return await firstValueFrom(this.http.patch(`http://localhost:8081/user/${id}`, data));
+    return await firstValueFrom(this.http.put(`http://localhost:8081/api/user/update-password`, data));
   }
 
 }

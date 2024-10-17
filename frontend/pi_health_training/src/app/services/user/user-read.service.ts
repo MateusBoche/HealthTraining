@@ -11,14 +11,14 @@ export class UserReadService {
   constructor(private http: HttpClient) { }
 
   findById(id: number): Promise<User> {
-    return firstValueFrom(this.http.get<User>(`http://localhost:8081/user/${id}`));
+    return firstValueFrom(this.http.get<User>(`http://localhost:8081/api/user/${id}`));
   }
 
-  findByEmail(email: string): Promise<User[]> {
-    return firstValueFrom(this.http.get<User[]>(`http://localhost:8081/user?email=${email}`));
+  findByEmail(email: string): Promise<User> {
+    return firstValueFrom(this.http.get<User>(`http://localhost:8081/api/user/email/${email}`));
   }
 
   findAll(): Promise<User[]> {
-    return firstValueFrom(this.http.get<User[]>(`http://localhost:8081/user`));
+    return firstValueFrom(this.http.get<User[]>(`http://localhost:8081/api/user`));
   }
 }

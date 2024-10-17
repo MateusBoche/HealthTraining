@@ -149,3 +149,27 @@ header, footer{
   }
 
 }
+
+
+#agradecimentos {
+  padding: 50px;
+  background-color: #0f1327;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+#agradecimentos h2 {
+  color: #ffffff;
+  font-size: 40px;
+}
+
+#agradecimentos p {
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 700px;
+  text-align: center;
+}
