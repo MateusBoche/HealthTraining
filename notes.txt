@@ -14,3 +14,14 @@ Diagrama de Pacotes:
 
 Diagrama de Sequencia
 * Usar o nome dos métodos nas trocas de mensagem
+====================================================================
+Dicas para FATEC:
+Diagrama de componentess:
+- Separar os modulos (interface, classses de neócios e banco de dados) pode fazer de acordo com o exemplo que está no faionline
+- Colocar na apresentação os mesmos diagramas que vocês modelaram no projeto (atualizar os diagramas)
+Diagrama de Pacotes
+ -  Analisar se os pacotes estão distribuidos de acordo com a arquitetura do projeto
+Diagrama de Classes
+-  Falta adicionar os métodos(agora vocês já em os nomes dos métodos)
+Aoresentação
+- Levantar a usabilidade e aplicabilidade do projeto de vocês
