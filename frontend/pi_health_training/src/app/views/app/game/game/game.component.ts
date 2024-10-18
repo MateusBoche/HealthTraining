@@ -60,7 +60,7 @@ export class GameComponent implements OnInit {
         this.toastr.error('Data inválida no jogo');
         console.log('3')
       } else {
-        dataCriacaoUtc.setHours(dataCriacaoUtc.getHours() - 3);
+        dataCriacaoUtc.setHours(dataCriacaoUtc.getHours());
 
         const day = String(dataCriacaoUtc.getDate()).padStart(2, '0');
         const month = String(dataCriacaoUtc.getMonth() + 1).padStart(2, '0');
@@ -274,6 +274,7 @@ export class GameComponent implements OnInit {
       dataDeCriacao: this.jogo.dataDeCriacao,
       status: this.jogo.status,
       pontuacao: this.ponts
+      
 
     }).then(() => {
       this.toastr.success('Estado do jogo salvo com sucesso');
