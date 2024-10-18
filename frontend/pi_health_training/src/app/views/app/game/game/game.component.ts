@@ -27,7 +27,7 @@ export class GameComponent implements OnInit {
   questions: { question: string, answer: boolean, category: string, id: number, phase: number, link: string }[] = [];
   rolling: boolean = false;
   canRoll: boolean = true;
-  score: number = 0;
+  ponts: number = 0;
   numberOfCorrectAnswers: number = 0;
   numberOfErrors: number = 0;
 
@@ -53,6 +53,7 @@ export class GameComponent implements OnInit {
         return;
       }
       const dataCriacaoUtc = new Date(this.jogo.dataDeCriacao);
+      this.gameService.createGame(id,this.jogo)
       console.log('2')
 
       if (isNaN(dataCriacaoUtc.getTime())) {
@@ -236,13 +237,18 @@ export class GameComponent implements OnInit {
     if (this.currentQuestion) {
       if (this.currentQuestion.answer === answer) {
         this.toastr.success('Resposta correta!');
-        this.score += 10;
+        this.ponts += 10;
         this.numberOfCorrectAnswers++;
         this.movePlayer(this.diceValue!);
+        this.saveGameState()
+
+        
       } else {
         this.toastr.error('Resposta incorreta. Tente novamente!');
-        this.score -= 5;
+        this.ponts -= 5;
         this.numberOfErrors++;
+        this.saveGameState()
+        
       }
       this.isQuestionAnswered = true;
       this.currentQuestion = null;
@@ -261,11 +267,14 @@ export class GameComponent implements OnInit {
     }
     
     this.gameService.saveGameState(this.jogo.id, {
+      id: this.jogo.id,
       nivelAtual: this.jogo.nivelAtual,
       numeroAcertos: this.numberOfCorrectAnswers,
       numeroErros: this.numberOfErrors,
       dataDeCriacao: this.jogo.dataDeCriacao,
-      status: this.jogo.status
+      status: this.jogo.status,
+      pontuacao: this.ponts
+
     }).then(() => {
       this.toastr.success('Estado do jogo salvo com sucesso');
     }).catch(() => {
@@ -281,7 +290,7 @@ export class GameComponent implements OnInit {
       const gameState = JSON.parse(savedState);
 
       this.currentPosition = gameState.currentPosition;
-      this.score = gameState.score;
+      this.ponts = gameState.pontuacao;
       this.numberOfCorrectAnswers = gameState.numberOfCorrectAnswers;
       this.numberOfErrors = gameState.numberOfErrors;
       this.diceValue = gameState.diceValue;

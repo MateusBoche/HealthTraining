@@ -5,5 +5,6 @@ export interface Game {
     usuarioID: number,
     numeroAcertos: number,
     numeroErros: number,
+    pontuacao: number,
     dataDeCriacao: string
 }

@@ -39,6 +39,10 @@ export class GameService {
   }
 
   saveGameState(id: number, gameState: any): Promise<any> {
-    return firstValueFrom(this.http.put(`${this.apiUrl}/game/${id}`, gameState));
+    return firstValueFrom(this.http.put(`${this.apiUrl}/game/atualizar-status/${id}`, gameState));
+  }
+
+  createGame(id: number, game: any): Promise<any>{
+    return firstValueFrom(this.http.post(`${this.apiUrl}/game/${id}`, game));
   }
 }

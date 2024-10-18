@@ -6,5 +6,6 @@ export interface GameList {
     usuarioID: number,
     numeroAcertos: number,
     numeroErros: number,
-    dataDeCriacao: string
+    dataDeCriacao: string,
+    pontuacao: number
 }
