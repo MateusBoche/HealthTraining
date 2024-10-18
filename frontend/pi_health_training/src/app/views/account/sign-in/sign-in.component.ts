@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 import {UserCredential} from '../../../domain/dto/user-credential.dto';
 import {AuthenticationService} from '../../../services/security/authentication.service';
 import {UserReadService} from '../../../services/user/user-read.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-in',
@@ -30,7 +31,9 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService) {
+    private authenticationService: AuthenticationService,
+    private toastr: ToastrService,
+    ) {
   }
 
   ngOnInit(): void {
@@ -70,11 +73,13 @@ export class SignInComponent implements OnInit {
           this.isLoginIncorrect = true;
           this.authenticationService.addDataToLocalStorage(credentials.email, credentials.password);
           console.log(' local storage ok');
+          this.toastr.success('Logado');
           this.router.navigate(['']);
           
         },
         error: (err) => {
           console.error(err);
+          this.toastr.error('Email ou senha invalido');
         },
       });
   }

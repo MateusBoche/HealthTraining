@@ -3,13 +3,16 @@ import {Injectable} from '@angular/core';
 import {UserCredential} from '../../domain/dto/user-credential.dto';
 import {Observable} from 'rxjs';
 import {User} from '../../domain/model/user.model';
+import {ToastrService} from "ngx-toastr";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+    private toastr: ToastrService,
+  ) {
   }
 
   authenticate(credentials: UserCredential): Observable<User[]> {
@@ -29,6 +32,7 @@ export class AuthenticationService {
 
   logout() {
     console.log('limpei');
+    this.toastr.success('Conta deslogada com sucesso');
     localStorage.clear();
   }
 
