@@ -8,6 +8,7 @@ import {User} from "../../../../domain/model/user.model";
 import {Game} from "../../../../domain/model/game";
 import { GameRankingService } from '../../../../services/game/game-ranking.service';
 import { GameList } from '../../../../domain/dto/gamelist';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -15,7 +16,8 @@ import { GameList } from '../../../../domain/dto/gamelist';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './game-ranking.component.html',
-  styleUrl: './game-ranking.component.css'
+  styleUrl: './game-ranking.component.css',
+  providers: [DatePipe]
 })
 export class GameRankingComponent implements OnInit {
 
