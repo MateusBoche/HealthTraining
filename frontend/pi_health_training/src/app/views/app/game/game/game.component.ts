@@ -109,63 +109,67 @@ export class GameComponent implements OnInit {
   }
 
   rollDice() {
-    if (!this.canRoll) return;
+    if (!this.canRoll) return; // Não permite rolar se a rolagem não for permitida
 
+    // Verifica se o jogo já foi concluído
     if (this.jogo.nivelAtual === 3 && this.currentPosition >= this.board.length - 1) {
-      this.toastr.info('Jogo terminado com sucesso: FIM');
-      this.canRoll = false;
-      return;
+        this.toastr.info('Jogo terminado com sucesso: FIM');
+        this.canRoll = false; // Desabilita a rolagem do dado
+        return; // Impede a continuação da função
     }
 
-    this.canRoll = false;
+    this.canRoll = false; // Desabilita a rolagem durante a animação
     this.rolling = true;
 
     this.diceValue = Math.floor(Math.random() * 6) + 1;
 
     const intervalId = setInterval(() => {
-      this.diceValue = Math.floor(Math.random() * 6) + 1;
+        this.diceValue = Math.floor(Math.random() * 6) + 1;
     }, 1000);
 
     setTimeout(() => {
-      clearInterval(intervalId);
-      this.diceValue = Math.floor(Math.random() * 6) + 1;
+        clearInterval(intervalId);
+        this.diceValue = Math.floor(Math.random() * 6) + 1;
 
-      setTimeout(() => {
-        this.rolling = false;
+        setTimeout(() => {
+            this.rolling = false;
 
-        if (this.jogo.nivelAtual < 3 || this.currentPosition < this.board.length - 1) {
-          this.currentQuestion = this.getRandomQuestion();
-        }
-  
-        this.isQuestionAnswered = false;
-      }, 1500);
+            if (this.jogo.nivelAtual < 3 || this.currentPosition < this.board.length - 1) {
+                this.currentQuestion = this.getRandomQuestion(); // Exibe a pergunta apenas se o jogo não terminou
+            }
+            this.isQuestionAnswered = false;
+        }, 1500);
     }, 1500);
-  }
+}
 
-  movePlayer(roll: number) {
-    const totalCells = this.board.length;
-    let newPosition = this.currentPosition + roll;
 
-    if (newPosition >= totalCells) {
+movePlayer(roll: number) {
+  const totalCells = this.board.length;
+  let newPosition = this.currentPosition + roll;
+
+  // Verifica se a nova posição é igual ou maior que o total de células
+  if (newPosition >= totalCells) {
       if (this.jogo.nivelAtual === 1) {
-        this.toastr.success('Parabéns, a Fase 1 foi concluída!');
-        this.jogo.nivelAtual = 2;
-        this.resetForNextPhase(); // Reinicia a fase sem animação adicional
+          this.toastr.success('Parabéns, a Fase 1 foi concluída!');
+          this.jogo.nivelAtual = 2;
+          this.resetForNextPhase(); // Reinicia a fase sem animação adicional
       } else if (this.jogo.nivelAtual === 2) {
-        this.toastr.success('Parabéns, a Fase 2 foi concluída!');
-        this.jogo.nivelAtual = 3;
-        this.resetForNextPhase();
+          this.toastr.success('Parabéns, a Fase 2 foi concluída!');
+          this.jogo.nivelAtual = 3;
+          this.resetForNextPhase();
       } else if (this.jogo.nivelAtual === 3) {
-        this.toastr.success('Parabéns, o jogo foi concluído!');
-        this.toastr.info('Jogo terminado com sucesso: FIM');
-        this.canRoll = false;
-        return;
+          this.toastr.success('Parabéns, o jogo foi concluído!');
+          this.toastr.info('Jogo terminado com sucesso: FIM');
+          this.canRoll = false; // Desabilita a rolagem do dado
+          return; // Impede qualquer movimento adicional
       }
-    } else {
+  } else {
       this.animateMarker(this.currentPosition, newPosition);
       this.currentPosition = newPosition;
-    }
   }
+}
+
+
 
   resetForNextPhase() {
     this.currentPosition = 0; // Define a posição do personagem para a casa inicial

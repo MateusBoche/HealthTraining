@@ -36,6 +36,14 @@ export class GameListComponent implements OnInit {
 
     try {
       this.jogos = await this.gameListService.getGamesByUserId(this.usuario.id);
+
+      this.jogos.sort((a, b) => {
+        const dateA = new Date(a.dataDeCriacao).getTime();
+        const dateB = new Date(b.dataDeCriacao).getTime();
+        return dateB - dateA; // Para ordem decrescente
+      });
+
+      
       console.log(2);
     } catch (error) {
       this.toastr.error('Erro ao carregar os jogos');
