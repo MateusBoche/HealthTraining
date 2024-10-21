@@ -112,7 +112,8 @@ export class GameComponent implements OnInit {
     if (!this.canRoll) return;
 
     if (this.jogo.nivelAtual === 3 && this.currentPosition >= this.board.length - 1) {
-      this.toastr.info('Jogo encerrado. Obrigado por jogar!');
+      this.toastr.info('Jogo terminado com sucesso: FIM');
+      this.canRoll = false;
       return;
     }
 
@@ -132,7 +133,10 @@ export class GameComponent implements OnInit {
       setTimeout(() => {
         this.rolling = false;
 
-        this.currentQuestion = this.getRandomQuestion();
+        if (this.jogo.nivelAtual < 3 || this.currentPosition < this.board.length - 1) {
+          this.currentQuestion = this.getRandomQuestion();
+        }
+  
         this.isQuestionAnswered = false;
       }, 1500);
     }, 1500);
@@ -153,6 +157,7 @@ export class GameComponent implements OnInit {
         this.resetForNextPhase();
       } else if (this.jogo.nivelAtual === 3) {
         this.toastr.success('Parabéns, o jogo foi concluído!');
+        this.toastr.info('Jogo terminado com sucesso: FIM');
         this.canRoll = false;
         return;
       }
@@ -221,17 +226,26 @@ export class GameComponent implements OnInit {
   }
 
   getRandomQuestion(): { question: string, answer: boolean, category: string, link: string } {
+    if (this.jogo.nivelAtual === 3 && this.currentPosition >= this.board.length - 1) {
+      return {
+        question: 'Jogo terminado: FIM',
+        answer: true,
+        category: 'Finalizado',
+        link: '' // ou um valor padrão
+      };
+    }
+  
     const filteredQuestions = this.questions.filter(q => q.phase === this.jogo.nivelAtual);
     if (filteredQuestions.length === 0) {
-        return {
-            question: 'Pergunta não disponível',
-            answer: false,
-            category: 'Categoria não disponível',
-            link: '' // ou um valor padrão
-        };
+      return {
+        question: 'Pergunta não disponível',
+        answer: false,
+        category: 'Categoria não disponível',
+        link: '' // ou um valor padrão
+      };
     }
     return filteredQuestions[Math.floor(Math.random() * filteredQuestions.length)];
-}
+  }
 
   answerQuestion(answer: boolean) {
     if (this.currentQuestion) {
@@ -277,7 +291,7 @@ export class GameComponent implements OnInit {
       
 
     }).then(() => {
-      this.toastr.success('Estado do jogo salvo com sucesso');
+      //this.toastr.success('Estado do jogo salvo com sucesso');
     }).catch(() => {
       this.toastr.error('Erro ao salvar o estado do jogo');
     });
