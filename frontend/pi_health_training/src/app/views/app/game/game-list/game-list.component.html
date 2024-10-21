@@ -47,7 +47,7 @@
               <label>{{ jogo.pontuacao }}</label>
             </div>
 
-            <h5 class="data_ordem">{{ jogo.dataDeCriacao }}</h5>
+            <h5 class="data_ordem">{{ jogo.dataDeCriacao | date: 'dd/MM/yyyy HH:mm:ss' }}</h5>
 
             <div>
               <div [ngClass]="'status status-' + jogo.status.toLocaleLowerCase()">{{ jogo.status }}</div>

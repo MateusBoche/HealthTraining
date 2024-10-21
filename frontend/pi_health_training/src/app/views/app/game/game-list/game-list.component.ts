@@ -7,13 +7,15 @@ import {Router, RouterModule} from '@angular/router';
 import {User} from "../../../../domain/model/user.model";
 import {Game} from "../../../../domain/model/game";
 import { GameListService } from '../../../../services/game/game-list.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-game-list',
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './game-list.component.html',
-  styleUrl: './game-list.component.css'
+  styleUrl: './game-list.component.css',
+  providers: [DatePipe]
 })
 export class GameListComponent implements OnInit {
 
