@@ -26,7 +26,7 @@ export class MyProfileComponent implements OnInit {
   passwordForm: FormGroup;
 
   fullNameMinChar: number = 2;
-  fullNameMaxChar: number = 10;
+  fullNameMaxChar: number = 50;
   passwordMinChar: number = 1;
   passwordMaxChar: number = 10;
 

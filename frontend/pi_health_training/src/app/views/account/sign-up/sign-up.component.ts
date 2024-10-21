@@ -24,7 +24,7 @@ export class SignUpComponent implements OnInit {
   form: FormGroup;
 
   fullNameMinChar: number = 2;
-  fullNameMaxChar: number = 10;
+  fullNameMaxChar: number = 50;
   passwordMinChar: number = 2;
   passwordMaxChar: number = 10;
 
