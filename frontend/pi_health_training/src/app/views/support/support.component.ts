@@ -37,7 +37,7 @@ export const questions = [
     open: false
   },
   {
-    query: 'O que devo fazer se encontrar um bug na plataforma?',
+    query: 'O que devo fazer se encontrar algo incorreto na plataforma?',
     answer: 'Se você encontrar qualquer tipo de erro ou problema técnico, por favor, reporte imediatamente através do nosso formulário de contato ou e-mail de suporte técnico, detalhando o problema encontrado.',
     open: false
   }
