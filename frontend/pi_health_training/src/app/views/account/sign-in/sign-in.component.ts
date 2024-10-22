@@ -74,7 +74,12 @@ export class SignInComponent implements OnInit {
           this.authenticationService.addDataToLocalStorage(credentials.email, credentials.password);
           console.log(' local storage ok');
           this.toastr.success('Logado');
-          this.router.navigate(['']);
+          
+          this.router.navigate(['']).then(() => {
+            setTimeout(() => {
+              window.location.reload(); // Atualiza a página após redirecionar
+            }, 2000); // Aguarda 2 segundos
+          });
           
         },
         error: (err) => {
