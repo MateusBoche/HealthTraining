@@ -109,16 +109,16 @@ export class GameComponent implements OnInit {
   }
 
   rollDice() {
-    if (!this.canRoll) return; // Não permite rolar se a rolagem não for permitida
+    if (!this.canRoll) return; 
 
-    // Verifica se o jogo já foi concluído
+    
     if (this.jogo.nivelAtual === 3 && this.currentPosition >= this.board.length - 1) {
         this.toastr.info('Jogo terminado com sucesso: FIM');
-        this.canRoll = false; // Desabilita a rolagem do dado
-        return; // Impede a continuação da função
+        this.canRoll = false; 
+        return; 
     }
 
-    this.canRoll = false; // Desabilita a rolagem durante a animação
+    this.canRoll = false; 
     this.rolling = true;
 
     this.diceValue = Math.floor(Math.random() * 6) + 1;
@@ -135,7 +135,7 @@ export class GameComponent implements OnInit {
             this.rolling = false;
 
             if (this.jogo.nivelAtual < 3 || this.currentPosition < this.board.length - 1) {
-                this.currentQuestion = this.getRandomQuestion(); // Exibe a pergunta apenas se o jogo não terminou
+                this.currentQuestion = this.getRandomQuestion(); 
             }
             this.isQuestionAnswered = false;
         }, 1500);
@@ -147,21 +147,28 @@ movePlayer(roll: number) {
   const totalCells = this.board.length;
   let newPosition = this.currentPosition + roll;
 
-  // Verifica se a nova posição é igual ou maior que o total de células
+  
   if (newPosition >= totalCells) {
       if (this.jogo.nivelAtual === 1) {
           this.toastr.success('Parabéns, a Fase 1 foi concluída!');
           this.jogo.nivelAtual = 2;
-          this.resetForNextPhase(); // Reinicia a fase sem animação adicional
-      } else if (this.jogo.nivelAtual === 2) {
+          this.resetForNextPhase();
+      } 
+      else if (this.jogo.nivelAtual === 2) {
           this.toastr.success('Parabéns, a Fase 2 foi concluída!');
           this.jogo.nivelAtual = 3;
           this.resetForNextPhase();
-      } else if (this.jogo.nivelAtual === 3) {
+      } 
+
+      else if (this.jogo.nivelAtual === 3) {
           this.toastr.success('Parabéns, o jogo foi concluído!');
           this.toastr.info('Jogo terminado com sucesso: FIM');
-          this.canRoll = false; // Desabilita a rolagem do dado
-          return; // Impede qualquer movimento adicional
+          this.animateMarker(this.currentPosition, totalCells - 1);
+          this.currentPosition = totalCells - 1;
+
+
+          this.canRoll = false;
+          return; 
       }
   } else {
       this.animateMarker(this.currentPosition, newPosition);
@@ -171,17 +178,18 @@ movePlayer(roll: number) {
 
 
 
+
   resetForNextPhase() {
-    this.currentPosition = 0; // Define a posição do personagem para a casa inicial
+    this.currentPosition = 0; 
     const newPosition = this.getPosition(0);
-    this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`; // Atualiza a posição do marcador
+    this.markerPosition = `translate(${newPosition.x}px, ${newPosition.y}px)`; 
     this.initializeBoard();
     this.canRoll = true;
   }
 
   animateMarker(start: number, end: number) {
     if (start === end) {
-      return; // Garante que não haverá loop se já estiver na posição final
+      return; 
     }
 
     const interval = setInterval(() => {
@@ -198,7 +206,7 @@ movePlayer(roll: number) {
       if (start === end) {
         clearInterval(interval);
       }
-    }, 300); // Ajuste o tempo do intervalo conforme necessário
+    }, 300); 
   }
 
 
@@ -235,7 +243,7 @@ movePlayer(roll: number) {
         question: 'Jogo terminado: FIM',
         answer: true,
         category: 'Finalizado',
-        link: '' // ou um valor padrão
+        link: '' 
       };
     }
   
@@ -245,7 +253,7 @@ movePlayer(roll: number) {
         question: 'Pergunta não disponível',
         answer: false,
         category: 'Categoria não disponível',
-        link: '' // ou um valor padrão
+        link: '' 
       };
     }
     return filteredQuestions[Math.floor(Math.random() * filteredQuestions.length)];
