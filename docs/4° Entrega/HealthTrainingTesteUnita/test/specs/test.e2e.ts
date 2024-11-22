@@ -25,7 +25,7 @@ describe('My Login application', () => {
     // // })
 
 
-    it('should login with invalid credentials', async () => {
+    it('should login with invalid credentialsa', async () => {
         // Abre a página de login
         await LoginPage.open();
       
@@ -47,7 +47,7 @@ describe('My Login application', () => {
         expect(alertText).toContain('Email ou senha invalido'); // Verifica se o texto do alerta contém a mensagem
     });
 
-    it('should login with invalid credentials', async () => {
+    it('should login with invalid credentialsb', async () => {
         // Abre a página de login
         await LoginPage.open();
       
@@ -70,7 +70,7 @@ describe('My Login application', () => {
     });
 
 
-    it('should login with invalid credentials', async () => {
+    it('should login with invalid credentialsc', async () => {
         // Abre a página de login
         await LoginPage.open();
       
