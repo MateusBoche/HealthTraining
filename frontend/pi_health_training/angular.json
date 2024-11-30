@@ -53,11 +53,16 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
-
+              "sourceMap": true,
+              "fileReplacements": 
+              [{
+                "replace": "src/environments/environments.ts",
+                "with": "src/environments/environments.development.ts"
+              }]
             }
           },
           "defaultConfiguration": "production"
+              
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -69,7 +74,7 @@
               "buildTarget": "lds-frontend-2:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "production"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
