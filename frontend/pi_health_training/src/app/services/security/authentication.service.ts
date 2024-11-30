@@ -5,7 +5,7 @@ import {firstValueFrom, Observable} from 'rxjs';
 import {User} from '../../domain/model/user.model';
 import {ToastrService} from "ngx-toastr";
 import { environment } from '../../../environments/environments';
-import { AuthenticatedUser } from '../../domain/dto/authenticated-user.dto';
+import { AuthenticatedUser, UserRole } from '../../domain/dto/authenticated-user.dto';
 
 
 @Injectable({
@@ -63,6 +63,29 @@ export class AuthenticationService {
     localStorage.setItem('token', authenticatedUser.token);
   }
 
+  getAuthenticatedUser(): AuthenticatedUser{
+    let email = localStorage.getItem('email');
+    let fullName = localStorage.getItem('fullName');
+    let token = localStorage.getItem('token');
+    let role = localStorage.getItem('role');
 
+    if(email == null
+      || fullName == null
+      || token == null
+      || role == null){
+        throw new Error('dados no cache estao invalidados');
+      }
 
+      let user: AuthenticatedUser = {
+        email: email,
+        fullname: fullName,
+        token: token,
+        role: role as UserRole,
+      };
+      return user;
+  }
 }
+
+
+
+
