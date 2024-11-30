@@ -5,6 +5,7 @@ import {firstValueFrom, Observable} from 'rxjs';
 import {User} from '../../domain/model/user.model';
 import {ToastrService} from "ngx-toastr";
 import { environment } from '../../../environments/environments';
+import { AuthenticatedUser } from '../../domain/dto/authenticated-user.dto';
 
 
 @Injectable({
@@ -55,9 +56,11 @@ export class AuthenticationService {
     return false;
   }
 
-  addCredentialsToLocalStorage(email: string) {
-    localStorage.setItem('email', email);
-    localStorage.setItem('token', new Date().toLocaleTimeString());
+  addCredentialsToLocalStorage(authenticatedUser: AuthenticatedUser) {
+    localStorage.setItem('email', authenticatedUser.email);
+    localStorage.setItem('fullName', authenticatedUser.fullname);
+    localStorage.setItem('role', authenticatedUser.role);
+    localStorage.setItem('token', authenticatedUser.token);
   }
 
 
