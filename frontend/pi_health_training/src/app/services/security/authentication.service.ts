@@ -1,4 +1,4 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {UserCredential} from '../../domain/dto/user-credential.dto';
 import {firstValueFrom, Observable} from 'rxjs';
@@ -23,13 +23,24 @@ export class AuthenticationService {
 
   
     
-    let apiResponse = await firstValueFrom(this.http.get<UserCredential[]>(`${environment.api_endpoint}/user?email=${credentials.email}&password=${credentials.password}`));
-    console.log(apiResponse);
-    if (apiResponse == null || apiResponse.length != 1) {
-      throw new Error('dados invalidos');
-    }
-    return true;
-  }
+  //   let apiResponse = await firstValueFrom(this.http.get<UserCredential[]>(`${environment.api_endpoint}/user?email=${credentials.email}&password=${credentials.password}`));
+  //   console.log(apiResponse);
+  //   if (apiResponse == null || apiResponse.length != 1) {
+  //     throw new Error('dados invalidos');
+  //   }
+  //   return true;
+
+  const headers = new HttpHeaders({
+    'Conent-Type':'application/json',
+  });
+
+  const body = {
+    email: credentials.email,
+    password: credentials.password,
+  };
+
+  return this.http.post<any>(`${environment.authentication_api_endpoint}/authenticate`, body, {headers})
+}
 
   logout() {
     localStorage.clear();
@@ -48,6 +59,7 @@ export class AuthenticationService {
     localStorage.setItem('email', email);
     localStorage.setItem('token', new Date().toLocaleTimeString());
   }
+
 
 
 }
