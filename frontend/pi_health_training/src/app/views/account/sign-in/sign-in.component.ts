@@ -104,7 +104,7 @@ throw new Error('Method not implemented.');
     };
 
     try {
-      (await (this.authenticationService.authenticate(credential))).subscribe({
+      (this.authenticationService.authenticate(credential)).subscribe({
         next: (value: any) => {
           console.log('sucesso!')
           console.log(value);
@@ -125,6 +125,7 @@ throw new Error('Method not implemented.');
           const email = decodedData.sub;
           const fullName = decodedData.fullName;
           const role = decodedData.role;
+          const id = decodedData.id
 
           console.log('---Conteudo---');
           console.log(email);
@@ -132,9 +133,10 @@ throw new Error('Method not implemented.');
           console.log(role);
 
           let user: AuthenticatedUser = {
+            id: id,
             role: role,
             email: email,
-            fullname: fullName,
+            fullName: fullName,
             token: token
           }
 

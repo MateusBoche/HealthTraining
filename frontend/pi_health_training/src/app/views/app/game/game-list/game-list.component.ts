@@ -32,52 +32,58 @@ export class GameListComponent implements OnInit {
   }
 
   async carregarJogos() {
-    if (!this.usuario || !this.usuario.id) return;
-
-    try {
-      this.jogos = await this.gameListService.getGamesByUserId(this.usuario.id);
-
-      this.jogos.sort((a, b) => {
-        const dateA = new Date(a.dataDeCriacao).getTime();
-        const dateB = new Date(b.dataDeCriacao).getTime();
-        return dateB - dateA; // Para ordem decrescente
-      });
-
-      
-      console.log(2);
-    } catch (error) {
-      this.toastr.error('Erro ao carregar os jogos');
-    }
-  }
-
-  async buscarDadosUsuario() {
-    const email = localStorage.getItem('email');
-    const senha = localStorage.getItem('password');
-  
-    console.log('Email:', email);
-    console.log('Senha:', senha);
-  
-    if (!email || !senha) {
-      this.toastr.error('Email ou senha não encontrados. Por favor, faça login novamente.');
+    if (!this.usuario || !this.usuario.email) {
+      console.warn("Usuário não encontrado ou ID inválido:", this.usuario);
       return;
     }
   
     try {
-      const resposta = await this.gameListService.getUserByEmailAndPassword(email, senha);
-      console.log('Resposta do backend:', resposta);
+      // Chama o serviço para obter os jogos do usuário
+      this.jogos = await this.gameListService.getGamesByUserEmail(this.usuario.email);
   
-      // Verifique se a resposta é um objeto em vez de um array
-      if (resposta) {
-        this.usuario = resposta;
-        console.log('Usuário carregado:', this.usuario);
-      } else {
-        this.toastr.error('Usuário não encontrado');
-      }
+      // Ordena os jogos por data de criação em ordem decrescente
+      this.jogos.sort((a, b) => {
+        const dateA = new Date(a.dataDeCriacao).getTime();
+        const dateB = new Date(b.dataDeCriacao).getTime();
+        return dateB - dateA;
+      });
+  
+      console.log("Jogos carregados:", this.jogos);
     } catch (error) {
-      console.error('Erro ao buscar usuário:', error);
-      this.toastr.error('Erro ao carregar os dados do usuário');
+      console.error("Erro ao carregar os jogos:", error);
+      this.toastr.error('Erro ao carregar os jogos.');
     }
   }
+  
+  
+
+  async buscarDadosUsuario() {
+    try {
+      // Obtendo o usuário autenticado diretamente
+      const resposta = this.gameListService.getUserFromAuthentication();
+      console.log("Usuário autenticado:", resposta);
+  
+      if (resposta) {
+        this.usuario = resposta; // Atribui o usuário retornado
+        console.log("Usuário carregado:", this.usuario);
+  
+        if (!this.usuario.email) {
+          console.error("ID do usuário está ausente.");
+          this.toastr.error("Não foi possível encontrar o ID do usuário.");
+        }
+      } else {
+        this.toastr.error('Usuário não encontrado.');
+      }
+    } catch (error) {
+      console.error("Erro ao buscar usuário:", error);
+      this.toastr.error('Erro ao carregar os dados do usuário.');
+    }
+  }
+  
+  
+  
+  
+  
   
   
 

@@ -13,11 +13,6 @@ export class PrepareToStartService {
   constructor(private http: HttpClient) {}
 
 
-  getUserByEmailAndPassword(email: string | null, senha: string | null): Promise<User[]> {
-    return firstValueFrom(this.http.get<User[]>(`${this.apiUrl}/user?email=${email}&senha=${senha}`));
-  }
-
-
   startNewGame(game: Game): Promise<Game> {
     return firstValueFrom(this.http.post<Game>(`${this.apiUrl}/game`, game));
   }

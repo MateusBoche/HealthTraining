@@ -9,6 +9,7 @@ import {Game} from "../../../../domain/model/game";
 import { GameRankingService } from '../../../../services/game/game-ranking.service';
 import { GameList } from '../../../../domain/dto/gamelist';
 import { DatePipe } from '@angular/common';
+import { AuthenticationService } from '../../../../services/security/authentication.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class GameRankingComponent implements OnInit {
   jogos: GameList [] = [];
   usuario!: User;
 
-  constructor(private http: HttpClient, private toastr: ToastrService, private router: Router, private gameRankingService: GameRankingService) {
+  constructor(private http: HttpClient, private toastr: ToastrService, private router: Router, private gameRankingService: GameRankingService, private authenticationService: AuthenticationService) {
   }
 
   async ngOnInit() {
@@ -34,7 +35,6 @@ export class GameRankingComponent implements OnInit {
   }
 
   async carregarJogos() {
-    if (!this.usuario || !this.usuario.id) return;
 
     try {
       this.jogos = await this.gameRankingService.getGamesRanking();
@@ -45,31 +45,25 @@ export class GameRankingComponent implements OnInit {
   }
 
   async buscarDadosUsuario() {
-    const email = localStorage.getItem('email');
-    const senha = localStorage.getItem('password');
-  
-    console.log('Email:', email);
-    console.log('Senha:', senha);
-  
-    if (!email || !senha) {
-      this.toastr.error('Email ou senha não encontrados. Por favor, faça login novamente.');
-      return;
-    }
-  
     try {
-      const resposta = await this.gameRankingService.getUserByEmailAndPassword(email, senha);
-      console.log('Resposta do backend:', resposta);
+      // Obtendo o usuário autenticado diretamente
+      const resposta = this.gameRankingService.getUserFromAuthentication();
+      console.log("Usuário autenticado:", resposta);
   
-      // Verifique se a resposta é um objeto em vez de um array
       if (resposta) {
-        this.usuario = resposta;
-        console.log('Usuário carregado:', this.usuario);
+        this.usuario = resposta; // Atribui o usuário retornado
+        console.log("Usuário carregado:", this.usuario);
+  
+        if (!this.usuario.email) {
+          console.error("ID do usuário está ausente.");
+          this.toastr.error("Não foi possível encontrar o ID do usuário.");
+        }
       } else {
-        this.toastr.error('Usuário não encontrado');
+        this.toastr.error('Usuário não encontrado.');
       }
     } catch (error) {
-      console.error('Erro ao buscar usuário:', error);
-      this.toastr.error('Erro ao carregar os dados do usuário');
+      console.error("Erro ao buscar usuário:", error);
+      this.toastr.error('Erro ao carregar os dados do usuário.');
     }
   }
   

@@ -1,12 +1,10 @@
+import { UserRole } from "../model/user-role.model";
+
 export interface AuthenticatedUser {
+    id: number
     email: string,
     token: string,
-    fullname: string,
+    fullName: string,
     role: UserRole,
 
-}
-
-export enum UserRole{
-    ADMINISTRATOR = 'ADMINISTRATOR',
-    USER = 'USER',
 }

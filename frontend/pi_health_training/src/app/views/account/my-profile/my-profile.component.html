@@ -1,7 +1,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a routerLink="/">Home</a>
+            <a href="/">Home</a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">Meu perfil</li>
     </ol>
@@ -13,86 +13,50 @@
 <form class="form" [formGroup]="dataForm" (ngSubmit)="updateMyInformation()">
     <div class="form-row">
         <div class="form-group col-12 mt-2">
-            <label for="email">E-mail</label>
-            <input type="text" class="form-control" id="email" value="{{email}}" readonly>
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" readonly value="{{email}}">
         </div>
         <div class="form-group col-12 mt-2">
             <label for="fullName">Nome completo</label>
-            <input type="text" class="form-control mb-2" id="fullName" placeholder="Nome completo"
-                formControlName="fullName" required="">
+            <input type="text" class="form-control mb-2"
+                id="fullName"
+                formControlName="fullName"
+                placeholder="Nome completo"
+                required="">
 
             @if (dataForm.controls['fullName'].hasError('required')) {
-            <p class="text-danger">Campo obrigatório</p>
+                <p class="text-danger">Campo obrigatório</p>
+
             }
-            @else if (dataForm.controls['fullName'].hasError('minlength')) {
-            <p class="text-danger">Nome deve ter no mínimo {{fullNameMinChar}} caracteres</p>
-            }
-            @else if (dataForm.controls['fullName'].hasError('maxlength')) {
-            <p class="text-danger">Nome deve ter no máximo {{fullNameMaxChar}} caracteres</p>
-            }
+
+
         </div>
         <div class="col-12 text-end mt-2">
             <div class="col-12 text-end mt-2">
-                <button class="btn btn-primary col-4" [disabled]="!validateMyInformation()">Atualizar</button>
+                <button class="btn btn-primary col-4">Atualizar</button>
             </div>
         </div>
     </div>
 </form>
 <hr>
 <h2>Atualizar senha</h2>
-<form class="form" [formGroup]="passwordForm" (ngSubmit)="updatePassword()">
+<form class="form">
     <div class="form-row">
         <div class="form-group col-12 mt-2">
             <label for="oldPassword">Senha antiga</label>
-            <input type="password" class="form-control mb-2" id="oldPassword" placeholder="Senha antiga"
-                formControlName="oldPassword">
-
-            @if (passwordForm.controls['oldPassword'].hasError('required')) {
-            <p class="text-danger">Campo obrigatório</p>
-            }
-            @else if (passwordForm.controls['oldPassword'].hasError('minlength')) {
-            <p class="text-danger">Senha deve ter no mínimo {{passwordMinChar}} caracteres</p>
-            }
-            @else if (passwordForm.controls['oldPassword'].hasError('maxlength')) {
-            <p class="text-danger">Senha deve ter no máximo {{passwordMaxChar}} caracteres</p>
-            }
+            <input type="password" class="form-control mb-2" id="oldPassword" placeholder="Senha antiga">
         </div>
         <div class="form-group col-12 mt-2">
             <label for="newPassword">Senha nova</label>
-            <input type="password" class="form-control mb-2" id="newPassword" placeholder="Nova senha"
-                formControlName="newPassword">
-
-            @if (passwordForm.controls['newPassword'].hasError('required')) {
-            <p class="text-danger">Campo obrigatório</p>
-            }
-            @else if (passwordForm.controls['newPassword'].hasError('minlength')) {
-            <p class="text-danger">Senha deve ter no mínimo {{passwordMinChar}} caracteres</p>
-            }
-            @else if (passwordForm.controls['newPassword'].hasError('maxlength')) {
-            <p class="text-danger">Senha deve ter no máximo {{passwordMaxChar}} caracteres</p>
-            }
+            <input type="password" class="form-control mb-2" id="newPassword" placeholder="Nova senha">
         </div>
         <div class="form-group col-12 mt-2">
             <label for="confirmNewPassword">Repita a nova senha</label>
-            <input type="password" class="form-control mb-2" id="confirmNewPassword" placeholder="Repita a nova senha"
-                formControlName="confirmNewPassword">
-
-            @if (passwordForm.controls['confirmNewPassword'].hasError('required')) {
-            <p class="text-danger">Campo obrigatório</p>
-            }
-            @else if (passwordForm.controls['confirmNewPassword'].hasError('minlength')) {
-            <p class="text-danger">Senha deve ter no mínimo {{passwordMinChar}} caracteres</p>
-            }
-            @else if (passwordForm.controls['confirmNewPassword'].hasError('maxlength')) {
-            <p class="text-danger">Senha deve ter no máximo {{passwordMaxChar}} caracteres</p>
-            }
-            @else if (!arePasswordsValid()) {
-            <p class="text-danger">As senhas não são iguais</p>
-            }
+            <input type="password" class="form-control mb-2" id="confirmNewPassword" placeholder="Repita a nova senha">
         </div>
         <div class="col-12 text-end mt-2">
             <div class="col-12 text-end mt-2">
-                <button class="btn btn-primary col-4" [disabled]="!validateNewPassword()">Atualizar</button>
+                <button class="btn btn-primary col-4">Atualizar</button>
             </div>
         </div>
     </div>

@@ -20,6 +20,12 @@ export class GameService {
   //  return firstValueFrom(this.http.get<Game>(`${this.apiUrl}/api/game/${id}`));
   //}
 
+  findByEmail(email: string): Promise<Game[]> {
+    return firstValueFrom(this.http.get<Game[]>(`${this.apiUrl}/game/email/${email}`));
+  }
+  
+
+
   findAllQuestions(): Promise<{
     question: string,
     answer: boolean,
@@ -42,7 +48,8 @@ export class GameService {
     return firstValueFrom(this.http.put(`${this.apiUrl}/game/atualizar-status/${id}`, gameState));
   }
 
-  createGame(id: number, game: any): Promise<any>{
-    return firstValueFrom(this.http.post(`${this.apiUrl}/game/${id}`, game));
+  createGame(game: any): Promise<any> {
+    return firstValueFrom(this.http.post(`${this.apiUrl}/game`, game));
   }
+  
 }

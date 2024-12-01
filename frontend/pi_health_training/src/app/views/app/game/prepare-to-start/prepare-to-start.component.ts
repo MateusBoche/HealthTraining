@@ -37,11 +37,15 @@ export class PrepareToStartComponent implements OnInit {
       return;
     }
 
+    if (!this.usuario || this.usuario.id === undefined) {
+      throw new Error('Usuário ou ID do usuário não encontrado');
+  }
+
     this.jogo = {
-      usuarioID: Number(this.usuario.id),
       status: "Pendente",
       nivelAtual: 1,
       numeroAcertos: 0,
+      usuarioID: this.usuario.id || 0,
       numeroErros: 0,
       pontuacao: 0,
       dataDeCriacao: new Date().toISOString().replace('T', ' ').replace('Z', '').split('.')[0]
@@ -49,42 +53,28 @@ export class PrepareToStartComponent implements OnInit {
 
     try {
       const novoJogo = await this.prepareToStartService.startNewGame(this.jogo);
-      console.log(novoJogo);
+      console.log('Novo jogo:', novoJogo);
       this.jogo = { ...this.jogo, ...novoJogo }; 
       this.toastr.success('Jogo iniciado com sucesso');
       this.router.navigate(["game", "game", this.jogo.id]);
     } catch (error) {
       this.toastr.error('Erro ao iniciar o jogo');
-      console.error(error);
+      console.error('Erro ao iniciar o jogo:', error);
     }
   }
 
   async buscarDadosUsuario() {
-    const email = this.authenticationService.getOnlineUserEmail();
-    const senha = this.authenticationService.getOnlineUserPassword();
-
-    console.log(`Buscando usuário com email: ${email}`);
-
     try {
-      const users = await this.prepareToStartService.getUserByEmailAndPassword(email, senha);
+      const user = this.authenticationService.getAuthenticatedUser();
 
-      if (users.length === 0) {
-        this.toastr.error('Usuário não encontrado.');
+      if (!user) {
+        this.toastr.error('Usuário não autenticado.');
+        console.error('Usuário não autenticado.');
         return;
       }
 
-      // Filtra o usuário com base no email (ou outras informações se necessário)
-      const foundUser = users.find(user => user.email === email);
-
-      if (!foundUser) {
-        this.toastr.error('Usuário não encontrado com as credenciais fornecidas.');
-        return;
-      }
-
-      this.usuario = foundUser; // Agora podemos garantir que o usuário foi encontrado
-
-      console.log(`Usuário logado: ${this.usuario?.fullName || 'Nome não disponível'}`);
-
+      this.usuario = user;
+      console.log(`Usuário autenticado: ${this.usuario.fullName || 'Nome não disponível'}`);
     } catch (error) {
       this.toastr.error('Erro ao buscar os dados do usuário');
       console.error('Erro ao buscar os dados do usuário:', error);

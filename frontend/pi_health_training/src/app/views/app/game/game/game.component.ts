@@ -53,7 +53,7 @@ export class GameComponent implements OnInit {
         return;
       }
       const dataCriacaoUtc = new Date(this.jogo.dataDeCriacao);
-      this.gameService.createGame(id,this.jogo)
+      this.gameService.createGame(this.jogo)
       console.log('2')
 
       if (isNaN(dataCriacaoUtc.getTime())) {

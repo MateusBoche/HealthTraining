@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { firstValueFrom, Observable } from 'rxjs';
 import { Game } from '../../domain/model/game';
 import { User } from '../../domain/model/user.model';
-import { Observable } from 'rxjs';
-
+import { AuthenticationService } from '../security/authentication.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,27 +11,40 @@ import { Observable } from 'rxjs';
 export class GameListService {
   private apiUrl = 'http://localhost:8081/api/game';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private authenticationService: AuthenticationService
+  ) {}
 
-  
-  getGamesByUserId(userID: number): Promise<Game[]> {
-    //return firstValueFrom(this.http.get<Game[]>(`${this.apiUrl}/listar-jogos/${userId}`));
-    return firstValueFrom(this.http.get<Game[]>(`http://localhost:8081/api/game/listar-jogos/${userID}`));
+  getGamesByUserEmail(email: String): Promise<Game[]> {
+    const token = localStorage.getItem('token');
+    console.log
+    if (!token) {
+      throw new Error('Token não encontrado. Usuário não autenticado.');
+    }
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return firstValueFrom(
+      this.http.get<Game[]>(`${this.apiUrl}/listar-jogos/${email}`, { headers })
+    ).catch(error => {
+      console.error('Erro ao buscar jogos:', error);
+      throw error;
+    });
   }
 
-  
-  async getUserByEmailAndPassword(email: string, senha: string): Promise<User> {
-    const encodedEmail = encodeURIComponent(email);
-    const encodedSenha = encodeURIComponent(senha);
-    return firstValueFrom(
-      this.http.get<User>(`http://localhost:8081/api/user/${encodedEmail}/${encodedSenha}`)
-    );
+  getUserFromAuthentication(): User {
+    let authenticatedUser = this.authenticationService.getAuthenticatedUser();
+
+    let user: User = {
+      email: authenticatedUser.email,
+      fullName: authenticatedUser.fullName,
+      password: '',
+      role: authenticatedUser.role,
+    };
+    return user;
   }
 
   deleteGame(gameId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${gameId}`);
   }
-  
-  
-  
 }
